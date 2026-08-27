@@ -150,7 +150,6 @@ export default function PanelResizer() {
       onPointerCancel={endDrag}
       onKeyDown={onKeyDown}
       onDoubleClick={toggleCollapse}
-      title="Drag to resize · double-click to collapse"
       className="group relative flex cursor-ns-resize touch-none select-none items-center focus-visible:outline-none"
     >
       

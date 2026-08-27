@@ -102,22 +102,6 @@ export default function Welcome() {
           github.com/{GITHUB_OWNER} →
         </a>
       </section>
-
-      <footer className="border-t border-vs-border pt-5 text-[12.5px] text-vs-descr">
-        <p>
-          Everything here is a file. Open one from the{" "}
-          <span className="text-vs-text">Explorer</span> on the left, or press{" "}
-          <Kbd>Ctrl</Kbd> <Kbd>P</Kbd> to search by name.
-        </p>
-      </footer>
     </div>
-  );
-}
-
-function Kbd({ children }) {
-  return (
-    <kbd className="rounded-[3px] border border-vs-border bg-vs-contrast px-[5px] py-[1px] font-mono text-[11px] text-vs-text">
-      {children}
-    </kbd>
   );
 }

@@ -42,11 +42,6 @@ export default function StatusBar() {
           type="button"
           onClick={() => setMotion(!motion)}
           aria-pressed={motion}
-          title={
-            motion
-              ? "Animations are on. Click to turn them off."
-              : "Animations are off. Click to turn them on."
-          }
           className="flex h-full items-center gap-[5px] px-2 text-[12px] leading-none text-vs-statusbar-fg transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-white"
         >
           motion: {motion ? "on" : "off"}

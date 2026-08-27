@@ -2,11 +2,10 @@ import { ExternalLink } from "lucide-react";
 
 
 export default function ShellView({ source }) {
-  const { shebang, comment, commands } = source;
+  const { shebang, commands } = source;
   const gutterWidth = "62px";
 
-  
-  const lineNumbers = 4 + commands.length;
+  const lineNumbers = 2 + commands.length;
 
   return (
     <div className="flex min-h-full font-mono text-[13px] leading-[22px]">
@@ -24,8 +23,6 @@ export default function ShellView({ source }) {
 
       <div className="min-w-0 flex-1 pb-24 pl-2 pr-6 pt-3">
         <div className="tok-comment min-h-[22px]">{shebang}</div>
-        <div className="min-h-[22px]" />
-        <div className="tok-comment min-h-[22px]">{comment}</div>
         <div className="min-h-[22px]" />
 
         {commands.map((c) => (

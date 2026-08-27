@@ -213,7 +213,7 @@ export const stackJson = JSON.stringify(
 
 export const contactSh = {
   shebang: "#!/usr/bin/env bash",
-  comment: "# Every line below is a real link. Click one.",
+  comment: "",
   commands: contactLinks.map((c) => {
     const isMail = c.href.startsWith("mailto:");
     const isTel = c.href.startsWith("tel:");

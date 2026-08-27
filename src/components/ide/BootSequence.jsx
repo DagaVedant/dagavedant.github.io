@@ -290,17 +290,6 @@ function PromptLine({ answer, countdown, active, onAnswer }) {
         <div className="term-dim">
           {"  → defaulting to Y in "}
           {countdown}
-          {"… "}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onAnswer("n");
-            }}
-            className="underline underline-offset-2 hover:text-vs-text"
-          >
-            press n to turn animations off
-          </button>
         </div>
       ) : null}
     </div>
