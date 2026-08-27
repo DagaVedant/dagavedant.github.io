@@ -22,17 +22,17 @@ import repoData from "@/data/repos.generated.json";
 export const EXT_META = {
   md: { color: "#519aba", label: "Markdown" },
   json: { color: "#cbcb41", label: "JSON" },
-  py: { color: "#519aba", label: "Python" },
-  ipynb: { color: "#f37726", label: "Jupyter" },
-  tsx: { color: "#519aba", label: "TypeScript React" },
-  ts: { color: "#519aba", label: "TypeScript" },
-  js: { color: "#cbcb41", label: "JavaScript" },
+  py: { color: "#3776ab", label: "Python" },
+  ipynb: { color: "#f37726", label: "Jupyter Notebook" },
+  tsx: { color: "#61dafb", label: "TypeScript React" },
+  ts: { color: "#3178c6", label: "TypeScript" },
+  js: { color: "#f7df1e", label: "JavaScript" },
   html: { color: "#e37933", label: "HTML" },
   css: { color: "#519aba", label: "CSS" },
-  sh: { color: "#89e051", label: "Shell" },
+  sh: { color: "#4eaa25", label: "Shell Script" },
   pdf: { color: "#d43a2f", label: "PDF" },
   txt: { color: "#9d9d9d", label: "Plain Text" },
-  ino: { color: "#00979d", label: "Arduino" },
+  ino: { color: "#00979c", label: "Arduino" },
 };
 
 export const extOf = (name) => name.split(".").pop()?.toLowerCase() ?? "";

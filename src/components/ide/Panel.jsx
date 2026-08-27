@@ -16,7 +16,7 @@ import { BOOT_LINES } from "./BootSequence";
  * reader was just watching, already sitting in the panel.
  */
 const INERT_TABS = ["Problems", "Output", "Debug Console"];
-const INERT_TABS_AFTER = ["Ports", "Playwright"];
+const INERT_TABS_AFTER = ["Ports"];
 
 function ToolbarIcon({ icon: Icon, className = "h-[15px] w-[15px]" }) {
   return <Icon aria-hidden="true" className={`${className} text-vs-descr`} strokeWidth={1.5} />;

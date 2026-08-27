@@ -1,121 +1,98 @@
-import { metaForExt } from "@/lib/files";
+import python from "@/assets/languages/python.svg";
+import javascript from "@/assets/languages/javascript.svg";
+import typescript from "@/assets/languages/typescript.svg";
+import react from "@/assets/languages/react.svg";
+import html5 from "@/assets/languages/html5.svg";
+import css3 from "@/assets/languages/css3.svg";
+import jupyter from "@/assets/languages/jupyter.svg";
+import bash from "@/assets/languages/bash.svg";
+import markdown from "@/assets/languages/markdown.svg";
+import arduino from "@/assets/languages/arduino.svg";
+import json from "@/assets/languages/json.svg";
 
 /**
- * Seti-style file glyphs. Each extension gets a distinct silhouette AND colour,
- * because the tree's job here is to show at a glance that the work spans
- * Python, notebooks, TypeScript, JavaScript and hardware.
+ * File-type icons using the real language marks.
  *
- * Drawn rather than imported so every icon shares one grid and one stroke
- * weight; lucide's set has no notebook or Arduino glyph.
+ * These are the official logos (devicon), stored in the repo rather than
+ * hot-linked — no third-party request on every page, and they cannot change
+ * under us. Vite inlines each as a data URI (all are under 2.5kB), so this adds
+ * zero network requests.
+ *
+ * Rendered as <img> rather than inlined SVG on purpose: several of these carry
+ * gradients with ids like "a" and "b", and inlining them all into one document
+ * would collide those ids and cross-paint the icons. An <img> keeps each mark
+ * in its own document.
+ *
+ * Three were recoloured in-file because the originals are unreadable on a dark
+ * sidebar: markdown is black by default, json is a black-to-white gradient, and
+ * bash's terminal body was near-invisible against #181818.
  */
+const LOGO = {
+  py: python,
+  js: javascript,
+  jsx: javascript,
+  mjs: javascript,
+  ts: typescript,
+  tsx: react,
+  html: html5,
+  css: css3,
+  scss: css3,
+  ipynb: jupyter,
+  sh: bash,
+  bash: bash,
+  zsh: bash,
+  md: markdown,
+  markdown: markdown,
+  ino: arduino,
+  json: json,
+};
+
+/** Extensions with no language mark of their own get a drawn document. */
+function GenericFile({ className, color }) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
+      <path
+        d="M3.6 1.5h5.6L12.6 5v9.5H3.6V1.5Z"
+        stroke={color}
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <path d="M9.1 1.7V5h3.4" stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function PdfFile({ className }) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
+      <path d="M3.4 1.4h6L13 5v9.6H3.4V1.4Z" fill="#E74C3C" />
+      <path d="M9.3 1.5V5h3.6" fill="#B33F31" />
+      <path
+        d="M5.2 11.7c1.9-.6 3-3.1 2.6-4.2-.5-1.2-1.6-.3-1.2 1.4.5 1.9 1.8 3 3.5 3.2"
+        stroke="#fff"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function FileIcon({ ext, className = "h-4 w-4" }) {
-  const { color } = metaForExt(ext);
-  const common = { className, viewBox: "0 0 16 16", fill: "none", "aria-hidden": true };
+  const src = LOGO[ext];
 
-  switch (ext) {
-    case "py":
-      // Two interlocking lobes, the Python silhouette.
-      return (
-        <svg {...common}>
-          <path
-            d="M7.9 1.5c-1.9 0-3.4.6-3.4 2v1.8h3.5v.5H3.3c-1.4 0-2.3 1-2.3 2.9s.8 3 2.2 3h1.2V9.6c0-1.4 1.2-2.6 2.6-2.6h3.4c1.2 0 2.2-1 2.2-2.2V3.5c0-1.2-1-2-2.3-2H7.9Z"
-            fill={color}
-          />
-          <path
-            d="M8.1 14.5c1.9 0 3.4-.6 3.4-2v-1.8H8v-.5h4.7c1.4 0 2.3-1 2.3-2.9s-.8-3-2.2-3h-1.2v2.1c0 1.4-1.2 2.6-2.6 2.6H5.6c-1.2 0-2.2 1-2.2 2.2v1.3c0 1.2 1 2 2.3 2h2.4Z"
-            fill={color}
-            opacity="0.62"
-          />
-        </svg>
-      );
-
-    case "ipynb":
-      // Jupyter: three stacked cells with a run marker.
-      return (
-        <svg {...common}>
-          <rect x="1.5" y="2.5" width="13" height="3.2" rx="0.6" stroke={color} strokeWidth="1.1" />
-          <rect x="1.5" y="6.9" width="13" height="3.2" rx="0.6" stroke={color} strokeWidth="1.1" opacity="0.6" />
-          <rect x="1.5" y="11.3" width="13" height="2.4" rx="0.6" stroke={color} strokeWidth="1.1" opacity="0.35" />
-          <path d="M3.4 3.6v1" stroke={color} strokeWidth="1.1" strokeLinecap="round" />
-        </svg>
-      );
-
-    case "tsx":
-    case "ts":
-      // React orbit for tsx, plain badge for ts.
-      return (
-        <svg {...common}>
-          <ellipse cx="8" cy="8" rx="6.6" ry="2.7" stroke={color} strokeWidth="1.1" />
-          <ellipse cx="8" cy="8" rx="6.6" ry="2.7" stroke={color} strokeWidth="1.1" transform="rotate(60 8 8)" />
-          <ellipse cx="8" cy="8" rx="6.6" ry="2.7" stroke={color} strokeWidth="1.1" transform="rotate(120 8 8)" />
-          <circle cx="8" cy="8" r="1.5" fill={color} />
-        </svg>
-      );
-
-    case "js":
-      return (
-        <svg {...common}>
-          <rect x="1.5" y="1.5" width="13" height="13" rx="1.4" fill={color} opacity="0.16" stroke={color} strokeWidth="1.1" />
-          <path d="M6.4 5.6v4.1c0 .9-.5 1.4-1.3 1.4-.5 0-.9-.2-1.2-.6" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
-          <path d="M12 6.3c-.3-.5-.8-.8-1.5-.8-.9 0-1.5.5-1.5 1.2 0 1.7 3.2.9 3.2 2.7 0 .8-.7 1.4-1.7 1.4-.8 0-1.4-.3-1.8-.9" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
-        </svg>
-      );
-
-    case "html":
-      return (
-        <svg {...common}>
-          <path d="M2 2h12l-1 11-5 1.6L3 13 2 2Z" stroke={color} strokeWidth="1.1" strokeLinejoin="round" />
-          <path d="M11.2 5.2H5.4l.25 2.4h5.3l-.35 3.2L8 11.6l-2.6-.8-.12-1.3" stroke={color} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
-
-    case "ino":
-      // Arduino: the infinity mark.
-      return (
-        <svg {...common}>
-          <path
-            d="M4.2 4.6a3.4 3.4 0 1 0 0 6.8c2.6 0 4-6.8 7.6-6.8a3.4 3.4 0 1 1 0 6.8c-2.6 0-4-6.8-7.6-6.8Z"
-            stroke={color}
-            strokeWidth="1.2"
-          />
-          <path d="M2.9 8h2.2M10.9 8h2.2M12 6.9v2.2" stroke={color} strokeWidth="1.1" strokeLinecap="round" />
-        </svg>
-      );
-
-    case "json":
-      return (
-        <svg {...common}>
-          <path d="M6.2 2.2c-2 0-2 2.4-2 3.4 0 1.3-.6 2-1.7 2.4 1.1.4 1.7 1.1 1.7 2.4 0 1 0 3.4 2 3.4" stroke={color} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M9.8 2.2c2 0 2 2.4 2 3.4 0 1.3.6 2 1.7 2.4-1.1.4-1.7 1.1-1.7 2.4 0 1 0 3.4-2 3.4" stroke={color} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
-
-    case "sh":
-      return (
-        <svg {...common}>
-          <rect x="1.5" y="2.5" width="13" height="11" rx="1.2" stroke={color} strokeWidth="1.1" />
-          <path d="M4.2 6.2 6.4 8l-2.2 1.8" stroke={color} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M7.8 10.2h4" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
-        </svg>
-      );
-
-    case "pdf":
-      return (
-        <svg {...common}>
-          <path d="M3.5 1.5h6L13 5v9.5H3.5V1.5Z" stroke={color} strokeWidth="1.1" strokeLinejoin="round" />
-          <path d="M9.3 1.7V5H12.8" stroke={color} strokeWidth="1.1" strokeLinejoin="round" />
-          <path d="M5.4 11.6c1.9-.6 3-3.1 2.6-4.2-.5-1.2-1.6-.3-1.2 1.4.5 1.9 1.8 3 3.5 3.2" stroke={color} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
-
-    case "md":
-    default:
-      return (
-        <svg {...common}>
-          <rect x="1.2" y="3.4" width="13.6" height="9.2" rx="1.2" stroke={color} strokeWidth="1.1" />
-          <path d="M3.6 10.6V5.4l2.2 2.7 2.2-2.7v5.2" stroke={color} strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M10.6 5.4v5.2M10.6 10.6l1.6-1.9M10.6 10.6 9 8.7" stroke={color} strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
+        draggable={false}
+        className={`${className} select-none object-contain`}
+      />
+    );
   }
+
+  if (ext === "pdf") return <PdfFile className={className} />;
+  return <GenericFile className={className} color="#9D9D9D" />;
 }

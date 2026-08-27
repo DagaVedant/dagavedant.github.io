@@ -148,7 +148,7 @@ async function readRepoList() {
 const LANGUAGE_EXT = {
   Python: "py",
   "Jupyter Notebook": "ipynb",
-  TypeScript: "tsx",
+  TypeScript: "ts",
   JavaScript: "js",
   C: "ino",
   "C++": "ino",
