@@ -22,6 +22,14 @@ export default function IDEShell({ children }) {
   useGlobalKeys();
 
   return (
+    // Always fully painted, even while the boot overlay is up.
+    //
+    // An earlier version faded this in on `booted`, which meant a stalled or
+    // dropped transition left the ENTIRE UI at opacity 0 — a blank site as the
+    // failure mode of a cosmetic fade. The overlay is opaque and covers the
+    // viewport anyway, so the chrome is revealed by the terminal shrinking off
+    // it rather than by fading in underneath. Same effect, and the failure mode
+    // is now a lingering overlay rather than nothing at all.
     <div className="ide-root">
       <TitleBar />
 

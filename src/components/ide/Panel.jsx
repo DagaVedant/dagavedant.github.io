@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import { Plus, ChevronDown, SplitSquareHorizontal, Trash2, MoreHorizontal, ChevronUp, X, TriangleAlert } from "lucide-react";
+import { BOOT_LINES } from "./BootSequence";
 
 /**
  * The bottom panel.
@@ -8,7 +10,10 @@ import { Plus, ChevronDown, SplitSquareHorizontal, Trash2, MoreHorizontal, Chevr
  * buttons so they do not sit in the tab order advertising behaviour they do not
  * have.
  *
- * Boot scrollback arrives in step 11; until then this shows the settled prompt.
+ * The TERMINAL tab holds the boot sequence's own scrollback, rendered from the
+ * same BOOT_LINES the overlay streamed. That shared source is what makes the
+ * dock invisible: the frame the overlay ends on and the frame the panel starts
+ * on are the same frame.
  */
 const INERT_TABS = ["Problems", "Output", "Debug Console"];
 const INERT_TABS_AFTER = ["Ports", "Playwright"];
@@ -70,20 +75,57 @@ export default function Panel({ children }) {
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-5 py-2">
-        {children ?? <TerminalPrompt />}
+        {children ?? <TerminalScrollback />}
       </div>
     </section>
   );
 }
 
-export function TerminalPrompt() {
+const TONE_CLASS = {
+  ok: "term-ok",
+  warn: "term-warn",
+  dim: "term-dim",
+  path: "term-path",
+  accent: "text-vs-accent",
+  text: "text-vs-text",
+};
+
+function TerminalScrollback() {
+  const ref = useRef(null);
+
+  // Open at the bottom, the way a terminal that has just finished a command
+  // does — not scrolled back to the first line of the clone output.
+  useEffect(() => {
+    const el = ref.current?.parentElement;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, []);
+
   return (
-    <p className="t-mono text-[12.5px] leading-[1.5] text-vs-text">
-      <span className="text-term-ok">(.venv)</span>{" "}
-      <span className="text-vs-text">PS</span>{" "}
-      <span className="text-term-path">C:\Users\DagaV\Desktop\vedant-portfolio</span>
-      <span className="text-vs-text">{">"}</span>{" "}
-      <span className="caret-blink align-text-bottom" />
-    </p>
+    <div ref={ref} className="font-mono text-[12.5px] leading-[19px]">
+      {BOOT_LINES.map((line, i) => {
+        if (line.kind === "blank") return <div key={i} className="h-[19px]" />;
+        if (line.kind === "cmd") {
+          return (
+            <div key={i} className="min-h-[19px]">
+              <span className="term-dim">$ </span>
+              <span className="text-vs-text">{line.text}</span>
+            </div>
+          );
+        }
+        return (
+          <div key={i} className="min-h-[19px]">
+            {line.parts.map((p, j) => (
+              <span key={j} className={TONE_CLASS[p.tone] || "text-vs-text"}>
+                {p.text}
+              </span>
+            ))}
+          </div>
+        );
+      })}
+      <div className="min-h-[19px]">
+        <span className="term-dim">$ </span>
+        <span className="caret-blink align-text-bottom" />
+      </div>
+    </div>
   );
 }
