@@ -1,7 +1,12 @@
 # Portfolio — IDE Environment, Phase 2
 
-**Status:** specified, not built
+**Status:** BUILT — all 13 steps complete on branch `ide-rebuild`
 **Date:** 2026-08-27
+
+> Built overnight, one commit per step, `main` untouched. Everything below is
+> implemented and verified live except where 14 says otherwise. Three things
+> still need Vedant: create the `dagavedant.github.io` repo, rewrite `now.md`
+> and `uses.md`, and decide about mobile.
 **Supersedes:** the long-scroll section layout currently on `main`
 
 ---
