@@ -7,8 +7,9 @@
  * view showed something that was not the format on the tin, the illusion would
  * collapse the first time anyone toggled it.
  *
- * Every string here comes from src/data/portfolio-data.js verbatim. Nothing is
- * rewritten; this only arranges it.
+ * Copy carried over from src/data/portfolio-data.js is used verbatim. now.md
+ * and uses.md are written here directly, since they describe things no other
+ * data file records.
  */
 
 import {
@@ -26,6 +27,12 @@ import {
   personal,
 } from "@/data/portfolio-data";
 
+const bullets = (category, fallback) =>
+  techCategories
+    .find((c) => c.category === category || c.category.includes(category))
+    ?.items.map((i) => `- ${i}`)
+    .join("\n") ?? fallback;
+
 /* ------------------------------------------------------------------ about */
 
 export const aboutMd = `# About
@@ -41,8 +48,7 @@ export const educationMd = `# Education
 
 ${education
   .map(
-    (e) =>
-      `## ${e.degree}\n\n**${e.school}** · \`${e.period}\`\n\n${e.details || ""}`.trimEnd()
+    (e) => `## ${e.degree}\n\n**${e.school}** · \`${e.period}\`\n\n${e.details || ""}`.trimEnd()
   )
   .join("\n\n")}
 `;
@@ -57,10 +63,11 @@ ${leadership
   .map((l) => {
     const head = `## ${l.role}\n\n**${l.org}** · \`${l.period}\``;
     const body = l.details ? `\n\n${l.details}` : "";
-    const bullets = Array.isArray(l.points) && l.points.length
-      ? `\n\n${l.points.map((p) => `- ${p}`).join("\n")}`
-      : "";
-    return head + body + bullets;
+    const points =
+      Array.isArray(l.points) && l.points.length
+        ? `\n\n${l.points.map((p) => `- ${p}`).join("\n")}`
+        : "";
+    return head + body + points;
   })
   .join("\n\n")}
 `;
@@ -105,71 +112,113 @@ ${hobbies.map((h) => `## ${h.label}\n\n${h.description}`).join("\n\n")}
 
 export const nowMd = `# Now
 
-> Placeholder copy. This file exists so there is somewhere to say what you are
-> building *this month* — rewrite it in your own words, it is the file that makes
-> a portfolio feel alive rather than archived.
+What I'm actually working on, as of August 2026. Starting sophomore year at
+Edison Academy in a couple of weeks.
 
 ## Building
 
-- **Hydroponic Garden** — a modular 3D-printed tower where the geometry does the
-  water distribution, so one pump feeds every level evenly. CAD in progress.
-- **StudyBuddy** — upload a worksheet, mark what you got wrong, and get back a
-  record of what you actually know. Vision model for extraction, spaced
-  repetition for the review queue.
-- **PulseFlow-AI** — healthcare ops platform pairing optimisation and simulation
-  with forecasting, to catch hospital bottlenecks before they become real problems.
+**Hydroponic Garden.** A vertical tower where the geometry does the work instead
+of the plumbing. Every commercial tower I looked at either runs tubing to each
+level or lets the bottom plants go thirsty, so I'm trying to build one where a
+single pump lifts water to the top and the shape of the part distributes it the
+rest of the way down. Jet splitter, spreader, four spouts, sloped floor, drip
+holes — the same module repeated all the way down. CAD is still in progress and
+I'm fairly sure the spout angles are wrong.
 
-## Learning
+**StudyBuddy.** You upload a worksheet you have already done, mark the questions
+you got wrong, and it gives you back a record of what you actually know rather
+than what you think you know. A vision model pulls the questions out, you confirm
+what it read, and a review queue schedules the ones you missed. After the first
+few worksheets it runs on your own API key or a local Ollama instance.
 
-- Audio models that survive contact with noisy real-world recordings — Voice_AI
-  holds AUC 0.854 on speakers it never saw, and I want to understand where the
-  remaining error lives.
-- Getting local LLMs small and fast enough to run on a Pi without falling over.
+**PulseFlow-AI.** Hospital operations — patient flow, department capacity, staff
+load — running live over WebSocket with optimisation and simulation underneath.
+Built it with a team for HackJPS, where it won Best in AI/ML, and I have kept
+working on it since.
+
+## Figuring out
+
+- Where the remaining error lives in the voice model. It sits at 0.854 AUC on
+  224 speakers it never saw, which is decent, and I want to know whether the
+  misses are a data problem or a feature problem before I touch the architecture.
+- How small a local model can get before it stops being useful on a Pi. The
+  garden monitor runs two at once and I am still not sure that was wise.
 
 ## Looking for
 
-Summer research or internship work in applied ML — especially anything where the
-model has to run on hardware that cannot phone home.
+Summer research or an internship in applied ML. I am most interested in the
+version of the problem where the model has to run on real hardware and cannot
+phone home for help.
 
-_Last updated: rewrite this line when you edit the file._
+## Elsewhere
+
+Teaching IoT at the Robbinsville 4-H Innovation Club, and playing JV tennis.
+
+_Updated August 2026._
 `;
 
 /* ------------------------------------------------------------------- uses */
 
 export const usesMd = `# Uses
 
-> Placeholder copy — a starting point built from what is visible in the repos.
-> Correct anything that is wrong; this list should be yours, not inferred.
+The tools I actually reach for. Everything here shows up somewhere in the
+projects on this site.
 
-## Editor
+## Editor and shell
 
-- **VS Code**, Dark Modern. The theme this whole site is wearing.
-- **JetBrains Mono** for code.
+- **VS Code**, Dark Modern — the theme this whole site is wearing.
+- **Windows and PowerShell**, usually with a \`.venv\` already activated.
+- **ruff** for linting Python, and \`pyproject.toml\` over loose config files.
 
 ## Languages
 
-${techCategories
-  .find((c) => c.category === "Languages")
-  ?.items.map((i) => `- ${i}`)
-  .join("\n") ?? "- Python"}
+${bullets("Languages", "- Python")}
+
+Python for anything with a model in it, TypeScript for anything with a screen.
 
 ## Machine learning
 
-${techCategories
-  .find((c) => c.category.includes("AI"))
-  ?.items.map((i) => `- ${i}`)
-  .join("\n") ?? "- PyTorch"}
+${bullets("AI", "- PyTorch")}
+
+**PyTorch** for models I train myself — the LSTMs and Transformers in the
+portfolio analyser, the CNN work. **scikit-learn** when the honest answer is that
+the problem does not need a neural network, which is more often than I would
+like. **Weights & Biases** so I can tell which run was which a week later.
+
+## Local models
+
+**Ollama**, on almost everything. The chatbot, the garden monitor and StudyBuddy
+all run against a local model — partly on principle, and partly because an API
+key is one more thing that can expire in the middle of a demo.
+
+## Web and backend
+
+- **Next.js** and **React**, with **Tailwind**.
+- **FastAPI** when there is a model behind the endpoint, **Flask** when the thing
+  is small enough that FastAPI would be showing off.
+- **Postgres** with **pgvector** for anything that needs embeddings.
+- **InfluxDB** for sensor readings, since they are time series and nothing else.
+
+## Solvers
+
+**OR-Tools** and **SimPy**. Scheduling and queueing problems have real answers,
+and it took me embarrassingly long to learn that you can go and compute them
+instead of guessing.
 
 ## Hardware
 
-- **Raspberry Pi** — GardenBuddy runs on one, with two models at once.
-- **Arduino** — sensors, and most of what gets taught in the 4-H lab.
-- Breadboards, a soldering iron, and a drawer of components that were once
-  something else.
+- **Raspberry Pi** — the garden monitor lives on one, running two models at once.
+- **Arduino** — sensors, and most of what I teach at the 4-H lab.
+- **Onshape** and a 3D printer, for the hydroponic tower.
+- A breadboard, a soldering iron, and a drawer of parts that used to be something
+  else. There is an inventory system on this site specifically because I lost
+  track of that drawer.
 
-## Running locally
+## Deploying
 
-- **Ollama** for local LLMs, so a project keeps working without an API key.
+**Vercel** for front ends, **Render** when something needs a Python process
+running, **GitHub Pages** for this site. The build here pulls my repo data from
+the GitHub API every couple of days, so what you are reading is current.
 `;
 
 /* ------------------------------------------------------------- stack.json */
@@ -181,7 +230,10 @@ export const stackJson = JSON.stringify(
     role: ["AI / ML", "Full-stack", "IoT"],
     ...Object.fromEntries(
       techCategories.map((c) => [
-        c.category.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, ""),
+        c.category
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "_")
+          .replace(/^_|_$/g, ""),
         c.items,
       ])
     ),
