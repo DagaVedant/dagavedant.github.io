@@ -14,11 +14,48 @@ module.exports = {
                 mono: ['var(--font-mono)'],
             },
             borderRadius: {
+                // --radius is 4px (VS Code is nearly square). The stock shadcn
+                // offsets of -2/-4 would make `sm` resolve to 0px, so they are
+                // tightened to keep the scale non-degenerate.
                 lg: 'var(--radius)',
-                md: 'calc(var(--radius) - 2px)',
-                sm: 'calc(var(--radius) - 4px)'
+                md: 'calc(var(--radius) - 1px)',
+                sm: 'calc(var(--radius) - 2px)'
             },
             colors: {
+                vs: {
+                    chrome: 'var(--vs-chrome)',
+                    editor: 'var(--vs-editor)',
+                    widget: 'var(--vs-widget)',
+                    quickinput: 'var(--vs-quickinput)',
+                    border: 'var(--vs-border)',
+                    contrast: 'var(--vs-contrast)',
+                    text: 'var(--vs-text)',
+                    descr: 'var(--vs-descr)',
+                    breadcrumb: 'var(--vs-breadcrumb)',
+                    linenum: 'var(--vs-linenum)',
+                    accent: 'var(--vs-accent)',
+                    statusbar: 'var(--vs-statusbar)',
+                    'statusbar-fg': 'var(--vs-statusbar-fg)',
+                    'list-hover': 'var(--vs-list-hover)',
+                    'list-active': 'var(--vs-list-active)',
+                    'list-inactive': 'var(--vs-list-inactive)',
+                    badge: 'var(--vs-badge)',
+                    keyword: 'var(--vs-keyword)',
+                    type: 'var(--vs-type)',
+                    function: 'var(--vs-function)',
+                    variable: 'var(--vs-variable)',
+                    string: 'var(--vs-string)',
+                    number: 'var(--vs-number)',
+                    comment: 'var(--vs-comment)',
+                    constant: 'var(--vs-constant)',
+                },
+                term: {
+                    ok: 'var(--term-ok)',
+                    warn: 'var(--term-warn)',
+                    error: 'var(--term-error)',
+                    dim: 'var(--term-dim)',
+                    path: 'var(--term-path)',
+                },
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
                 card: {

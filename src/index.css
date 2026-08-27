@@ -1,14 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* =========================================================================
-   vedant-portfolio — IDE theme
-   DARK-COMMITTED. There is no light palette and no .dark class; do not add
-   prefers-color-scheme blocks. shadcn variable NAMES are preserved because
-   src/components/ui/* depends on them — only their values changed.
+   vedant-portfolio — VS Code Dark Modern
+
+   Single dark theme. There is no light palette, no .dark class, and no
+   prefers-color-scheme block; do not add one.
+
+   Two token families:
+     --shadcn names (HSL triplets)  Tailwind consumes these as
+                                    hsl(var(--x) / <alpha>), so the opacity
+                                    modifiers (bg-card/50) keep working.
+                                    src/components/ui/* depends on the names.
+     --vs-* (raw hex)               Hand-written CSS only. Editor chrome and
+                                    syntax colours, lifted from Dark Modern
+                                    so they match the real app exactly.
    ========================================================================= */
 
 @layer base {
@@ -16,89 +25,126 @@
     /* ---------- Fonts ---------- */
     --font-display: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
     --font-inter: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    /* ---------- Palette (§1) ---------- */
-    --background: 222 18% 7%; /* editor ground   #0F1115 */
-    --foreground: 213 16% 88%;
-    --card: 220 16% 11%; /* panels / cards  #171A20 */
-    --card-foreground: 213 16% 88%;
-    --popover: 220 16% 11%;
-    --popover-foreground: 213 16% 88%;
-    --primary: 217 100% 65%; /* the one accent  #4C8DFF */
-    --primary-foreground: 222 30% 8%;
-    --secondary: 220 14% 16%;
-    --secondary-foreground: 213 14% 82%;
-    --muted: 220 14% 16%;
-    --muted-foreground: 215 12% 58%;
-    --accent: 220 14% 19%;
-    --accent-foreground: 213 16% 88%;
+    /* ---------- shadcn palette, valued to Dark Modern ---------- */
+    --background: 0 0% 12.2%; /* editor            #1F1F1F */
+    --foreground: 0 0% 80%; /* text              #CCCCCC */
+    --card: 0 0% 12.5%; /* editor widget     #202020 */
+    --card-foreground: 0 0% 80%;
+    --popover: 0 0% 13.3%; /* quick input       #222222 */
+    --popover-foreground: 0 0% 80%;
+    --primary: 206 100% 41.6%; /* focus / status    #0078D4 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 19.2%; /* input background  #313131 */
+    --secondary-foreground: 0 0% 80%;
+    --muted: 240 5.2% 22.7%; /* inactive selection #37373D */
+    --muted-foreground: 0 0% 61.6%; /* description text  #9D9D9D */
+    --accent: 195 4.5% 17.3%; /* list hover        #2A2D2E */
+    --accent-foreground: 0 0% 80%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 213 16% 94%;
-    --border: 220 12% 20%;
-    --input: 220 12% 20%;
-    --ring: 217 100% 65%;
-    --radius: 0.375rem;
+    --destructive-foreground: 0 0% 94%;
+    --border: 0 0% 16.9%; /* widget border     #2B2B2B */
+    --input: 0 0% 19.2%;
+    --ring: 206 100% 41.6%;
+    --radius: 0.25rem;
 
-    /* ---------- IDE surfaces (additive) ---------- */
-    --ide-chrome: 222 16% 9%; /* title bar / activity bar / status bar */
-    --ide-panel: 221 17% 10%; /* bottom panel ground */
-    --ide-line: 220 12% 16%; /* 1px chrome dividers */
-    --ide-gutter: 215 10% 34%; /* line numbers, indent guides */
+    /* ---------- VS Code chrome (raw hex) ---------- */
+    --vs-chrome: #181818; /* title bar, activity bar, sidebar, panel tabs */
+    --vs-editor: #1f1f1f;
+    --vs-widget: #202020;
+    --vs-quickinput: #222222;
+    --vs-border: #2b2b2b;
+    --vs-contrast: #313131;
+    --vs-text: #cccccc;
+    --vs-descr: #9d9d9d;
+    --vs-breadcrumb: #a9a9a9;
+    --vs-linenum: #6e7681;
+    --vs-linenum-active: #cccccc;
+    --vs-accent: #0078d4; /* focus border, active tab top, status bar */
+    --vs-statusbar: #0078d4;
+    --vs-statusbar-fg: #ffffff;
+    --vs-list-hover: #2a2d2e;
+    --vs-list-active: #04395e;
+    --vs-list-inactive: #37373d;
+    --vs-badge: #616161;
+    --vs-scrollbar: #79797966;
+    --vs-scrollbar-hover: #646464b3;
+
+    /* ---------- Syntax, Dark Modern TextMate ----------
+       Shiki emits inline styles from the same theme; these exist for the
+       renderers written by hand (JSON, shell, markdown source). */
+    --vs-keyword: #c586c0; /* import, from, def, return */
+    --vs-type: #4ec9b0; /* classes, types, modules */
+    --vs-function: #dcdcaa;
+    --vs-variable: #9cdcfe;
+    --vs-string: #ce9178;
+    --vs-number: #b5cea8;
+    --vs-comment: #6a9955;
+    --vs-constant: #569cd6; /* True, False, None, null */
+    --vs-operator: #d4d4d4;
+    --vs-punctuation: #cccccc;
 
     /* ---------- Terminal semantics ----------
-       ONLY for the boot terminal, serial monitor and output log.
-       Never for page content. */
-    --term-ok: 142 60% 55%;
-    --term-warn: 38 92% 62%;
-    --term-dim: 215 12% 45%;
-    --term-path: 190 70% 60%;
+       Boot terminal and Terminal panel only. Never page content. */
+    --term-ok: #23d18b;
+    --term-warn: #f5f543;
+    --term-error: #f14c4c;
+    --term-dim: #8b8b8b;
+    --term-path: #29b8db;
 
-    /* ---------- Chrome metrics (§2) ----------
-       Components read these; they must never hardcode 288px etc. */
-    --ide-titlebar: 34px;
-    --ide-tabstrip: 36px;
-    --ide-breadcrumb: 28px;
-    --ide-top: 98px; /* titlebar + tabstrip + breadcrumb */
+    /* ---------- Chrome metrics ----------
+       Components read these and never hardcode pixels. Matched to the
+       reference screenshot. */
+    --ide-titlebar: 35px;
     --ide-activity: 48px;
-    --ide-sidebar: 240px;
-    --ide-left: 288px; /* activity + sidebar */
-    --ide-panelh: 200px;
-    --ide-statusbar: 24px;
-    --ide-bottom: 224px; /* panel + statusbar */
+    --ide-sidebar: 260px;
+    --ide-tabstrip: 35px;
+    --ide-breadcrumb: 24px;
+    --ide-paneltabs: 35px;
+    --ide-panelbody: 185px;
+    --ide-panel: 220px; /* paneltabs + panelbody */
+    --ide-statusbar: 22px;
 
-    /* Charts inherit the single-accent rule: blue, then neutrals. */
-    --chart-1: 217 100% 65%;
-    --chart-2: 215 12% 58%;
-    --chart-3: 213 14% 82%;
-    --chart-4: 215 10% 34%;
-    --chart-5: 213 16% 88%;
+    /* Derived, kept for anything still measuring against the old model. */
+    --ide-top: 94px; /* titlebar + tabstrip + breadcrumb */
+    --ide-left: 308px; /* activity + sidebar */
+    --ide-bottom: 242px; /* panel + statusbar */
+
+    /* Charts: the single-accent rule, then neutrals. */
+    --chart-1: 206 100% 41.6%;
+    --chart-2: 0 0% 61.6%;
+    --chart-3: 0 0% 80%;
+    --chart-4: 215 7.9% 46.9%;
+    --chart-5: 0 0% 38%;
 
     /* shadcn sidebar tokens mapped onto the IDE chrome. */
-    --sidebar-background: 222 16% 9%;
-    --sidebar-foreground: 215 12% 58%;
-    --sidebar-primary: 217 100% 65%;
-    --sidebar-primary-foreground: 222 30% 8%;
-    --sidebar-accent: 220 14% 19%;
-    --sidebar-accent-foreground: 213 16% 88%;
-    --sidebar-border: 220 12% 20%;
-    --sidebar-ring: 217 100% 65%;
+    --sidebar-background: 0 0% 9.4%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 206 100% 41.6%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 195 4.5% 17.3%;
+    --sidebar-accent-foreground: 0 0% 80%;
+    --sidebar-border: 0 0% 16.9%;
+    --sidebar-ring: 206 100% 41.6%;
   }
 
-  /* Responsive: redefine the METRICS only. Components never change. */
-  @media (max-width: 1023px) {
+  /* Responsive: collapse METRICS only, never component structure.
+     Mobile is out of scope per spec §12 — these keep the layout from
+     visibly exploding, they are not a designed phone experience. */
+  @media (max-width: 1100px) {
     :root {
-      --ide-sidebar: 0px;
-      --ide-left: 48px;
+      --ide-sidebar: 210px;
+      --ide-left: 258px;
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 860px) {
     :root {
-      --ide-activity: 0px;
-      --ide-left: 0px;
-      --ide-panelh: 0px;
-      --ide-bottom: 24px;
+      --ide-sidebar: 0px;
+      --ide-left: 48px;
+      --ide-panel: 0px;
+      --ide-bottom: 22px;
     }
   }
 }
@@ -108,31 +154,28 @@
     @apply border-border;
   }
 
-  html {
-    /* Anchor targets must clear the fixed chrome. */
-    scroll-padding-top: calc(var(--ide-top) + 16px);
-    /* The editor ground lives HERE and only here. A non-transparent
-       background on the root element is propagated to the viewport canvas,
-       which paints beneath every descendant — including the negative
-       z-index AmbientField. */
-    background-color: hsl(var(--background));
+  html,
+  body,
+  #root {
+    height: 100%;
   }
 
-  html[data-motion="on"] {
-    scroll-behavior: smooth;
+  html {
+    background-color: var(--vs-editor);
+    /* The app is viewport-locked: the editor pane owns scrolling, the window
+       never does. Without this the body gains a second scrollbar the moment
+       any child overflows. */
+    overflow: hidden;
   }
 
   body {
-    /* Deliberately NOT painted. `html` above is already opaque, so it — not
-       body — is what propagates to the canvas; a background here would stay
-       on body's own box and paint in the normal flow, i.e. ABOVE every
-       negative z-index stacking context. That is precisely what hid the
-       AmbientField backdrop. Leave body transparent. */
-    background-color: transparent;
-    color: hsl(var(--foreground));
+    background-color: var(--vs-editor);
+    color: var(--vs-text);
     font-family: var(--font-inter);
+    font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
   }
 
   h1,
@@ -143,93 +186,148 @@
   }
 
   ::selection {
-    background-color: hsl(var(--primary) / 0.32);
-    color: hsl(var(--foreground));
+    background-color: #264f78; /* Dark Modern editor.selectionBackground */
+    color: var(--vs-text);
   }
 
   :focus-visible {
-    outline: 2px solid hsl(var(--ring));
-    outline-offset: 2px;
+    outline: 1px solid var(--vs-accent);
+    outline-offset: -1px;
   }
 
-  /* Dark scrollbars so the window chrome matches the editor. */
+  /* VS Code's scrollbars: no track, translucent slider, square. */
   * {
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: #79797966 transparent;
     scrollbar-width: thin;
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
   }
 
-  ::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
     background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--border));
-    border: 2px solid hsl(var(--background));
-    border-radius: 999px;
+    background-color: var(--vs-scrollbar);
+    border-radius: 0;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(var(--ide-gutter));
+    background-color: var(--vs-scrollbar-hover);
   }
 }
 
 @layer components {
-  /* ---------- Type scale ----------
-     Prose (display/h2/h3/lead/body/small) stays Archivo + Inter.
-     Mono means machine output or interface chrome — never decorative prose. */
+  /* =====================================================================
+     Shell — a viewport-locked grid.
+
+       ide-root                rows: titlebar / middle / statusbar
+         └ ide-middle          cols: activity / sidebar / main
+              └ ide-main       rows: editor / panel
+                   └ ide-editor  rows: tabs / breadcrumb / scroll
+                        └ ide-editor-scroll   <- the ONLY scroller
+
+     Every track that must be allowed to shrink carries min-height:0 or
+     min-width:0; without them a grid item's automatic minimum size is its
+     content, and the pane grows the page instead of scrolling.
+     ===================================================================== */
+  .ide-root {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-rows: var(--ide-titlebar) minmax(0, 1fr) var(--ide-statusbar);
+    overflow: hidden;
+    background-color: var(--vs-editor);
+  }
+
+  .ide-middle {
+    display: grid;
+    grid-template-columns: var(--ide-activity) var(--ide-sidebar) minmax(0, 1fr);
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .ide-main {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) var(--ide-panel);
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .ide-editor {
+    display: grid;
+    grid-template-rows: var(--ide-tabstrip) var(--ide-breadcrumb) minmax(0, 1fr);
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    background-color: var(--vs-editor);
+  }
+
+  .ide-editor-scroll {
+    min-height: 0;
+    min-width: 0;
+    overflow: auto;
+    position: relative;
+  }
+
+  /* =====================================================================
+     Type scale — prose only.
+     Mono is interface chrome and machine output; it is set locally by the
+     chrome components, not here.
+     ===================================================================== */
   .t-display {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(44px, 7.5vw, 92px);
+    font-size: clamp(40px, 6vw, 76px);
     letter-spacing: -0.035em;
-    line-height: 0.95;
+    line-height: 0.98;
     color: hsl(var(--foreground));
   }
 
   .t-h2 {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(30px, 3.8vw, 44px);
-    letter-spacing: -0.028em;
-    line-height: 1.08;
+    font-size: clamp(26px, 3vw, 36px);
+    letter-spacing: -0.026em;
+    line-height: 1.12;
     color: hsl(var(--foreground));
   }
 
   .t-h3 {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 19px;
-    letter-spacing: -0.015em;
-    line-height: 1.3;
+    font-size: 18px;
+    letter-spacing: -0.014em;
+    line-height: 1.32;
     color: hsl(var(--foreground));
   }
 
   .t-lead {
     font-family: var(--font-inter);
     font-weight: 400;
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.55;
-    color: hsl(var(--foreground) / 0.78);
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.58;
+    color: hsl(var(--foreground) / 0.82);
   }
 
   .t-body {
     font-family: var(--font-inter);
     font-weight: 400;
-    font-size: 16px;
-    line-height: 1.68;
-    color: hsl(var(--foreground) / 0.68);
+    font-size: 15px;
+    line-height: 1.7;
+    color: hsl(var(--foreground) / 0.72);
   }
 
   .t-small {
     font-family: var(--font-inter);
     font-weight: 400;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13.5px;
+    line-height: 1.62;
     color: hsl(var(--muted-foreground));
   }
 
@@ -249,161 +347,181 @@
     color: hsl(var(--muted-foreground));
   }
 
-  /* Interface chrome + machine output. */
   .t-mono {
     font-family: var(--font-mono);
     font-weight: 400;
     font-size: 12.5px;
     line-height: 1.5;
-    color: hsl(var(--muted-foreground));
     font-variant-ligatures: none;
   }
 
-  /* ---------- Layout shell ---------- */
-  .shell {
-    width: 100%;
-    max-width: 1120px;
-    margin-inline: auto;
-    padding-inline: clamp(20px, 5vw, 40px);
+  /* Chrome label: the 11px uppercase used for EXPLORER, panel tabs, etc. */
+  .t-chrome {
+    font-family: var(--font-inter);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--vs-text);
   }
 
-  /* Base + modifiers are all single-class (0,1,0) selectors.
-     Source order decides: modifiers are declared AFTER .section,
-     and the desktop media block repeats the same order, so
-     .section--major reliably beats .section for padding-block. */
+  /* =====================================================================
+     Document layout — the inside of an open file.
+     ===================================================================== */
+  .doc {
+    max-width: 78ch;
+    padding: 32px 40px 96px;
+  }
+
+  .doc-wide {
+    max-width: 1000px;
+    padding: 24px 40px 96px;
+  }
+
   .section {
-    padding-block: 72px;
-    position: relative;
+    padding-block: 28px;
   }
 
   .section--major {
-    padding-block: 96px;
-  }
-
-  .section--tight {
     padding-block: 40px;
   }
 
-  @media (min-width: 768px) {
-    .section {
-      padding-block: 112px;
-    }
-
-    .section--major {
-      padding-block: 168px;
-    }
-
-    .section--tight {
-      padding-block: 56px;
-    }
-  }
-
-  /* §5d — a 1px fold marker between sections, like an editor fold rule.
-     Auto-applies to adjacent sections; .section--rule forces one. */
-  .section + .section,
-  .section--rule {
-    border-top: 1px solid hsl(var(--ide-line));
+  .section--tight {
+    padding-block: 16px;
   }
 
   .section-head {
-    margin-bottom: 56px;
+    margin-bottom: 24px;
   }
 
   /* ---------- Surfaces ---------- */
   .card {
-    background-color: hsl(var(--card));
+    background-color: var(--vs-widget);
     color: hsl(var(--card-foreground));
-    border: 1px solid hsl(var(--border));
+    border: 1px solid var(--vs-border);
     border-radius: var(--radius);
     box-shadow: none;
   }
 
   .card-i {
     transition:
-      border-color 160ms ease,
-      transform 160ms ease;
+      border-color 140ms ease,
+      transform 140ms ease;
   }
 
   .card-i:hover,
   .card-i:focus-visible {
-    border-color: hsl(var(--primary) / 0.5);
+    border-color: var(--vs-accent);
     transform: translateY(-1px);
+  }
+
+  /* A VS Code list row: the Explorer / Ctrl+P / file-listing primitive. */
+  .vs-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    height: 22px;
+    padding-inline: 8px;
+    font-family: var(--font-inter);
+    font-size: 13px;
+    line-height: 22px;
+    color: var(--vs-text);
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .vs-row:hover {
+    background-color: var(--vs-list-hover);
+  }
+
+  .vs-row[data-active="true"] {
+    background-color: var(--vs-list-active);
+  }
+
+  .vs-row:focus-visible {
+    border-color: var(--vs-accent);
+    outline: none;
   }
 }
 
 /* =========================================================================
-   Ambient layer — texture, reveal, terminal semantics.
+   Ambient layer.
 
-   Deliberately OUTSIDE @layer components: Tailwind tree-shakes the
-   components layer against a content scan, and several agents are writing
-   the consuming files concurrently. These rules must exist unconditionally.
+   Outside @layer components deliberately: Tailwind tree-shakes that layer
+   against a content scan, and several of these are applied from generated
+   markup (Shiki output, the JSON renderer) that the scanner never sees.
    ========================================================================= */
 
-/* ---------- Terminal semantics ----------
-   ONLY inside the boot terminal, serial monitor and output log. */
-.term-ok {
-  color: hsl(var(--term-ok));
-}
+/* ---------- Syntax tokens, for the hand-written renderers ---------- */
+.tok-keyword { color: var(--vs-keyword); }
+.tok-type { color: var(--vs-type); }
+.tok-function { color: var(--vs-function); }
+.tok-variable { color: var(--vs-variable); }
+.tok-string { color: var(--vs-string); }
+.tok-number { color: var(--vs-number); }
+.tok-comment { color: var(--vs-comment); font-style: italic; }
+.tok-constant { color: var(--vs-constant); }
+.tok-operator { color: var(--vs-operator); }
+.tok-punct { color: var(--vs-punctuation); }
 
-.term-warn {
-  color: hsl(var(--term-warn));
-}
+/* ---------- Terminal semantics ---------- */
+.term-ok { color: var(--term-ok); }
+.term-warn { color: var(--term-warn); }
+.term-error { color: var(--term-error); }
+.term-dim { color: var(--term-dim); }
+.term-path { color: var(--term-path); }
 
-.term-dim {
-  color: hsl(var(--term-dim));
-}
-
-.term-path {
-  color: hsl(var(--term-path));
-}
-
-/* ---------- §5 background texture ---------- */
-
-/* (a) Fixed line-number column down the left edge of the content region.
-       Markup: <div class="ide-gutter ide-gutter--auto"><span/>…</div>
-       Plain .ide-gutter styles rows you number yourself;
-       adding --auto emits ascending numbers via a CSS counter. */
-.ide-gutter {
-  position: fixed;
-  top: var(--ide-top);
-  bottom: var(--ide-bottom);
-  left: var(--ide-left);
-  width: 46px;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  user-select: none;
-  text-align: right;
-  padding-right: 12px;
-  padding-top: 10px;
+/* ---------- Shiki output ----------
+   The build emits pre.shiki with inline colours from the same Dark Modern
+   theme. Strip its background so it sits on the editor ground, and give it
+   the editor's own metrics. */
+.shiki {
+  background-color: transparent !important;
   font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 1.9;
-  color: hsl(var(--ide-gutter));
-  counter-reset: ide-ln;
+  font-size: 13px;
+  line-height: 1.5;
+  tab-size: 4;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
 }
 
-.ide-gutter > * {
+.shiki code {
   display: block;
-  line-height: 1.9;
+  width: max-content;
+  min-width: 100%;
 }
 
-.ide-gutter--auto > *::before {
-  counter-increment: ide-ln;
-  content: counter(ide-ln);
+.shiki .line {
+  display: block;
+  min-height: 1.5em;
+  padding-inline: 16px;
 }
 
-@media (max-width: 767px) {
-  .ide-gutter {
-    display: none;
-  }
+/* Gutter numbering for any pre that opts in via data-line-numbers. */
+.shiki[data-line-numbers] {
+  counter-reset: shiki-ln;
 }
 
-/* (b) Faint vertical indent guides every 4ch.
-       Applied as a non-interactive overlay so it survives a component
-       setting its own background. The pseudo-element carries an explicit
-       mono font so `ch` resolves deterministically. */
+.shiki[data-line-numbers] .line::before {
+  counter-increment: shiki-ln;
+  content: counter(shiki-ln);
+  display: inline-block;
+  width: 3.5ch;
+  margin-right: 20px;
+  text-align: right;
+  color: var(--vs-linenum);
+  user-select: none;
+}
+
+/* ---------- Indent guides ----------
+   A faint vertical rule every 4ch, as the editor draws. Non-interactive
+   overlay so a component setting its own background does not erase it. */
 .ide-indent-guides {
   position: relative;
 }
@@ -417,37 +535,20 @@
   font: 400 13px/1 var(--font-mono);
   background-image: repeating-linear-gradient(
     90deg,
-    hsl(var(--ide-gutter) / 0.16) 0 1px,
+    #ffffff0a 0 1px,
     transparent 1px 4ch
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    #000 8%,
-    #000 92%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    #000 8%,
-    #000 92%,
-    transparent 100%
   );
 }
 
-/* ---------- §4 reveal-on-scroll ----------
-   opacity + 14px rise, 500ms, once. Components add .reveal-in when the
-   element enters the viewport, and stagger siblings by ~60ms via
-   transition-delay. Components decide whether to use .reveal at all,
-   based on useMotion() — the data-motion switch below is the safety net. */
+/* ---------- Reveal on scroll ----------
+   opacity + 14px rise, 500ms, once. Components add .reveal-in on entry and
+   stagger siblings with transition-delay. */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
   transition:
     opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
 }
 
 .reveal-in {
@@ -455,17 +556,21 @@
   transform: none;
 }
 
-/* A blinking block caret for the terminal / serial views. */
+/* ---------- Terminal caret ---------- */
 .caret-blink {
   display: inline-block;
-  width: 0.6em;
+  width: 8px;
   height: 1.05em;
   vertical-align: text-bottom;
-  background-color: hsl(var(--foreground) / 0.85);
-  animation: vd-caret-blink 1s steps(1, end) infinite;
+  background-color: var(--vs-text);
+  animation: vd-caret 1s steps(1, end) infinite;
 }
 
-@keyframes vd-caret-blink {
+.caret-solid {
+  animation: none;
+}
+
+@keyframes vd-caret {
   0%,
   50% {
     opacity: 1;
@@ -477,11 +582,11 @@
 }
 
 /* =========================================================================
-   Global motion kill-switch.
+   Motion kill-switch.
    useMotion()/setMotion() keep <html data-motion="on|off"> in sync with the
-   RESOLVED preference (OS default, overridable by the reader). This is
-   deliberately NOT a bare prefers-reduced-motion query — a reader who turns
-   motion back ON must get motion.
+   RESOLVED preference — OS default, overridable by the reader. Deliberately
+   not a bare prefers-reduced-motion query: a reader who turns motion back ON
+   must actually get motion.
    ========================================================================= */
 html[data-motion="off"] .reveal {
   opacity: 1;
@@ -500,4 +605,10 @@ html[data-motion="off"] .card-i {
 html[data-motion="off"] .card-i:hover,
 html[data-motion="off"] .card-i:focus-visible {
   transform: none;
+}
+
+html[data-motion="off"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
 }
