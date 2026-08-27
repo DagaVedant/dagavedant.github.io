@@ -12,6 +12,17 @@
  */
 
 import repoData from "@/data/repos.generated.json";
+import { projects as curatedProjects } from "@/data/portfolio-data";
+
+/**
+ * The one thing GitHub cannot tell us: whether a repo is still being built.
+ * Keyed by repo name, taken from the curated list in portfolio-data.
+ */
+const IN_PROGRESS = new Set(
+  curatedProjects
+    .filter((p) => p.inProgress)
+    .map((p) => p.github.split("/").pop().replace(/\.git$/, ""))
+);
 
 /* ------------------------------------------------------------------ icons */
 
@@ -75,6 +86,7 @@ export const PROJECT_FILES = repoEntries
     repo: r.repo,
     parent: "projects",
     title: r.repo,
+    inProgress: IN_PROGRESS.has(r.repo),
   }));
 
 /* ------------------------------------------------------------- doc files  */

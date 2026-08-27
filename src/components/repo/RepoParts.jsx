@@ -98,7 +98,7 @@ export function RepoTabs() {
 
 /* ----------------------------------------------------------------- header */
 
-export function RepoHeader({ repo }) {
+export function RepoHeader({ repo, inProgress }) {
   return (
     <header className="flex flex-wrap items-center gap-3 px-4 pb-3 pt-4">
       <h1 className="flex min-w-0 items-center gap-2 text-[20px]">
@@ -125,6 +125,11 @@ export function RepoHeader({ repo }) {
         <span className="flex-none rounded-full border border-gh-border px-[7px] py-[1px] text-[12px] font-normal text-gh-muted">
           Public
         </span>
+        {inProgress ? (
+          <span className="flex-none rounded-full border border-[#9e6a03] bg-[#341a00] px-[8px] py-[1px] text-[12px] font-normal text-[#d29922]">
+            In progress
+          </span>
+        ) : null}
       </h1>
 
       <div className="ml-auto flex flex-none items-center gap-2">

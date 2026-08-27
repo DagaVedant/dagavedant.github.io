@@ -153,113 +153,43 @@ export const techCategories = [
   },
 ];
 
+/**
+ * The seven repos the portfolio shows.
+ *
+ * Only `github` and `inProgress` are read at runtime now: scripts/fetch-repos.mjs
+ * parses the URLs, and everything shown in a repo view — description, topics,
+ * languages, files, commits, README — comes from the GitHub API at build time.
+ * `title` is kept for readability when editing this list.
+ */
 export const projects = [
   {
-    icon: Activity,
     title: "PulseFlow-AI",
     github: "https://github.com/DagaVedant/PulseFlow-AI",
-    image:
-      "https://raw.githubusercontent.com/DagaVedant/PulseFlow-AI/main/frontend/public/preview.png",
-    description:
-      "A healthcare ops platform that combines optimization, simulation, forecasting, and AI to catch hospital bottlenecks before they turn into real problems.",
-    tags: ["OR-Tools", "SimPy", "AI", "Healthcare", "Python"],
-    inProgress: true,
   },
   {
-    icon: BarChart3,
-    title: "AI Portfolio Analyzer",
-    github: "https://github.com/DagaVedant/AI-Portfolio-Analyzer",
-    image: `${import.meta.env.BASE_URL}images/ai-portfolio-analyzer.png`,
-    description:
-      "Trains LSTM and Transformer models on 46 stocks to predict returns, volatility, and downside risk. Also does sentiment analysis, portfolio optimization, and has a full backtesting engine.",
-    tags: ["LSTM", "Transformers", "PyTorch", "Backtesting", "Finance"],
+    title: "StudyBuddy",
+    github: "https://github.com/DagaVedant/StudyBuddy",
   },
   {
-    icon: Sprout,
+    title: "Voice AI",
+    github: "https://github.com/DagaVedant/Voice_AI",
+  },
+  {
     title: "GardenBuddy",
     github: "https://github.com/DagaVedant/GardenBuddy",
-    image:
-      "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/demo/demo_website.png",
-    description:
-      "A Raspberry Pi garden monitor running two AI models at once, a custom LSTM classifier and a local Ollama LLM, showing live soil, temperature, humidity, and light data on a React dashboard.",
-    tags: ["Raspberry Pi", "LSTM", "Ollama", "IoT", "React"],
+  },
+  {
+    title: "AI Portfolio Analyzer",
+    github: "https://github.com/DagaVedant/AI-Portfolio-Analyzer",
+  },
+  {
+    title: "Inventory Management System",
+    github: "https://github.com/DagaVedant/Inventory-Management-System",
+  },
+  {
+    title: "Hydroponic Garden",
+    github: "https://github.com/DagaVedant/Hydroponic-Garden",
     inProgress: true,
-  },
-  {
-    icon: Bot,
-    title: "FRC Chatbot: Team 10600",
-    github: "https://github.com/DagaVedant/FRC-Chatbot-Team-10600",
-    image: `${import.meta.env.BASE_URL}images/frc-chatbot.png`,
-    description:
-      "Meet Avocado, an AI pit assistant for FRC Team 10600. Built with FastAPI, Ollama, and a hybrid TF-IDF plus semantic RAG system, it answers questions about our robot, team, and the game manual, and actually remembers the conversation.",
-    tags: ["RAG", "FastAPI", "Ollama", "Robotics", "Python"],
-  },
-  {
-    icon: Mic,
-    title: "VoiceGPT",
-    github: "https://github.com/DagaVedant/VoiceGPT",
-    image: `${import.meta.env.BASE_URL}images/voicegpt-logo.png`,
-    description:
-      "A voice-controlled GPT assistant with speech recognition, text-to-speech, and image generation. I showed it off at Maker Fair 2024.",
-    tags: ["OpenAI API", "Speech Recognition", "TTS", "Python"],
-  },
-  {
-    icon: Brain,
-    title: "EMNIST Character Classifier",
-    github: "https://github.com/DagaVedant/EMNIST-Character-Classifier",
-    image: `${import.meta.env.BASE_URL}images/emnist-classifier.png`,
-    description:
-      "A CNN trained on the EMNIST Balanced dataset to read handwritten digits and letters. Built with a PyTorch pipeline and WandB experiment tracking, plus a drawing web app so you can test it live.",
-    tags: ["CNN", "PyTorch", "Flask", "WandB", "Computer Vision"],
-  },
-  {
-    icon: MapPin,
-    title: "California House Price Predictor",
-    github: "https://github.com/DagaVedant/California-House-Price-Predictor",
-    image: `${import.meta.env.BASE_URL}images/california-house-price.png`,
-    description:
-      "Predicts median house prices anywhere in California. Click the heatmap or type in an address and it'll give you an XGBoost estimate with a confidence range, right on Google Maps.",
-    tags: ["XGBoost", "scikit-learn", "Streamlit", "Google Maps", "ML"],
-  },
-  {
-    icon: Shield,
-    title: "Spam Message AI Classifier",
-    github: "https://github.com/DagaVedant/Spam-Message-AI-Classifier",
-    image:
-      "https://raw.githubusercontent.com/DagaVedant/Spam-Message-AI-Classifier/main/images/spam_wordcloud.png",
-    description:
-      "An NLP spam detector that uses Multinomial Naive Bayes and a custom preprocessing pipeline to sort spam texts from real ones.",
-    tags: ["NLP", "Naive Bayes", "scikit-learn", "Python"],
-  },
-  {
-    icon: Globe,
-    title: "Lección 7 de Español",
-    github: "https://github.com/DagaVedant/Leccion-7-de-Espanol",
-    image: `${import.meta.env.BASE_URL}images/leccion-7-espanol.png`,
-    description:
-      "An interactive Spanish review site that helps students learn job vocab, the future and future perfect tenses, and the past subjunctive. Built with React, Node.js, and TypeScript.",
-    tags: ["React", "Node.js", "TypeScript", "Education"],
-  },
-  {
-    icon: Code2,
-    title: "Python-Examples",
-    github: "https://github.com/DagaVedant/Python-Examples",
-    image:
-      "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/public/images/preview.png",
-    description:
-      "A browser-based Python course for beginners. No downloads, no paywalls, just bite-sized units with code examples, quizzes, practice problems, and projects.",
-    tags: ["Python", "Education", "JavaScript", "Interactive"],
-    inProgress: true,
-  },
-  {
-    icon: MessageSquare,
-    title: "Almanac Slack Bot",
-    github: "https://github.com/DagaVedant/Almanac-Slack-Bot",
-    image:
-      "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/images/screenshot.png",
-    description:
-      "A Slack bot that drops a word, a fact, a historical event, and a quote in your channel every day.",
-    tags: ["Slack API", "Node.js", "Automation", "Bot"],
   },
 ];
 
@@ -312,17 +242,26 @@ export const leadership = [
 ];
 
 /** @type {never[]} */
-export const certifications = [];
-
-export const certificationsInProgress = [
+export const certifications = [
+  {
+    title: "Google AI Essentials",
+    issuer: "Google",
+    // PLACEHOLDER: this points at the programme page, not Vedant's certificate.
+    // Replace with the personal verify link from Coursera > Accomplishments,
+    // which looks like https://coursera.org/verify/professional-cert/XXXXXXXX
+    href: "https://www.coursera.org/professional-certificates/google-ai-essentials",
+    verified: false,
+  },
   {
     title: "Python Programming Fundamentals",
     issuer: "Microsoft",
+    // PLACEHOLDER: same — swap for https://coursera.org/verify/XXXXXXXX
     href: "https://www.coursera.org/learn/microsoft-python-programming-fundamentals",
-    image:
-      "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/cc/61dbdf2c1c475d82d3b8bf8eee1bda/MSFT-stacked-logo_FINAL.png",
+    verified: false,
   },
 ];
+
+export const certificationsInProgress = [];
 
 export const hobbies = [
   {

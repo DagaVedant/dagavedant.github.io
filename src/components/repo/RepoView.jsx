@@ -59,7 +59,7 @@ export default function RepoView({ file }) {
 
   return (
     <div className="min-h-full bg-gh-canvas text-gh-fg">
-      <RepoHeader repo={repo} />
+      <RepoHeader repo={repo} inProgress={file.inProgress} />
       <RepoTabs />
 
       <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_296px]">

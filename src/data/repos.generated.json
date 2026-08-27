@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-27T05:06:08.516Z",
+  "generatedAt": "2026-08-27T15:39:45.776Z",
   "lite": true,
   "owner": "DagaVedant",
   "profileContributions": {
-    "total": 243,
+    "total": 298,
     "days": {
-      "2026-08-25": 4,
-      "2026-07-29": 2,
+      "2026-08-25": 20,
+      "2026-07-29": 13,
       "2026-07-06": 13,
       "2026-07-05": 3,
       "2026-07-04": 11,
@@ -19,35 +19,23 @@
       "2026-05-31": 10,
       "2026-05-30": 16,
       "2026-05-29": 3,
+      "2026-08-27": 4,
+      "2026-08-26": 15,
+      "2026-08-24": 25,
+      "2026-08-23": 25,
+      "2026-08-22": 39,
+      "2026-08-21": 35,
+      "2026-07-28": 3,
+      "2026-06-14": 4,
+      "2026-06-13": 3,
       "2026-05-25": 1,
       "2026-05-22": 6,
       "2026-05-21": 3,
       "2026-05-19": 1,
-      "2026-05-17": 16,
-      "2026-05-16": 2,
-      "2026-06-14": 4,
-      "2026-06-13": 3,
-      "2026-03-21": 17,
-      "2026-03-20": 2,
-      "2026-03-17": 7,
-      "2026-05-12": 10,
-      "2024-07-28": 1,
-      "2026-05-14": 3,
-      "2026-05-13": 1,
-      "2026-05-15": 2,
-      "2026-04-30": 7,
-      "2026-04-29": 12,
-      "2026-06-20": 4,
-      "2026-06-18": 13,
-      "2026-06-17": 4,
-      "2026-06-16": 1,
-      "2026-06-11": 2,
-      "2026-06-10": 16,
-      "2026-06-09": 1,
-      "2026-06-07": 6,
-      "2026-06-06": 10,
-      "2026-06-04": 1,
-      "2026-06-19": 2
+      "2026-05-17": 10,
+      "2026-05-16": 1,
+      "2026-08-19": 9,
+      "2026-08-06": 2
     },
     "source": "reconstructed"
   },
@@ -67,7 +55,7 @@
       "license": "MIT",
       "homepage": "https://pulse-flow-mjilr4qso-dagavedants-projects.vercel.app/command-center",
       "defaultBranch": "main",
-      "pushedAt": "2026-08-25T18:25:23Z",
+      "pushedAt": "2026-08-27T15:07:17Z",
       "createdAt": "2026-05-29T22:56:14Z",
       "htmlUrl": "https://github.com/DagaVedant/PulseFlow-AI",
       "languageBar": [
@@ -176,47 +164,58 @@
           "hasSource": false
         }
       ],
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 85,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
       "commitCount": 85,
       "commits": [
         {
-          "sha": "4412b31",
+          "sha": "9add118",
           "message": "remove dependency-scan CI workflow",
           "date": "2026-08-25T18:25:20Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/4412b31b303cc4088a32d5ece52dd09ed4906333"
+          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/9add11804522975f4d58168d02436db38be854c0"
         },
         {
-          "sha": "826d3c1",
+          "sha": "26802c6",
           "message": "drop unused date-fns, remove dead functions, consolidate files",
           "date": "2026-08-25T03:17:24Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/826d3c15a117d8bc5b1cb32dc643e64e62e5b14f"
+          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/26802c69e9590bcd24bca0a34355e6bc3d3c465d"
         },
         {
-          "sha": "89a5385",
+          "sha": "599422a",
           "message": "remove dead code across frontend and backend",
           "date": "2026-08-25T03:08:04Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/89a5385e7e76abde969e1a2cb14f7d856138985e"
+          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/599422acba61fea778e1157e850eed220a9231b6"
         },
         {
-          "sha": "c70d2b0",
+          "sha": "67a87e1",
           "message": "remove comments from guided tour",
           "date": "2026-08-25T02:50:35Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/c70d2b0d95cc1f0caf8b90b9bb533779174d71df"
+          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/67a87e19c0a809e8533b285acc6a212322dfd3d7"
         },
         {
-          "sha": "3b04339",
+          "sha": "027d975",
           "message": "fixed tutorial scrolling and updated UI text",
           "date": "2026-07-29T18:08:53Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/3b04339fdf1e8201418a167296a1db94c6a360dc"
+          "url": "https://github.com/DagaVedant/PulseFlow-AI/commit/027d9757214a6c670f805affa041d251e7618520"
         }
       ],
       "contributions": {
@@ -236,6 +235,729 @@
           "2026-05-31": 10,
           "2026-05-30": 16,
           "2026-05-29": 3
+        }
+      }
+    },
+    "StudyBuddy": {
+      "owner": "DagaVedant",
+      "repo": "StudyBuddy",
+      "fullName": "DagaVedant/StudyBuddy",
+      "description": "",
+      "topics": [],
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0,
+      "language": "TypeScript",
+      "ext": "ts",
+      "license": "MIT",
+      "homepage": "https://trystudybuddy.vercel.app/",
+      "defaultBranch": "main",
+      "pushedAt": "2026-08-27T15:15:19Z",
+      "createdAt": "2026-08-02T23:18:25Z",
+      "htmlUrl": "https://github.com/DagaVedant/StudyBuddy",
+      "languageBar": [
+        {
+          "name": "TypeScript",
+          "bytes": 835954,
+          "percent": 98.1
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 9514,
+          "percent": 1.1
+        },
+        {
+          "name": "CSS",
+          "bytes": 3705,
+          "percent": 0.4
+        },
+        {
+          "name": "Shell",
+          "bytes": 2057,
+          "percent": 0.2
+        },
+        {
+          "name": "Dockerfile",
+          "bytes": 509,
+          "percent": 0.1
+        }
+      ],
+      "files": [
+        {
+          "name": ".githooks",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/.githooks",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "app",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/app",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "assets",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/assets",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "components",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/components",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "deploy",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/deploy",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "drizzle",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/drizzle",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "lib",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/lib",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "public",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/public",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "scripts",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/scripts",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "tests",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/tests",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "types",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/StudyBuddy/tree/main/types",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": ".env.example",
+          "type": "file",
+          "size": 1204,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/.env.example",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/.env.example",
+          "hasSource": false
+        },
+        {
+          "name": ".gitattributes",
+          "type": "file",
+          "size": 68,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/.gitattributes",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/.gitattributes",
+          "hasSource": false
+        },
+        {
+          "name": ".gitignore",
+          "type": "file",
+          "size": 487,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/.gitignore",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/.gitignore",
+          "hasSource": false
+        },
+        {
+          "name": "auth.ts",
+          "type": "file",
+          "size": 3284,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/auth.ts",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/auth.ts",
+          "hasSource": false
+        },
+        {
+          "name": "drizzle.config.ts",
+          "type": "file",
+          "size": 293,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/drizzle.config.ts",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/drizzle.config.ts",
+          "hasSource": false
+        },
+        {
+          "name": "eslint.config.mjs",
+          "type": "file",
+          "size": 966,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/eslint.config.mjs",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/eslint.config.mjs",
+          "hasSource": false
+        },
+        {
+          "name": "instrumentation.ts",
+          "type": "file",
+          "size": 527,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/instrumentation.ts",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/instrumentation.ts",
+          "hasSource": false
+        },
+        {
+          "name": "LICENSE",
+          "type": "file",
+          "size": 1068,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/LICENSE",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/LICENSE",
+          "hasSource": false
+        },
+        {
+          "name": "next.config.ts",
+          "type": "file",
+          "size": 1824,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/next.config.ts",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/next.config.ts",
+          "hasSource": false
+        },
+        {
+          "name": "package-lock.json",
+          "type": "file",
+          "size": 333720,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/package-lock.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/package-lock.json",
+          "hasSource": false
+        },
+        {
+          "name": "package.json",
+          "type": "file",
+          "size": 2208,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/package.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/package.json",
+          "hasSource": false
+        },
+        {
+          "name": "postcss.config.mjs",
+          "type": "file",
+          "size": 80,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/postcss.config.mjs",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/postcss.config.mjs",
+          "hasSource": false
+        },
+        {
+          "name": "proxy.ts",
+          "type": "file",
+          "size": 1224,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/proxy.ts",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/proxy.ts",
+          "hasSource": false
+        },
+        {
+          "name": "README.md",
+          "type": "file",
+          "size": 2021,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/README.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/README.md",
+          "hasSource": false
+        },
+        {
+          "name": "tsconfig.json",
+          "type": "file",
+          "size": 666,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/tsconfig.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/tsconfig.json",
+          "hasSource": false
+        },
+        {
+          "name": "vercel.json",
+          "type": "file",
+          "size": 109,
+          "url": "https://github.com/DagaVedant/StudyBuddy/blob/main/vercel.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/StudyBuddy/main/vercel.json",
+          "hasSource": false
+        }
+      ],
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 434,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
+      "commitCount": 100,
+      "commits": [
+        {
+          "sha": "94efcc3",
+          "message": "drop the weekly accuracy section from the dashboard",
+          "date": "2026-08-27T15:15:14Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/StudyBuddy/commit/94efcc3d642a105c66a6a1b6061525fa8acb5db8"
+        },
+        {
+          "sha": "f654abd",
+          "message": "use blue for links and the wordmark instead of brick",
+          "date": "2026-08-27T15:09:45Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/StudyBuddy/commit/f654abdaa7cf5d487db9b33c69794f1f852898f2"
+        },
+        {
+          "sha": "f188f15",
+          "message": "put the base styles in a layer so button text is not overridden by the link colour",
+          "date": "2026-08-27T15:05:27Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/StudyBuddy/commit/f188f154d6f53abf3b05b016f8cb2a7fa59862a7"
+        },
+        {
+          "sha": "2886bbb",
+          "message": "simplify the styling: system fonts, flat colours, plain tables",
+          "date": "2026-08-27T14:28:14Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/StudyBuddy/commit/2886bbbeaa660fa59b16d4382736cdb3d845901e"
+        },
+        {
+          "sha": "3d99465",
+          "message": "give the cached samples an answer key so their questions can be exported",
+          "date": "2026-08-26T20:37:27Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/StudyBuddy/commit/3d99465735994938ece414b488a3a9cca7b90872"
+        }
+      ],
+      "contributions": {
+        "total": 100,
+        "days": {
+          "2026-08-27": 4,
+          "2026-08-26": 6,
+          "2026-08-25": 2,
+          "2026-08-24": 10,
+          "2026-08-23": 25,
+          "2026-08-22": 39,
+          "2026-08-21": 14
+        }
+      }
+    },
+    "Voice_AI": {
+      "owner": "DagaVedant",
+      "repo": "Voice_AI",
+      "fullName": "DagaVedant/Voice_AI",
+      "description": "",
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "language": "Python",
+      "ext": "py",
+      "license": "MIT",
+      "homepage": null,
+      "defaultBranch": "main",
+      "pushedAt": "2026-07-29T16:35:27Z",
+      "createdAt": "2026-07-29T01:31:31Z",
+      "htmlUrl": "https://github.com/DagaVedant/Voice_AI",
+      "languageBar": [
+        {
+          "name": "Python",
+          "bytes": 15474,
+          "percent": 100
+        }
+      ],
+      "files": [
+        {
+          "name": "data",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/Voice_AI/tree/main/data",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "docs",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/Voice_AI/tree/main/docs",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "outputs",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/Voice_AI/tree/main/outputs",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": ".gitignore",
+          "type": "file",
+          "size": 32,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/.gitignore",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/.gitignore",
+          "hasSource": false
+        },
+        {
+          "name": "LICENSE",
+          "type": "file",
+          "size": 1068,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/LICENSE",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/LICENSE",
+          "hasSource": false
+        },
+        {
+          "name": "main.py",
+          "type": "file",
+          "size": 14443,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/main.py",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/main.py",
+          "hasSource": false
+        },
+        {
+          "name": "predict.py",
+          "type": "file",
+          "size": 983,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/predict.py",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/predict.py",
+          "hasSource": false
+        },
+        {
+          "name": "README.md",
+          "type": "file",
+          "size": 7378,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/README.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/README.md",
+          "hasSource": false
+        },
+        {
+          "name": "render.yaml",
+          "type": "file",
+          "size": 398,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/render.yaml",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/render.yaml",
+          "hasSource": false
+        },
+        {
+          "name": "requirements.txt",
+          "type": "file",
+          "size": 97,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/requirements.txt",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/requirements.txt",
+          "hasSource": false
+        },
+        {
+          "name": "wsgi.py",
+          "type": "file",
+          "size": 48,
+          "url": "https://github.com/DagaVedant/Voice_AI/blob/main/wsgi.py",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Voice_AI/main/wsgi.py",
+          "hasSource": false
+        }
+      ],
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 14,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
+      "commitCount": 14,
+      "commits": [
+        {
+          "sha": "db4e8e7",
+          "message": "cleaned up some code",
+          "date": "2026-07-29T16:35:25Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/Voice_AI/commit/db4e8e73f1a73ec7f96c6d1242f8cfc30d95f6dc"
+        },
+        {
+          "sha": "59ec7e1",
+          "message": "updated AUROC and other metrics accross all the sites, readme, and code",
+          "date": "2026-07-29T16:31:51Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/Voice_AI/commit/59ec7e19fb4d1e6ae555795aaf261b09d3818933"
+        },
+        {
+          "sha": "f42549e",
+          "message": "cleaned up code and added backend URL",
+          "date": "2026-07-29T14:27:36Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/Voice_AI/commit/f42549e0b065ae249771251d318e7273fed77e48"
+        },
+        {
+          "sha": "180ea64",
+          "message": "got all the files ready for hosting backend on render and frontend on gitpages",
+          "date": "2026-07-29T04:31:12Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/Voice_AI/commit/180ea64e70c28eb2bc3ce845e664abd47c40103d"
+        },
+        {
+          "sha": "fc459e5",
+          "message": "added some more changes",
+          "date": "2026-07-29T04:22:07Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/Voice_AI/commit/fc459e5a4be50e8411efd6a0e630529db3d4e71c"
+        }
+      ],
+      "contributions": {
+        "total": 14,
+        "days": {
+          "2026-07-29": 11,
+          "2026-07-28": 3
+        }
+      }
+    },
+    "GardenBuddy": {
+      "owner": "DagaVedant",
+      "repo": "GardenBuddy",
+      "fullName": "DagaVedant/GardenBuddy",
+      "description": "Real-time Raspberry Pi garden monitor with dual AI (custom LSTM classifier + local Ollama LLM) for live soil, temp, humidity, and light insights on a React dashboard.",
+      "topics": [],
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "language": "Python",
+      "ext": "py",
+      "license": "MIT",
+      "homepage": null,
+      "defaultBranch": "main",
+      "pushedAt": "2026-06-14T16:26:59Z",
+      "createdAt": "2026-04-23T01:25:31Z",
+      "htmlUrl": "https://github.com/DagaVedant/GardenBuddy",
+      "languageBar": [
+        {
+          "name": "Python",
+          "bytes": 40559,
+          "percent": 47.8
+        },
+        {
+          "name": "TypeScript",
+          "bytes": 35475,
+          "percent": 41.8
+        },
+        {
+          "name": "CSS",
+          "bytes": 8178,
+          "percent": 9.6
+        },
+        {
+          "name": "HTML",
+          "bytes": 622,
+          "percent": 0.7
+        }
+      ],
+      "files": [
+        {
+          "name": "ai_model",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/GardenBuddy/tree/main/ai_model",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "demo",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/GardenBuddy/tree/main/demo",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "src",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/GardenBuddy/tree/main/src",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": ".env.example",
+          "type": "file",
+          "size": 117,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/.env.example",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/.env.example",
+          "hasSource": false
+        },
+        {
+          "name": ".gitignore",
+          "type": "file",
+          "size": 436,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/.gitignore",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/.gitignore",
+          "hasSource": false
+        },
+        {
+          "name": "colab_train.py",
+          "type": "file",
+          "size": 9189,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/colab_train.py",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/colab_train.py",
+          "hasSource": false
+        },
+        {
+          "name": "index.html",
+          "type": "file",
+          "size": 622,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/index.html",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/index.html",
+          "hasSource": false
+        },
+        {
+          "name": "LICENSE",
+          "type": "file",
+          "size": 1068,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/LICENSE",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/LICENSE",
+          "hasSource": false
+        },
+        {
+          "name": "package-lock.json",
+          "type": "file",
+          "size": 86706,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/package-lock.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/package-lock.json",
+          "hasSource": false
+        },
+        {
+          "name": "package.json",
+          "type": "file",
+          "size": 718,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/package.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/package.json",
+          "hasSource": false
+        },
+        {
+          "name": "README.md",
+          "type": "file",
+          "size": 6947,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/README.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/README.md",
+          "hasSource": false
+        },
+        {
+          "name": "sensor_reader.py",
+          "type": "file",
+          "size": 10987,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/sensor_reader.py",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/sensor_reader.py",
+          "hasSource": false
+        },
+        {
+          "name": "tsconfig.json",
+          "type": "file",
+          "size": 665,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/tsconfig.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/tsconfig.json",
+          "hasSource": false
+        },
+        {
+          "name": "vite.config.ts",
+          "type": "file",
+          "size": 510,
+          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/vite.config.ts",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/vite.config.ts",
+          "hasSource": false
+        }
+      ],
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 7,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
+      "commitCount": 7,
+      "commits": [
+        {
+          "sha": "2a3323a",
+          "message": "updated README.md + added new demo pictures",
+          "date": "2026-06-14T16:26:39Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/GardenBuddy/commit/2a3323a7320792acce775a421092303180e76f9b"
+        },
+        {
+          "sha": "ac5d5e7",
+          "message": "cleaned up old imports + removed fallback systems",
+          "date": "2026-06-14T00:13:42Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/GardenBuddy/commit/ac5d5e75b856fc6ecdc2ac3885a8f0a485838e7a"
+        },
+        {
+          "sha": "c64b98f",
+          "message": "Remove __pycache__ from tracking",
+          "date": "2026-06-14T00:04:53Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/GardenBuddy/commit/c64b98f21e5e645d81fb1f595010841d85203e20"
+        },
+        {
+          "sha": "32940c5",
+          "message": "added the colab train python script",
+          "date": "2026-06-14T00:04:35Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/GardenBuddy/commit/32940c54b8cf1f5d80349f729416ec1964f12083"
+        },
+        {
+          "sha": "c3994c0",
+          "message": "Remove .env from tracking",
+          "date": "2026-06-13T23:41:38Z",
+          "author": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "url": "https://github.com/DagaVedant/GardenBuddy/commit/c3994c0babe43361be06738c78eb4aaafa13c479"
+        }
+      ],
+      "contributions": {
+        "total": 7,
+        "days": {
+          "2026-06-14": 4,
+          "2026-06-13": 3
         }
       }
     },
@@ -395,6 +1117,17 @@
           "hasSource": false
         }
       ],
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 22,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
       "commitCount": 22,
       "commits": [
         {
@@ -450,713 +1183,11 @@
         }
       }
     },
-    "GardenBuddy": {
+    "Inventory-Management-System": {
       "owner": "DagaVedant",
-      "repo": "GardenBuddy",
-      "fullName": "DagaVedant/GardenBuddy",
-      "description": "Real-time Raspberry Pi garden monitor with dual AI (custom LSTM classifier + local Ollama LLM) for live soil, temp, humidity, and light insights on a React dashboard.",
-      "topics": [],
-      "stars": 1,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0,
-      "language": "Python",
-      "ext": "py",
-      "license": "MIT",
-      "homepage": null,
-      "defaultBranch": "main",
-      "pushedAt": "2026-06-14T16:26:59Z",
-      "createdAt": "2026-04-23T01:25:31Z",
-      "htmlUrl": "https://github.com/DagaVedant/GardenBuddy",
-      "languageBar": [
-        {
-          "name": "Python",
-          "bytes": 40559,
-          "percent": 47.8
-        },
-        {
-          "name": "TypeScript",
-          "bytes": 35475,
-          "percent": 41.8
-        },
-        {
-          "name": "CSS",
-          "bytes": 8178,
-          "percent": 9.6
-        },
-        {
-          "name": "HTML",
-          "bytes": 622,
-          "percent": 0.7
-        }
-      ],
-      "files": [
-        {
-          "name": "ai_model",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/GardenBuddy/tree/main/ai_model",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "demo",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/GardenBuddy/tree/main/demo",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "src",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/GardenBuddy/tree/main/src",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": ".env.example",
-          "type": "file",
-          "size": 117,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/.env.example",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/.env.example",
-          "hasSource": false
-        },
-        {
-          "name": ".gitignore",
-          "type": "file",
-          "size": 436,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/.gitignore",
-          "hasSource": false
-        },
-        {
-          "name": "colab_train.py",
-          "type": "file",
-          "size": 9189,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/colab_train.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/colab_train.py",
-          "hasSource": false
-        },
-        {
-          "name": "index.html",
-          "type": "file",
-          "size": 622,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/index.html",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/index.html",
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "package-lock.json",
-          "type": "file",
-          "size": 86706,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/package-lock.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/package-lock.json",
-          "hasSource": false
-        },
-        {
-          "name": "package.json",
-          "type": "file",
-          "size": 718,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/package.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/package.json",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 6947,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "sensor_reader.py",
-          "type": "file",
-          "size": 10987,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/sensor_reader.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/sensor_reader.py",
-          "hasSource": false
-        },
-        {
-          "name": "tsconfig.json",
-          "type": "file",
-          "size": 665,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/tsconfig.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/tsconfig.json",
-          "hasSource": false
-        },
-        {
-          "name": "vite.config.ts",
-          "type": "file",
-          "size": 510,
-          "url": "https://github.com/DagaVedant/GardenBuddy/blob/main/vite.config.ts",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/GardenBuddy/main/vite.config.ts",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 7,
-      "commits": [
-        {
-          "sha": "2a3323a",
-          "message": "updated README.md + added new demo pictures",
-          "date": "2026-06-14T16:26:39Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/GardenBuddy/commit/2a3323a7320792acce775a421092303180e76f9b"
-        },
-        {
-          "sha": "ac5d5e7",
-          "message": "cleaned up old imports + removed fallback systems",
-          "date": "2026-06-14T00:13:42Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/GardenBuddy/commit/ac5d5e75b856fc6ecdc2ac3885a8f0a485838e7a"
-        },
-        {
-          "sha": "c64b98f",
-          "message": "Remove __pycache__ from tracking",
-          "date": "2026-06-14T00:04:53Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/GardenBuddy/commit/c64b98f21e5e645d81fb1f595010841d85203e20"
-        },
-        {
-          "sha": "32940c5",
-          "message": "added the colab train python script",
-          "date": "2026-06-14T00:04:35Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/GardenBuddy/commit/32940c54b8cf1f5d80349f729416ec1964f12083"
-        },
-        {
-          "sha": "c3994c0",
-          "message": "Remove .env from tracking",
-          "date": "2026-06-13T23:41:38Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/GardenBuddy/commit/c3994c0babe43361be06738c78eb4aaafa13c479"
-        }
-      ],
-      "contributions": {
-        "total": 7,
-        "days": {
-          "2026-06-14": 4,
-          "2026-06-13": 3
-        }
-      }
-    },
-    "FRC-Chatbot-Team-10600": {
-      "owner": "DagaVedant",
-      "repo": "FRC-Chatbot-Team-10600",
-      "fullName": "DagaVedant/FRC-Chatbot-Team-10600",
-      "description": "This is Avocado, AI pit assistant for FRC Team 10600 Two Steps Ahead. Built with FastAPI, Ollama, and a hybrid TF-IDF + semantic RAG system. Answers questions about the robot, team, and game manual using local LLMs with conversation memory.",
-      "topics": [],
-      "stars": 1,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0,
-      "language": "HTML",
-      "ext": "html",
-      "license": "MIT",
-      "homepage": null,
-      "defaultBranch": "main",
-      "pushedAt": "2026-05-17T18:59:19Z",
-      "createdAt": "2026-03-17T14:02:08Z",
-      "htmlUrl": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600",
-      "languageBar": [
-        {
-          "name": "HTML",
-          "bytes": 49733,
-          "percent": 59
-        },
-        {
-          "name": "Python",
-          "bytes": 34602,
-          "percent": 41
-        }
-      ],
-      "files": [
-        {
-          "name": "__pycache__",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/tree/main/__pycache__",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "data",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/tree/main/data",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "frontend",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/tree/main/frontend",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": ".gitignore",
-          "type": "file",
-          "size": 151,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/.gitignore",
-          "hasSource": false
-        },
-        {
-          "name": "config.py",
-          "type": "file",
-          "size": 583,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/config.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/config.py",
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "main.py",
-          "type": "file",
-          "size": 16106,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/main.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/main.py",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 8584,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "requirements.txt",
-          "type": "file",
-          "size": 92,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/requirements.txt",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/requirements.txt",
-          "hasSource": false
-        },
-        {
-          "name": "robot_core.py",
-          "type": "file",
-          "size": 14693,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/robot_core.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/robot_core.py",
-          "hasSource": false
-        },
-        {
-          "name": "start.py",
-          "type": "file",
-          "size": 1310,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/start.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/start.py",
-          "hasSource": false
-        },
-        {
-          "name": "utils.py",
-          "type": "file",
-          "size": 1910,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/blob/main/utils.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/FRC-Chatbot-Team-10600/main/utils.py",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 28,
-      "commits": [
-        {
-          "sha": "5dc3c77",
-          "message": "resolve merge conflicts, keep local changes",
-          "date": "2026-05-17T18:58:52Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/commit/5dc3c7727dcc6588103c372030cedf99db2e1222"
-        },
-        {
-          "sha": "04b4831",
-          "message": "More updates",
-          "date": "2026-05-17T18:55:50Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/commit/04b4831d3b54e5556fb32ca8fba5786a667e3640"
-        },
-        {
-          "sha": "f9b12f0",
-          "message": "Initial commit",
-          "date": "2026-03-21T01:44:15Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/commit/f9b12f07707fbeddbd122b3dfc30a63c17f6f42e"
-        },
-        {
-          "sha": "9db0af2",
-          "message": "Reloaded web_ui",
-          "date": "2026-03-21T01:43:33Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/commit/9db0af294afc42be2f56b45ba959ae4a5af7425b"
-        },
-        {
-          "sha": "2a40b74",
-          "message": "Refactor admin.html for improved readability",
-          "date": "2026-03-21T01:36:40Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/FRC-Chatbot-Team-10600/commit/2a40b74cc41129fcc21580c753204a94a521e76f"
-        }
-      ],
-      "contributions": {
-        "total": 28,
-        "days": {
-          "2026-05-17": 2,
-          "2026-03-21": 17,
-          "2026-03-20": 2,
-          "2026-03-17": 7
-        }
-      }
-    },
-    "VoiceGPT": {
-      "owner": "DagaVedant",
-      "repo": "VoiceGPT",
-      "fullName": "DagaVedant/VoiceGPT",
-      "description": "Built for Maker Fair 2024 - reuploaded 2026 after rediscovering files",
-      "topics": [
-        "ai",
-        "ai-assistant",
-        "audio-processing",
-        "chatbot",
-        "conversational-ai",
-        "dalle3",
-        "generative-ai",
-        "gpt4o",
-        "image-generation",
-        "natural-language-processing",
-        "openai",
-        "openai-api",
-        "python",
-        "speech-recognition",
-        "speech-to-text",
-        "text-to-speech",
-        "virtual-assistant",
-        "voice-ai",
-        "voice-assistant"
-      ],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0,
-      "language": "Python",
-      "ext": "py",
-      "license": "MIT",
-      "homepage": null,
-      "defaultBranch": "main",
-      "pushedAt": "2026-05-17T15:57:19Z",
-      "createdAt": "2026-05-12T19:14:00Z",
-      "htmlUrl": "https://github.com/DagaVedant/VoiceGPT",
-      "languageBar": [
-        {
-          "name": "Python",
-          "bytes": 6264,
-          "percent": 100
-        }
-      ],
-      "files": [
-        {
-          "name": ".env.example",
-          "type": "file",
-          "size": 259,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/.env.example",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/.env.example",
-          "hasSource": false
-        },
-        {
-          "name": ".gitignore",
-          "type": "file",
-          "size": 228,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/.gitignore",
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 4083,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "requirements.txt",
-          "type": "file",
-          "size": 57,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/requirements.txt",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/requirements.txt",
-          "hasSource": false
-        },
-        {
-          "name": "VoiceGPT.py",
-          "type": "file",
-          "size": 2740,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/VoiceGPT.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/VoiceGPT.py",
-          "hasSource": false
-        },
-        {
-          "name": "VoiceImageGeneration.py",
-          "type": "file",
-          "size": 3524,
-          "url": "https://github.com/DagaVedant/VoiceGPT/blob/main/VoiceImageGeneration.py",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/VoiceGPT/main/VoiceImageGeneration.py",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 4,
-      "commits": [
-        {
-          "sha": "3a2f676",
-          "message": "Add MIT License to the project",
-          "date": "2026-05-17T15:57:18Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/VoiceGPT/commit/3a2f6767ab236444a756a5922eea8404f0257c66"
-        },
-        {
-          "sha": "9b9b792",
-          "message": "Updated README",
-          "date": "2026-05-12T19:21:41Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/VoiceGPT/commit/9b9b7929131802d825c5c503e140b18e28049ae6"
-        },
-        {
-          "sha": "40a3e19",
-          "message": "README.md",
-          "date": "2026-05-12T19:10:35Z",
-          "author": "Vedant",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/VoiceGPT/commit/40a3e1937c65812a039fed30ed6ee60edebd730c"
-        },
-        {
-          "sha": "18356b9",
-          "message": "Initial commit: VoiceGPT and VoiceImageGeneration",
-          "date": "2024-07-28T12:00:00Z",
-          "author": "Vedant",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/VoiceGPT/commit/18356b9295380defd814b150d0d689d245de7022"
-        }
-      ],
-      "contributions": {
-        "total": 4,
-        "days": {
-          "2026-05-17": 1,
-          "2026-05-12": 2,
-          "2024-07-28": 1
-        }
-      }
-    },
-    "EMNIST-Character-Classifier": {
-      "owner": "DagaVedant",
-      "repo": "EMNIST-Character-Classifier",
-      "fullName": "DagaVedant/EMNIST-Character-Classifier",
-      "description": "CNN trained on EMNIST Balanced to classify handwritten digits and letters. PyTorch training pipeline with WandB experiment tracking and an interactive drawing web app.",
-      "topics": [
-        "character-recognition",
-        "cnn",
-        "computer-vision",
-        "deep-learning",
-        "emnist",
-        "flask",
-        "handwriting-recognition",
-        "image-classification",
-        "juypter-notebook",
-        "machine-learning",
-        "mnist",
-        "nueral-networks",
-        "python",
-        "pytorch",
-        "wandb"
-      ],
-      "stars": 1,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0,
-      "language": "Python",
-      "ext": "py",
-      "license": "MIT",
-      "homepage": null,
-      "defaultBranch": "main",
-      "pushedAt": "2026-05-17T15:56:41Z",
-      "createdAt": "2026-05-13T02:42:10Z",
-      "htmlUrl": "https://github.com/DagaVedant/EMNIST-Character-Classifier",
-      "languageBar": [
-        {
-          "name": "Python",
-          "bytes": 26818,
-          "percent": 63.1
-        },
-        {
-          "name": "HTML",
-          "bytes": 11098,
-          "percent": 26.1
-        },
-        {
-          "name": "Jupyter Notebook",
-          "bytes": 4600,
-          "percent": 10.8
-        }
-      ],
-      "files": [
-        {
-          "name": "app",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/tree/main/app",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "configs",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/tree/main/configs",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "notebooks",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/tree/main/notebooks",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "src",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/tree/main/src",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": ".gitignore",
-          "type": "file",
-          "size": 412,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/EMNIST-Character-Classifier/main/.gitignore",
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/EMNIST-Character-Classifier/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 6007,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/EMNIST-Character-Classifier/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "requirements.txt",
-          "type": "file",
-          "size": 284,
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/blob/main/requirements.txt",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/EMNIST-Character-Classifier/main/requirements.txt",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 5,
-      "commits": [
-        {
-          "sha": "39b32c7",
-          "message": "Add MIT License to the project",
-          "date": "2026-05-17T15:56:41Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/commit/39b32c74c42f237f1880be45f9ebd98f2c25adf5"
-        },
-        {
-          "sha": "cbb7371",
-          "message": "changed color scheme",
-          "date": "2026-05-14T14:35:36Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/commit/cbb7371f6f1ab4cd5b6e34ed37ce54cc2487256d"
-        },
-        {
-          "sha": "ed336b9",
-          "message": "Retraining with higher epochs and patience",
-          "date": "2026-05-14T01:41:14Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/commit/ed336b94a6462c3039be0db6943679db56683eb6"
-        },
-        {
-          "sha": "272556a",
-          "message": "Fix EMNIST orientation + retrain needed",
-          "date": "2026-05-14T01:03:46Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/commit/272556a0d0218b94fa678f0805b6196da7664837"
-        },
-        {
-          "sha": "c928cf9",
-          "message": "Initial Commit for EMNIST character classifier",
-          "date": "2026-05-13T02:43:01Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/EMNIST-Character-Classifier/commit/c928cf93f181f1951d965586bb70ce8eac159e44"
-        }
-      ],
-      "contributions": {
-        "total": 5,
-        "days": {
-          "2026-05-17": 1,
-          "2026-05-14": 3,
-          "2026-05-13": 1
-        }
-      }
-    },
-    "California-House-Price-Predictor": {
-      "owner": "DagaVedant",
-      "repo": "California-House-Price-Predictor",
-      "fullName": "DagaVedant/California-House-Price-Predictor",
-      "description": "Predict median house prices anywhere in California \u2014 click a heatmap or enter an address to get an XGBoost-powered price estimate with a confidence range, visualized on Google Maps.",
+      "repo": "Inventory-Management-System",
+      "fullName": "DagaVedant/Inventory-Management-System",
+      "description": "",
       "topics": [],
       "stars": 0,
       "forks": 0,
@@ -1165,825 +1196,353 @@
       "language": "Python",
       "ext": "py",
       "license": "MIT",
-      "homepage": null,
+      "homepage": "https://inventory-system-manager.vercel.app/",
       "defaultBranch": "main",
-      "pushedAt": "2026-05-17T15:56:05Z",
-      "createdAt": "2026-05-15T03:09:33Z",
-      "htmlUrl": "https://github.com/DagaVedant/California-House-Price-Predictor",
+      "pushedAt": "2026-08-24T19:24:03Z",
+      "createdAt": "2026-08-06T20:05:46Z",
+      "htmlUrl": "https://github.com/DagaVedant/Inventory-Management-System",
       "languageBar": [
         {
           "name": "Python",
-          "bytes": 16952,
-          "percent": 44.4
+          "bytes": 94584,
+          "percent": 70.9
         },
         {
           "name": "HTML",
-          "bytes": 13968,
-          "percent": 36.6
-        },
-        {
-          "name": "Jupyter Notebook",
-          "bytes": 7287,
-          "percent": 19.1
+          "bytes": 38855,
+          "percent": 29.1
         }
       ],
       "files": [
         {
-          "name": "app",
+          "name": "config",
           "type": "dir",
           "size": 0,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/tree/main/app",
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/tree/main/config",
           "downloadUrl": null,
           "hasSource": false
         },
         {
-          "name": "configs",
+          "name": "core",
           "type": "dir",
           "size": 0,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/tree/main/configs",
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/tree/main/core",
           "downloadUrl": null,
           "hasSource": false
         },
         {
-          "name": "notebooks",
+          "name": "docs",
           "type": "dir",
           "size": 0,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/tree/main/notebooks",
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/tree/main/docs",
           "downloadUrl": null,
           "hasSource": false
         },
         {
-          "name": "src",
+          "name": "templates",
           "type": "dir",
           "size": 0,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/tree/main/src",
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/tree/main/templates",
           "downloadUrl": null,
           "hasSource": false
         },
         {
-          "name": ".env.example",
+          "name": ".env.sample",
           "type": "file",
-          "size": 164,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/blob/main/.env.example",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/California-House-Price-Predictor/main/.env.example",
+          "size": 24,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/.env.sample",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/.env.sample",
+          "hasSource": false
+        },
+        {
+          "name": ".gitattributes",
+          "type": "file",
+          "size": 206,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/.gitattributes",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/.gitattributes",
           "hasSource": false
         },
         {
           "name": ".gitignore",
           "type": "file",
-          "size": 127,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/California-House-Price-Predictor/main/.gitignore",
+          "size": 113,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/.gitignore",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/.gitignore",
+          "hasSource": false
+        },
+        {
+          "name": ".python-version",
+          "type": "file",
+          "size": 5,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/.python-version",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/.python-version",
+          "hasSource": false
+        },
+        {
+          "name": ".vercelignore",
+          "type": "file",
+          "size": 129,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/.vercelignore",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/.vercelignore",
           "hasSource": false
         },
         {
           "name": "LICENSE",
           "type": "file",
           "size": 1068,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/California-House-Price-Predictor/main/LICENSE",
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/LICENSE",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/LICENSE",
+          "hasSource": false
+        },
+        {
+          "name": "manage.py",
+          "type": "file",
+          "size": 542,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/manage.py",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/manage.py",
+          "hasSource": false
+        },
+        {
+          "name": "pyproject.toml",
+          "type": "file",
+          "size": 310,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/pyproject.toml",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/pyproject.toml",
           "hasSource": false
         },
         {
           "name": "README.md",
           "type": "file",
-          "size": 4471,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/California-House-Price-Predictor/main/README.md",
+          "size": 3023,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/README.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/README.md",
+          "hasSource": false
+        },
+        {
+          "name": "requirements-dev.txt",
+          "type": "file",
+          "size": 98,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/requirements-dev.txt",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/requirements-dev.txt",
           "hasSource": false
         },
         {
           "name": "requirements.txt",
           "type": "file",
-          "size": 159,
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/blob/main/requirements.txt",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/California-House-Price-Predictor/main/requirements.txt",
+          "size": 192,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/requirements.txt",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/requirements.txt",
+          "hasSource": false
+        },
+        {
+          "name": "vercel.json",
+          "type": "file",
+          "size": 268,
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/blob/main/vercel.json",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Inventory-Management-System/main/vercel.json",
           "hasSource": false
         }
       ],
-      "commitCount": 5,
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 47,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
+      "commitCount": 47,
       "commits": [
         {
-          "sha": "12d3012",
-          "message": "Add MIT License to the project",
-          "date": "2026-05-17T15:56:05Z",
+          "sha": "9648c38",
+          "message": "drop the ship notes",
+          "date": "2026-08-24T19:24:02Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/commit/12d3012a1bd4c5d3501201e3611634bfac1a5e2d"
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/commit/9648c387a68a930f1d2c441653a57c8e2b6baff1"
         },
         {
-          "sha": "1d2f451",
-          "message": "Add MIT License information to README",
-          "date": "2026-05-17T15:55:46Z",
+          "sha": "6930ea1",
+          "message": "trim the readme",
+          "date": "2026-08-24T19:22:37Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/commit/1d2f451dd775925588f57e74bcbde1fb7feec7fd"
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/commit/6930ea146418dcd0daeb381175f1305aaa718bcf"
         },
         {
-          "sha": "9fbc6eb",
-          "message": "minor updates + some bug fixes",
-          "date": "2026-05-16T03:03:49Z",
+          "sha": "edd9651",
+          "message": "cut the guide down to the parts that need saying",
+          "date": "2026-08-24T19:01:06Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/commit/9fbc6ebe5d88a7da4dba4c29d7525a5c9acbd3cf"
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/commit/edd9651d995e765de1a68d4df25b6550077f3a2b"
         },
         {
-          "sha": "54d7230",
-          "message": "server.py fix",
-          "date": "2026-05-15T03:46:52Z",
+          "sha": "19658f0",
+          "message": "hand the plumbing back to django",
+          "date": "2026-08-24T18:51:12Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/commit/54d723038bf146110ff0b5be65beef55197ba841"
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/commit/19658f0da31320faffbf0c91c382522159cc1cef"
         },
         {
-          "sha": "22467b4",
-          "message": "Initial Commit",
-          "date": "2026-05-15T03:03:31Z",
+          "sha": "13aa435",
+          "message": "lean on django's own rendering, drop the explaining",
+          "date": "2026-08-24T18:37:27Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/California-House-Price-Predictor/commit/22467b434e9f110fa97071e6424c6f3609889c5b"
+          "url": "https://github.com/DagaVedant/Inventory-Management-System/commit/13aa4354e85a4750e784545e11b01f8f6b827654"
         }
       ],
       "contributions": {
-        "total": 5,
+        "total": 47,
         "days": {
-          "2026-05-17": 2,
-          "2026-05-16": 1,
-          "2026-05-15": 2
+          "2026-08-24": 15,
+          "2026-08-21": 21,
+          "2026-08-19": 9,
+          "2026-08-06": 2
         }
       }
     },
-    "Spam-Message-AI-Classifier": {
+    "Hydroponic-Garden": {
       "owner": "DagaVedant",
-      "repo": "Spam-Message-AI-Classifier",
-      "fullName": "DagaVedant/Spam-Message-AI-Classifier",
-      "description": "A machine learning project that detects whether a text message is Spam or Ham (Not Spam) using Natural Language Processing (NLP) and a Multinomial Naive Bayes model. The project includes data visualization, text preprocessing, model training, evaluation metrics, and an interactive message classifier.",
-      "topics": [
-        "ai-project",
-        "artificial-intelligence",
-        "beginner-friendly",
-        "classification",
-        "data-science",
-        "jupyter-notebook",
-        "machine-learning",
-        "matplotlib",
-        "naive-bayes-classifier",
-        "natural-language-processing",
-        "nlp",
-        "numpy",
-        "pandas",
-        "python",
-        "scikitlearn-machine-learning",
-        "seaborn",
-        "sms-spam-detection",
-        "spam-classifier",
-        "text-classification",
-        "wordcloud-visualization"
-      ],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0,
-      "language": "Jupyter Notebook",
-      "ext": "ipynb",
-      "license": "MIT",
-      "homepage": null,
-      "defaultBranch": "main",
-      "pushedAt": "2026-05-12T01:18:23Z",
-      "createdAt": "2026-05-12T00:58:07Z",
-      "htmlUrl": "https://github.com/DagaVedant/Spam-Message-AI-Classifier",
-      "languageBar": [
-        {
-          "name": "Jupyter Notebook",
-          "bytes": 548673,
-          "percent": 100
-        }
-      ],
-      "files": [
-        {
-          "name": "images",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/tree/main/images",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Spam-Message-AI-Classifier/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 3112,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Spam-Message-AI-Classifier/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "Spam_Message_AI_Model.ipynb",
-          "type": "file",
-          "size": 548673,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/blob/main/Spam_Message_AI_Model.ipynb",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Spam-Message-AI-Classifier/main/Spam_Message_AI_Model.ipynb",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 8,
-      "commits": [
-        {
-          "sha": "5ecdbc1",
-          "message": "Rename spam_wordcloud.png to images/spam_wordcloud.png",
-          "date": "2026-05-12T01:18:23Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/commit/5ecdbc13e4b5deadcc28bfcab990c339f428964b"
-        },
-        {
-          "sha": "bfe60ba",
-          "message": "Rename learning_curve.png to images/learning_curve.png",
-          "date": "2026-05-12T01:18:12Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/commit/bfe60ba26be4eb72b0a178692f7a7cf3d9f02cce"
-        },
-        {
-          "sha": "d3b7665",
-          "message": "Rename dataset_distribution.png to images/dataset_distribution.png",
-          "date": "2026-05-12T01:17:51Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/commit/d3b766533821dfe860a498e78400707fe562610b"
-        },
-        {
-          "sha": "f27b5a2",
-          "message": "Rename confusion_matrix.png to images/confusion_matrix.png",
-          "date": "2026-05-12T01:17:39Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/commit/f27b5a2361284cd844c0ee8283b1095c19ddd273"
-        },
-        {
-          "sha": "029201b",
-          "message": "Add files via upload",
-          "date": "2026-05-12T01:16:33Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/Spam-Message-AI-Classifier/commit/029201b4e32aba65e3836077bd23ed893a0075d4"
-        }
-      ],
-      "contributions": {
-        "total": 8,
-        "days": {
-          "2026-05-12": 8
-        }
-      }
-    },
-    "Leccion-7-de-Espanol": {
-      "owner": "DagaVedant",
-      "repo": "Leccion-7-de-Espanol",
-      "fullName": "DagaVedant/Leccion-7-de-Espanol",
-      "description": "its a spanish review site that helps students learn job-related vocabulary, future tense, future perfect tense, and past subjunctive tense.",
-      "topics": [
-        "javascipt",
-        "nodejs",
-        "react",
-        "spanish-english",
-        "spanish-learning",
-        "spanish-verbs",
-        "typescipt"
-      ],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0,
-      "language": "TypeScript",
-      "ext": "ts",
-      "license": "MIT",
-      "homepage": "https://dagavedant.github.io/Leccion-7-de-Espanol/",
-      "defaultBranch": "main",
-      "pushedAt": "2026-04-30T16:45:17Z",
-      "createdAt": "2026-04-29T14:47:05Z",
-      "htmlUrl": "https://github.com/DagaVedant/Leccion-7-de-Espanol",
-      "languageBar": [
-        {
-          "name": "TypeScript",
-          "bytes": 85394,
-          "percent": 95.6
-        },
-        {
-          "name": "CSS",
-          "bytes": 3574,
-          "percent": 4
-        },
-        {
-          "name": "HTML",
-          "bytes": 343,
-          "percent": 0.4
-        }
-      ],
-      "files": [
-        {
-          "name": "src",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/tree/main/src",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": ".gitignore",
-          "type": "file",
-          "size": 328,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/.gitignore",
-          "hasSource": false
-        },
-        {
-          "name": "index.html",
-          "type": "file",
-          "size": 343,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/index.html",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/index.html",
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "package-lock.json",
-          "type": "file",
-          "size": 103381,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/package-lock.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/package-lock.json",
-          "hasSource": false
-        },
-        {
-          "name": "package.json",
-          "type": "file",
-          "size": 779,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/package.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/package.json",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 5494,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "tsconfig.json",
-          "type": "file",
-          "size": 714,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/tsconfig.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/tsconfig.json",
-          "hasSource": false
-        },
-        {
-          "name": "vite.config.ts",
-          "type": "file",
-          "size": 468,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/blob/main/vite.config.ts",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Leccion-7-de-Espanol/main/vite.config.ts",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 19,
-      "commits": [
-        {
-          "sha": "bbef4ec",
-          "message": "changed headings",
-          "date": "2026-04-30T16:44:43Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/commit/bbef4ece957b492b3d05d6d1e9f3839f2559817f"
-        },
-        {
-          "sha": "58480f9",
-          "message": "Merge branch 'main' of https://github.com/DagaVedant/Leccion-7-de-Espanol",
-          "date": "2026-04-30T16:38:48Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/commit/58480f902a9276562b5d363a5966163a3f14fa15"
-        },
-        {
-          "sha": "0dade02",
-          "message": "added names",
-          "date": "2026-04-30T16:38:31Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/commit/0dade02e2f6cb62abcf27960818772ab2eb9fdf0"
-        },
-        {
-          "sha": "82641a2",
-          "message": "Add README.md for project overview and instructions",
-          "date": "2026-04-30T00:26:02Z",
-          "author": "Vedant Daga",
-          "avatar": null,
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/commit/82641a265ddd57891366953c1959d77dc18aa722"
-        },
-        {
-          "sha": "df03a80",
-          "message": "updated tsconfig.json",
-          "date": "2026-04-30T00:15:28Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Leccion-7-de-Espanol/commit/df03a80768ee9e05ac502346fc95f8494a83d083"
-        }
-      ],
-      "contributions": {
-        "total": 19,
-        "days": {
-          "2026-04-30": 7,
-          "2026-04-29": 12
-        }
-      }
-    },
-    "Python-Examples": {
-      "owner": "DagaVedant",
-      "repo": "Python-Examples",
-      "fullName": "DagaVedant/Python-Examples",
-      "description": "An interactive, Python Learning course for beginners all on our browser. No downloads, no paywalls. Its broken into small units with the basic fundamental skills, with tons of different lessons including code examples, lesson goals, mini quizzes, practice questions, and projects. Basically everything you need to finally learn Python!!!",
+      "repo": "Hydroponic-Garden",
+      "fullName": "DagaVedant/Hydroponic-Garden",
+      "description": "",
       "topics": [],
       "stars": 0,
       "forks": 0,
       "watchers": 0,
       "openIssues": 0,
-      "language": "JavaScript",
-      "ext": "js",
-      "license": "MIT",
-      "homepage": "https://dagavedant.github.io/Python-Examples/",
-      "defaultBranch": "main",
-      "pushedAt": "2026-06-20T15:35:02Z",
-      "createdAt": "2026-06-04T23:24:05Z",
-      "htmlUrl": "https://github.com/DagaVedant/Python-Examples",
-      "languageBar": [
-        {
-          "name": "JavaScript",
-          "bytes": 79152,
-          "percent": 54.1
-        },
-        {
-          "name": "HTML",
-          "bytes": 60769,
-          "percent": 41.5
-        },
-        {
-          "name": "TypeScript",
-          "bytes": 6459,
-          "percent": 4.4
-        }
-      ],
-      "files": [
-        {
-          "name": ".vscode",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/.vscode",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "public",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/public",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "supabase",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/supabase",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 1",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%201",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 2",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%202",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 3",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%203",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 4",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%204",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 5",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%205",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 6",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%206",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": "Unit 7",
-          "type": "dir",
-          "size": 0,
-          "url": "https://github.com/DagaVedant/Python-Examples/tree/main/Unit%207",
-          "downloadUrl": null,
-          "hasSource": false
-        },
-        {
-          "name": ".gitignore",
-          "type": "file",
-          "size": 183,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/.gitignore",
-          "hasSource": false
-        },
-        {
-          "name": "course-info.js",
-          "type": "file",
-          "size": 1687,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/course-info.js",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/course-info.js",
-          "hasSource": false
-        },
-        {
-          "name": "index.html",
-          "type": "file",
-          "size": 10265,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/index.html",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/index.html",
-          "hasSource": false
-        },
-        {
-          "name": "lesson.html",
-          "type": "file",
-          "size": 43577,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/lesson.html",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/lesson.html",
-          "hasSource": false
-        },
-        {
-          "name": "LICENSE",
-          "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "login.html",
-          "type": "file",
-          "size": 3153,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/login.html",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/login.html",
-          "hasSource": false
-        },
-        {
-          "name": "README.md",
-          "type": "file",
-          "size": 5038,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/README.md",
-          "hasSource": false
-        },
-        {
-          "name": "signup.html",
-          "type": "file",
-          "size": 3774,
-          "url": "https://github.com/DagaVedant/Python-Examples/blob/main/signup.html",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Python-Examples/main/signup.html",
-          "hasSource": false
-        }
-      ],
-      "commitCount": 42,
-      "commits": [
-        {
-          "sha": "aa91539",
-          "message": "Create LICENSE",
-          "date": "2026-06-20T15:35:02Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Python-Examples/commit/aa91539d2c9f5f9d30f19498518b35b90ded873f"
-        },
-        {
-          "sha": "d509155",
-          "message": "Redirect to course after signup when session is returned",
-          "date": "2026-06-18T12:58:12Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Python-Examples/commit/d5091553731642b3ef625618071d5b264127e752"
-        },
-        {
-          "sha": "a409da7",
-          "message": "revised page redirects",
-          "date": "2026-06-17T17:16:06Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Python-Examples/commit/a409da7fcb42f9914c6014174b79a3118d9144da"
-        },
-        {
-          "sha": "e78292a",
-          "message": "made sure free demo page redirects to sign up page",
-          "date": "2026-06-17T17:12:45Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Python-Examples/commit/e78292ae8da2cd7cdd97bed39ef30fd6f2fbde11"
-        },
-        {
-          "sha": "73059d5",
-          "message": "added a distinct signup page to figure out why create account isnt working",
-          "date": "2026-06-17T17:05:15Z",
-          "author": "DagaVedant",
-          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Python-Examples/commit/73059d5c6874342db7e38e5c7bce58f110f126d8"
-        }
-      ],
-      "contributions": {
-        "total": 42,
-        "days": {
-          "2026-06-20": 1,
-          "2026-06-18": 1,
-          "2026-06-17": 3,
-          "2026-06-16": 1,
-          "2026-06-11": 2,
-          "2026-06-10": 16,
-          "2026-06-09": 1,
-          "2026-06-07": 6,
-          "2026-06-06": 10,
-          "2026-06-04": 1
-        }
-      }
-    },
-    "Almanac-Slack-Bot": {
-      "owner": "DagaVedant",
-      "repo": "Almanac-Slack-Bot",
-      "fullName": "DagaVedant/Almanac-Slack-Bot",
-      "description": "A daily digest Slack bot that sends a fun word, fact, history event, and quote to your channel.",
-      "topics": [],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0,
-      "language": "JavaScript",
-      "ext": "js",
-      "license": "MIT",
+      "language": null,
+      "ext": "md",
+      "license": null,
       "homepage": null,
       "defaultBranch": "main",
-      "pushedAt": "2026-06-20T15:34:35Z",
-      "createdAt": "2026-06-17T19:23:45Z",
-      "htmlUrl": "https://github.com/DagaVedant/Almanac-Slack-Bot",
-      "languageBar": [
-        {
-          "name": "JavaScript",
-          "bytes": 5877,
-          "percent": 100
-        }
-      ],
+      "pushedAt": "2026-08-26T19:24:52Z",
+      "createdAt": "2026-08-20T18:08:04Z",
+      "htmlUrl": "https://github.com/DagaVedant/Hydroponic-Garden",
+      "languageBar": [],
       "files": [
         {
-          "name": "images",
+          "name": "CAD",
           "type": "dir",
           "size": 0,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/tree/main/images",
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/tree/main/CAD",
+          "downloadUrl": null,
+          "hasSource": false
+        },
+        {
+          "name": "PCB",
+          "type": "dir",
+          "size": 0,
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/tree/main/PCB",
           "downloadUrl": null,
           "hasSource": false
         },
         {
           "name": ".gitignore",
           "type": "file",
-          "size": 18,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/blob/main/.gitignore",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/.gitignore",
+          "size": 101,
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/blob/main/.gitignore",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Hydroponic-Garden/main/.gitignore",
           "hasSource": false
         },
         {
-          "name": "index.js",
+          "name": "BOM.csv",
           "type": "file",
-          "size": 5877,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/blob/main/index.js",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/index.js",
+          "size": 16875,
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/blob/main/BOM.csv",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Hydroponic-Garden/main/BOM.csv",
           "hasSource": false
         },
         {
-          "name": "LICENSE",
+          "name": "parameters.md",
           "type": "file",
-          "size": 1068,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/blob/main/LICENSE",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/LICENSE",
-          "hasSource": false
-        },
-        {
-          "name": "package-lock.json",
-          "type": "file",
-          "size": 54825,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/blob/main/package-lock.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/package-lock.json",
-          "hasSource": false
-        },
-        {
-          "name": "package.json",
-          "type": "file",
-          "size": 346,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/blob/main/package.json",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/package.json",
+          "size": 4129,
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/blob/main/parameters.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Hydroponic-Garden/main/parameters.md",
           "hasSource": false
         },
         {
           "name": "README.md",
           "type": "file",
-          "size": 1993,
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/blob/main/README.md",
-          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Almanac-Slack-Bot/main/README.md",
+          "size": 5590,
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/blob/main/README.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Hydroponic-Garden/main/README.md",
+          "hasSource": false
+        },
+        {
+          "name": "spec.md",
+          "type": "file",
+          "size": 21672,
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/blob/main/spec.md",
+          "downloadUrl": "https://raw.githubusercontent.com/DagaVedant/Hydroponic-Garden/main/spec.md",
           "hasSource": false
         }
       ],
-      "commitCount": 18,
+      "branchCount": 1,
+      "tagCount": 0,
+      "contributors": [
+        {
+          "login": "DagaVedant",
+          "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
+          "contributions": 23,
+          "url": "https://github.com/DagaVedant"
+        }
+      ],
+      "coAuthors": [],
+      "commitCount": 23,
       "commits": [
         {
-          "sha": "860a4ab",
-          "message": "Create LICENSE",
-          "date": "2026-06-20T15:34:35Z",
+          "sha": "5e8bb46",
+          "message": "swapping the led strip and adding the sensor riser",
+          "date": "2026-08-26T19:24:51Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/commit/860a4ab618661deb9030808443813cbbd21ada07"
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/commit/5e8bb46372219a370bfbaefd8d67f6bcdcfb4c55"
         },
         {
-          "sha": "9838338",
-          "message": "Update README.md",
-          "date": "2026-06-20T15:32:18Z",
+          "sha": "ee415a5",
+          "message": "filling in the real part links and prices",
+          "date": "2026-08-26T19:13:00Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/commit/98383380769502b1bcd9e35f8247db91ae9110da"
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/commit/ee415a5513bf6d441d0df9c0fe1c4b34f205741f"
         },
         {
-          "sha": "5c4c9bf",
-          "message": "Update README.md",
-          "date": "2026-06-20T15:25:38Z",
+          "sha": "22a58e0",
+          "message": "adding all the links",
+          "date": "2026-08-26T18:52:02Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/commit/5c4c9bfa733f70b4438214fe0ccf32a798a05a7c"
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/commit/22a58e056bcdf03179629104702ff32bb7d4e1d2"
         },
         {
-          "sha": "24972c3",
-          "message": "quick bug fixes + readability boosts",
-          "date": "2026-06-19T18:54:29Z",
+          "sha": "2e84042",
+          "message": "updated BOM (edited self-funded and owned categories)",
+          "date": "2026-08-26T16:59:32Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/commit/24972c39dfe893bdea73409c6e73d2f24b42b1d5"
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/commit/2e840426f6a94e13e92199aba9e801c22584566a"
         },
         {
-          "sha": "5fbb5b4",
-          "message": "added demo image",
-          "date": "2026-06-19T18:48:25Z",
+          "sha": "cabc21f",
+          "message": "back to one table with a blank row between the groups",
+          "date": "2026-08-26T14:29:41Z",
           "author": "DagaVedant",
           "avatar": "https://avatars.githubusercontent.com/u/207593231?v=4",
-          "url": "https://github.com/DagaVedant/Almanac-Slack-Bot/commit/5fbb5b44946a4b6710a1e1384512465c1a7d4f1a"
+          "url": "https://github.com/DagaVedant/Hydroponic-Garden/commit/cabc21f871bfea2b464eb986533c942948fbf8bc"
         }
       ],
       "contributions": {
-        "total": 18,
+        "total": 23,
         "days": {
-          "2026-06-20": 3,
-          "2026-06-19": 2,
-          "2026-06-18": 12,
-          "2026-06-17": 1
+          "2026-08-26": 9,
+          "2026-08-25": 14
         }
       }
     }

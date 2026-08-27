@@ -19,6 +19,16 @@ function FileRow({ file, depth, isActive, onOpen }) {
     >
       <FileIcon ext={file.ext} className="h-4 w-4 flex-none" />
       <span className="truncate">{file.name}</span>
+      {file.inProgress ? (
+        // VS Code marks a dirty file with a dot in the gutter; borrowing that
+        // for "still being built" reads correctly without inventing a badge.
+        <span
+          title="In progress"
+          className="ml-auto flex-none pr-1 text-[15px] leading-none text-vs-accent"
+        >
+          •
+        </span>
+      ) : null}
     </button>
   );
 }
