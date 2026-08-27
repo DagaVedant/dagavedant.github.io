@@ -10,6 +10,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 display: ['var(--font-display)'],
+                ui: ['var(--font-ui)'],
                 inter: ['var(--font-inter)'],
                 mono: ['var(--font-mono)'],
             },
