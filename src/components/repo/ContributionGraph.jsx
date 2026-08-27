@@ -1,15 +1,8 @@
 import { useMemo } from "react";
 
-/**
- * GitHub's contribution grid: 53 weeks across, Sunday-to-Saturday down.
- *
- * Used twice — profile-level on the Welcome screen, and per-repo inside a repo
- * view. The per-repo version is genuinely sparse for a project with thirty
- * commits, which is a property of the data rather than a bug; the legend and the
- * total make that legible instead of looking broken.
- */
 
-/** GitHub's dark-theme scale. */
+
+
 const LEVELS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -29,7 +22,7 @@ function levelFor(count, max) {
 export default function ContributionGraph({ days, total, source, weeks = 53, compact = false }) {
   const { grid, months, max } = useMemo(() => {
     const today = new Date();
-    // Walk back to the Sunday that starts the visible range.
+    
     const end = new Date(today);
     end.setHours(0, 0, 0, 0);
     const start = new Date(end);

@@ -10,23 +10,7 @@ import markdown from "@/assets/languages/markdown.svg";
 import arduino from "@/assets/languages/arduino.svg";
 import json from "@/assets/languages/json.svg";
 
-/**
- * File-type icons using the real language marks.
- *
- * These are the official logos (devicon), stored in the repo rather than
- * hot-linked — no third-party request on every page, and they cannot change
- * under us. Vite inlines each as a data URI (all are under 2.5kB), so this adds
- * zero network requests.
- *
- * Rendered as <img> rather than inlined SVG on purpose: several of these carry
- * gradients with ids like "a" and "b", and inlining them all into one document
- * would collide those ids and cross-paint the icons. An <img> keeps each mark
- * in its own document.
- *
- * Three were recoloured in-file because the originals are unreadable on a dark
- * sidebar: markdown is black by default, json is a black-to-white gradient, and
- * bash's terminal body was near-invisible against #181818.
- */
+
 const LOGO = {
   py: python,
   js: javascript,
@@ -47,7 +31,7 @@ const LOGO = {
   json: json,
 };
 
-/** Extensions with no language mark of their own get a drawn document. */
+
 function GenericFile({ className, color }) {
   return (
     <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">

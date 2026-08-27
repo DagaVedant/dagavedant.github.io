@@ -36,6 +36,7 @@ export default [
     },
     rules: {
       "no-unused-vars": "off",
+      "no-empty": ["error", { "allowEmptyCatch": true }],
       "react/jsx-uses-vars": "error",
       "react/jsx-uses-react": "error",
       "unused-imports/no-unused-imports": "error",

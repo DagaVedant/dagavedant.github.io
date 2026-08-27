@@ -4,7 +4,7 @@ import { useWorkspace } from "@/lib/workspace";
 import { TREE, WORKSPACE_NAME } from "@/lib/files";
 import FileIcon from "./FileIcon";
 
-/** Depth-based indent, matching the reference screenshot's step. */
+
 const indent = (depth) => ({ paddingLeft: `${8 + depth * 12}px` });
 
 function FileRow({ file, depth, isActive, onOpen }) {
@@ -20,8 +20,8 @@ function FileRow({ file, depth, isActive, onOpen }) {
       <FileIcon ext={file.ext} className="h-4 w-4 flex-none" />
       <span className="truncate">{file.name}</span>
       {file.inProgress ? (
-        // VS Code marks a dirty file with a dot in the gutter; borrowing that
-        // for "still being built" reads correctly without inventing a badge.
+        
+        
         <span
           title="In progress"
           className="ml-auto flex-none pr-1 text-[15px] leading-none text-vs-accent"
@@ -55,7 +55,7 @@ function FolderRow({ node, depth, open, onToggle, children }) {
   );
 }
 
-/** Outline and Timeline, collapsed — as in the screenshot. Decorative. */
+
 function CollapsedPane({ label }) {
   return (
     <div

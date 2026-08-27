@@ -99,6 +99,7 @@
     "globals": "^15.14.0",
     "postcss": "^8.5.3",
     "shiki": "^4.4.3",
+    "strip-comments": "^2.0.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
     "vite": "^6.1.0"

@@ -2,19 +2,7 @@ import { useEffect, useRef } from "react";
 import { Plus, ChevronDown, SplitSquareHorizontal, Trash2, MoreHorizontal, ChevronUp, X, TriangleAlert } from "lucide-react";
 import { BOOT_LINES } from "./BootSequence";
 
-/**
- * The bottom panel.
- *
- * Six tabs, as the reference screenshot shows. TERMINAL is the only live one;
- * the other five are chrome, rendered as aria-hidden spans rather than disabled
- * buttons so they do not sit in the tab order advertising behaviour they do not
- * have.
- *
- * The TERMINAL tab holds the boot sequence's own scrollback, rendered from the
- * same BOOT_LINES the overlay streamed. That shared source is why the boot's
- * fade-out lands cleanly: what it uncovers is the same terminal content the
- * reader was just watching, already sitting in the panel.
- */
+
 const INERT_TABS = ["Problems", "Output", "Debug Console"];
 const INERT_TABS_AFTER = ["Ports"];
 
@@ -61,8 +49,9 @@ export default function Panel({ children }) {
 
         <div className="flex flex-none items-center gap-3 pl-3">
           <span aria-hidden="true" className="flex items-center gap-1 text-[12px] text-vs-descr">
-            <span className="text-term-path">powershell</span>
-            <TriangleAlert className="h-[13px] w-[13px] text-term-warn" strokeWidth={1.6} />
+            
+            <span style={{ color: "#5391FE" }}>powershell</span>
+            <TriangleAlert className="h-[13px] w-[13px]" style={{ color: "#CCA700" }} strokeWidth={1.6} />
           </span>
           <ToolbarIcon icon={Plus} />
           <ToolbarIcon icon={ChevronDown} className="h-[13px] w-[13px]" />
@@ -93,8 +82,8 @@ const TONE_CLASS = {
 function TerminalScrollback() {
   const ref = useRef(null);
 
-  // Open at the bottom, the way a terminal that has just finished a command
-  // does — not scrolled back to the first line of the clone output.
+  
+  
   useEffect(() => {
     const el = ref.current?.parentElement;
     if (el) el.scrollTop = el.scrollHeight;

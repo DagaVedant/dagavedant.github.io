@@ -4,7 +4,6 @@ import { ALL_FILES } from "@/lib/files";
 import { rankFiles } from "@/lib/fuzzy";
 import FileIcon from "./FileIcon";
 
-/** Bold the characters the query actually matched. */
 function Highlighted({ text, indices }) {
   if (!indices?.length) return text;
   const set = new Set(indices);
@@ -23,13 +22,6 @@ function Highlighted({ text, indices }) {
   );
 }
 
-/**
- * Ctrl+P — the fuzzy file switcher.
- *
- * Rendered only while open so the input never competes for focus, and closed on
- * Escape, blur-to-backdrop, or a pick. Keyboard is the point here: arrows move,
- * Enter opens, Escape cancels, and the list scrolls the active row into view.
- */
 export default function QuickOpen() {
   const { paletteOpen, setPaletteOpen, open } = useWorkspace();
 
@@ -40,12 +32,10 @@ export default function QuickOpen() {
 
   const results = useMemo(() => rankFiles(ALL_FILES, query).slice(0, 12), [query]);
 
-  // Reset per opening, not per keystroke.
   useEffect(() => {
     if (!paletteOpen) return;
     setQuery("");
     setIndex(0);
-    // Focus after paint, or the browser may hand focus back to the trigger.
     const id = requestAnimationFrame(() => inputRef.current?.focus());
     return () => cancelAnimationFrame(id);
   }, [paletteOpen]);

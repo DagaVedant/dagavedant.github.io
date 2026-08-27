@@ -1,18 +1,11 @@
 import { ExternalLink } from "lucide-react";
 
-/**
- * contact.sh — a shell script whose command lines are the real links.
- *
- * Each row is an anchor rather than a button, so it gets the browser's own
- * middle-click, copy-link and open-in-new-tab behaviour for free. The `$` and
- * the command name sit inside the anchor but are marked decorative, so a screen
- * reader announces "Email vedantdaga04@gmail.com", not "dollar mail".
- */
+
 export default function ShellView({ source }) {
   const { shebang, comment, commands } = source;
   const gutterWidth = "62px";
 
-  // Header, blank, comment, blank = the first four lines before any command.
+  
   const lineNumbers = 4 + commands.length;
 
   return (

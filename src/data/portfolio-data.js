@@ -153,14 +153,7 @@ export const techCategories = [
   },
 ];
 
-/**
- * The seven repos the portfolio shows.
- *
- * Only `github` and `inProgress` are read at runtime now: scripts/fetch-repos.mjs
- * parses the URLs, and everything shown in a repo view — description, topics,
- * languages, files, commits, README — comes from the GitHub API at build time.
- * `title` is kept for readability when editing this list.
- */
+
 export const projects = [
   {
     title: "PulseFlow-AI",
@@ -195,7 +188,7 @@ export const projects = [
 
 export const education = [
   {
-    degree: "Freshman at Edison Academy Magnet School",
+    degree: "Sophomore at Edison Academy Magnet School",
     school: "Edison Academy Magnet School",
     period: "2025 - 2029",
     details: "One of the top public high schools in Middlesex County.",
@@ -241,14 +234,13 @@ export const leadership = [
   },
 ];
 
-/** @type {never[]} */
 export const certifications = [
   {
     title: "Google AI",
     issuer: "Google",
     kind: "Specialization",
-    // Verified public 2026-08-27: resolves without a login and names the
-    // learner. Canonical accomplishment URL, UTM parameters stripped.
+    
+    
     href: "https://www.coursera.org/account/accomplishments/specialization/BBZERR8S00VY",
     credentialId: "BBZERR8S00VY",
     verified: true,
@@ -257,9 +249,9 @@ export const certifications = [
     title: "Microsoft Python Development",
     issuer: "Microsoft",
     kind: "Specialization",
-    // Verified public 2026-08-27: resolves without a login and names the
-    // learner. This is the full Specialization, not the single
-    // "Python Programming Fundamentals" course previously listed.
+    
+    
+    
     href: "https://www.coursera.org/account/accomplishments/specialization/QAKQDROT86TO",
     credentialId: "QAKQDROT86TO",
     verified: true,
@@ -279,7 +271,7 @@ export const hobbies = [
     icon: TennisBallIcon,
     label: "Tennis",
     description:
-      "I play tennis with friends and for school. Season just ended and I made JV first as a freshman.",
+      "I play tennis with friends and for school. Made JV in my freshman season.",
   },
   {
     icon: Gamepad2,

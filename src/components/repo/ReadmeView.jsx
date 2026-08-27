@@ -4,18 +4,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import { BookOpen } from "lucide-react";
 
-/**
- * A repo's real README, rendered the way GitHub renders it.
- *
- * READMEs are arbitrary third-party markup: badge rows, screenshots, HTML
- * blocks, tables. rehype-raw parses the embedded HTML so `<p align="center">
- * <img>` blocks survive, and rehype-sanitize runs AFTER it to strip anything
- * dangerous. Order matters — sanitising before raw parsing would leave the raw
- * HTML untouched.
- *
- * The schema below extends the default with just the attributes real READMEs
- * need: image sizing and alignment. It does not allow style or event handlers.
- */
+
 const schema = {
   ...defaultSchema,
   attributes: {

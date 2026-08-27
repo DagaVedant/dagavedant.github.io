@@ -11,17 +11,7 @@ import {
 import { useWorkspace } from "@/lib/workspace";
 import { contactLinks } from "@/data/portfolio-data";
 
-/**
- * The 48px rail. Explorer and Search are real; the rest are chrome.
- *
- * Inert icons render as aria-hidden spans, not disabled buttons — they are
- * scenery, and putting eight dead buttons in the tab order would make keyboard
- * navigation worse to gain nothing.
- *
- * The social links live at the bottom, where VS Code puts the account badge.
- * That is the one place in the rail where a real control is expected, so the
- * portfolio's outbound links inherit an affordance instead of inventing one.
- */
+
 const INERT = [
   { icon: GitBranch, label: "Source Control" },
   { icon: Bug, label: "Run and Debug" },
@@ -39,7 +29,7 @@ export default function ActivityBar() {
       className="flex h-full flex-col items-center justify-between border-r border-vs-border bg-vs-chrome py-1"
     >
       <div className="flex flex-col items-center">
-        {/* Explorer — always the active view. */}
+        
         <span
           className="relative flex h-12 w-12 items-center justify-center text-vs-text"
           title="Explorer"

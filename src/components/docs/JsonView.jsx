@@ -1,18 +1,11 @@
 import { useMemo, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
-/**
- * stack.json as the editor renders JSON: line numbers, Dark Modern token
- * colours, and folding chevrons on the lines that open a block.
- *
- * Folding is computed from the pretty-printed text rather than from the object,
- * because what folds is a *range of lines* — deriving it from the source keeps
- * the numbering honest when a region is collapsed.
- */
 
-/** Colour one line of pretty-printed JSON. */
+
+
 function JsonLine({ text }) {
-  // "key": value   |   "string",   |   123   |   true   |   { } [ ] ,
+  
   const keyMatch = text.match(/^(\s*)("(?:[^"\\]|\\.)*")(\s*:\s*)(.*)$/);
 
   if (keyMatch) {
@@ -55,7 +48,7 @@ function JsonValue({ text }) {
   );
 }
 
-/** Map each opening line to the line that closes it. */
+
 function computeFolds(lines) {
   const folds = new Map();
   const stack = [];
@@ -86,7 +79,7 @@ export default function JsonView({ source }) {
       return next;
     });
 
-  // Lines swallowed by a collapsed region.
+  
   const hidden = useMemo(() => {
     const set = new Set();
     for (const start of collapsed) {

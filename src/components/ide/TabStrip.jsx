@@ -4,14 +4,7 @@ import { useWorkspace } from "@/lib/workspace";
 import { getFile } from "@/lib/files";
 import FileIcon from "./FileIcon";
 
-/**
- * The editor tab strip.
- *
- * Dark Modern marks the active tab with a 1px accent along its TOP edge. Here
- * that line is a single positioned element that slides between tabs rather than
- * a border toggled per tab, so switching files animates instead of blinking —
- * one of the required visible motions.
- */
+
 export default function TabStrip() {
   const { tabs, activeId, setActiveId, close } = useWorkspace();
 
@@ -46,7 +39,7 @@ export default function TabStrip() {
     };
   }, [measure]);
 
-  // Keep the active tab in view when it is opened from the tree or Ctrl+P.
+  
   useEffect(() => {
     const el = activeId ? tabRefs.current.get(activeId) : null;
     el?.scrollIntoView({ block: "nearest", inline: "nearest" });
@@ -88,7 +81,7 @@ export default function TabStrip() {
               onKeyDown={(e) => onKeyDown(e, index)}
               onClick={() => setActiveId(id)}
               onAuxClick={(e) => {
-                if (e.button === 1) close(id); // middle-click closes, as in the app
+                if (e.button === 1) close(id); 
               }}
               className={`group flex h-full min-w-0 max-w-[220px] flex-none cursor-pointer items-center gap-2 border-r border-vs-border pl-3 pr-2 text-[13px] ${
                 isActive
@@ -126,7 +119,7 @@ export default function TabStrip() {
         <MoreHorizontal className="h-4 w-4" strokeWidth={1.4} />
       </div>
 
-      {/* The sliding active-tab accent. */}
+      
       <span
         aria-hidden="true"
         className="pointer-events-none absolute left-0 top-0 h-[1px] bg-vs-accent"

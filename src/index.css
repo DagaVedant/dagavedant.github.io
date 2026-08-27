@@ -4,53 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================================================================
-   vedant-portfolio — VS Code Dark Modern
 
-   Single dark theme. There is no light palette, no .dark class, and no
-   prefers-color-scheme block; do not add one.
-
-   Two token families:
-     --shadcn names (HSL triplets)  Tailwind consumes these as
-                                    hsl(var(--x) / <alpha>), so the opacity
-                                    modifiers (bg-card/50) keep working.
-                                    src/components/ui/* depends on the names.
-     --vs-* (raw hex)               Hand-written CSS only. Editor chrome and
-                                    syntax colours, lifted from Dark Modern
-                                    so they match the real app exactly.
-   ========================================================================= */
 
 @layer base {
   :root {
-    /* ---------- Fonts ---------- */
+    
     --font-display: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
     --font-inter: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    /* ---------- shadcn palette, valued to Dark Modern ---------- */
-    --background: 0 0% 12.2%; /* editor            #1F1F1F */
-    --foreground: 0 0% 80%; /* text              #CCCCCC */
-    --card: 0 0% 12.5%; /* editor widget     #202020 */
+    
+    --background: 0 0% 12.2%; 
+    --foreground: 0 0% 80%; 
+    --card: 0 0% 12.5%; 
     --card-foreground: 0 0% 80%;
-    --popover: 0 0% 13.3%; /* quick input       #222222 */
+    --popover: 0 0% 13.3%; 
     --popover-foreground: 0 0% 80%;
-    --primary: 206 100% 41.6%; /* focus / status    #0078D4 */
+    --primary: 206 100% 41.6%; 
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 19.2%; /* input background  #313131 */
+    --secondary: 0 0% 19.2%; 
     --secondary-foreground: 0 0% 80%;
-    --muted: 240 5.2% 22.7%; /* inactive selection #37373D */
-    --muted-foreground: 0 0% 61.6%; /* description text  #9D9D9D */
-    --accent: 195 4.5% 17.3%; /* list hover        #2A2D2E */
+    --muted: 240 5.2% 22.7%; 
+    --muted-foreground: 0 0% 61.6%; 
+    --accent: 195 4.5% 17.3%; 
     --accent-foreground: 0 0% 80%;
     --destructive: 0 62% 55%;
     --destructive-foreground: 0 0% 94%;
-    --border: 0 0% 16.9%; /* widget border     #2B2B2B */
+    --border: 0 0% 16.9%; 
     --input: 0 0% 19.2%;
     --ring: 206 100% 41.6%;
     --radius: 0.25rem;
 
-    /* ---------- VS Code chrome (raw hex) ---------- */
-    --vs-chrome: #181818; /* title bar, activity bar, sidebar, panel tabs */
+    
+    --vs-chrome: #181818; 
     --vs-editor: #1f1f1f;
     --vs-widget: #202020;
     --vs-quickinput: #222222;
@@ -61,7 +47,7 @@
     --vs-breadcrumb: #a9a9a9;
     --vs-linenum: #6e7681;
     --vs-linenum-active: #cccccc;
-    --vs-accent: #0078d4; /* focus border, active tab top, status bar */
+    --vs-accent: #0078d4; 
     --vs-statusbar: #0078d4;
     --vs-statusbar-fg: #ffffff;
     --vs-list-hover: #2a2d2e;
@@ -71,24 +57,19 @@
     --vs-scrollbar: #79797966;
     --vs-scrollbar-hover: #646464b3;
 
-    /* ---------- Syntax, Dark Modern TextMate ----------
-       Shiki emits inline styles from the same theme; these exist for the
-       renderers written by hand (JSON, shell, markdown source). */
-    --vs-keyword: #c586c0; /* import, from, def, return */
-    --vs-type: #4ec9b0; /* classes, types, modules */
+    
+    --vs-keyword: #c586c0; 
+    --vs-type: #4ec9b0; 
     --vs-function: #dcdcaa;
     --vs-variable: #9cdcfe;
     --vs-string: #ce9178;
     --vs-number: #b5cea8;
     --vs-comment: #6a9955;
-    --vs-constant: #569cd6; /* True, False, None, null */
+    --vs-constant: #569cd6; 
     --vs-operator: #d4d4d4;
     --vs-punctuation: #cccccc;
 
-    /* ---------- GitHub dark, for the repo views ----------
-       A repo page rendered inside an editor tab should look like GitHub, not
-       like the editor around it — the same way VS Code's Simple Browser shows
-       a real site inside a pane. Values are GitHub's own dark theme. */
+    
     --gh-canvas: #0d1117;
     --gh-subtle: #161b22;
     --gh-inset: #010409;
@@ -104,46 +85,41 @@
     --gh-green-hover: #2ea043;
     --gh-success: #3fb950;
 
-    /* ---------- Terminal semantics ----------
-       Boot terminal and Terminal panel only. Never page content. */
+    
     --term-ok: #23d18b;
     --term-warn: #f5f543;
     --term-error: #f14c4c;
     --term-dim: #8b8b8b;
     --term-path: #29b8db;
 
-    /* ---------- Chrome metrics ----------
-       Components read these and never hardcode pixels. Matched to the
-       reference screenshot. */
+    
     --ide-titlebar: 35px;
     --ide-activity: 48px;
     --ide-sidebar: 260px;
     --ide-tabstrip: 35px;
     --ide-breadcrumb: 24px;
-    /* The modern workbench floats the editor and panel as separate rounded
-       panes on the chrome, with a gap between them. The sash lives in that
-       gap, so --ide-sash is both the grab strip and the visual separation. */
+    
     --ide-gap: 6px;
     --ide-sash: 8px;
     --ide-pane-radius: 8px;
     --ide-paneltabs: 35px;
     --ide-panelbody: 185px;
-    --ide-panel: 220px; /* paneltabs + panelbody */
+    --ide-panel: 220px; 
     --ide-statusbar: 22px;
 
-    /* Derived, kept for anything still measuring against the old model. */
-    --ide-top: 94px; /* titlebar + tabstrip + breadcrumb */
-    --ide-left: 308px; /* activity + sidebar */
-    --ide-bottom: 242px; /* panel + statusbar */
+    
+    --ide-top: 94px; 
+    --ide-left: 308px; 
+    --ide-bottom: 242px; 
 
-    /* Charts: the single-accent rule, then neutrals. */
+    
     --chart-1: 206 100% 41.6%;
     --chart-2: 0 0% 61.6%;
     --chart-3: 0 0% 80%;
     --chart-4: 215 7.9% 46.9%;
     --chart-5: 0 0% 38%;
 
-    /* shadcn sidebar tokens mapped onto the IDE chrome. */
+    
     --sidebar-background: 0 0% 9.4%;
     --sidebar-foreground: 0 0% 80%;
     --sidebar-primary: 206 100% 41.6%;
@@ -154,9 +130,7 @@
     --sidebar-ring: 206 100% 41.6%;
   }
 
-  /* Responsive: collapse METRICS only, never component structure.
-     Mobile is out of scope per spec §12 — these keep the layout from
-     visibly exploding, they are not a designed phone experience. */
+  
   @media (max-width: 1100px) {
     :root {
       --ide-sidebar: 210px;
@@ -187,9 +161,7 @@
 
   html {
     background-color: var(--vs-editor);
-    /* The app is viewport-locked: the editor pane owns scrolling, the window
-       never does. Without this the body gains a second scrollbar the moment
-       any child overflows. */
+    
     overflow: hidden;
   }
 
@@ -211,7 +183,7 @@
   }
 
   ::selection {
-    background-color: #264f78; /* Dark Modern editor.selectionBackground */
+    background-color: #264f78; 
     color: var(--vs-text);
   }
 
@@ -220,7 +192,7 @@
     outline-offset: -1px;
   }
 
-  /* VS Code's scrollbars: no track, translucent slider, square. */
+  
   * {
     scrollbar-color: #79797966 transparent;
     scrollbar-width: thin;
@@ -247,19 +219,7 @@
 }
 
 @layer components {
-  /* =====================================================================
-     Shell — a viewport-locked grid.
-
-       ide-root                rows: titlebar / middle / statusbar
-         └ ide-middle          cols: activity / sidebar / main
-              └ ide-main       rows: editor / panel
-                   └ ide-editor  rows: tabs / breadcrumb / scroll
-                        └ ide-editor-scroll   <- the ONLY scroller
-
-     Every track that must be allowed to shrink carries min-height:0 or
-     min-width:0; without them a grid item's automatic minimum size is its
-     content, and the pane grows the page instead of scrolling.
-     ===================================================================== */
+  
   .ide-root {
     position: fixed;
     inset: 0;
@@ -274,14 +234,13 @@
     grid-template-columns: var(--ide-activity) var(--ide-sidebar) minmax(0, 1fr);
     min-height: 0;
     overflow: hidden;
-    /* Shows through the gaps around the floating panes. */
+    
     background-color: var(--vs-chrome);
   }
 
   .ide-main {
     display: grid;
-    /* editor / sash / panel — the sash is a real row so the gap between the
-       panes and the drag target are the same 8px. */
+    
     grid-template-rows: minmax(0, 1fr) var(--ide-sash) var(--ide-panel);
     min-width: 0;
     min-height: 0;
@@ -302,7 +261,7 @@
     border-radius: var(--ide-pane-radius);
   }
 
-  /* The panel is the second floating pane. */
+  
   .ide-panel {
     display: flex;
     flex-direction: column;
@@ -320,11 +279,7 @@
     position: relative;
   }
 
-  /* =====================================================================
-     Type scale — prose only.
-     Mono is interface chrome and machine output; it is set locally by the
-     chrome components, not here.
-     ===================================================================== */
+  
   .t-display {
     font-family: var(--font-display);
     font-weight: 700;
@@ -400,7 +355,7 @@
     font-variant-ligatures: none;
   }
 
-  /* Chrome label: the 11px uppercase used for EXPLORER, panel tabs, etc. */
+  
   .t-chrome {
     font-family: var(--font-inter);
     font-weight: 400;
@@ -410,9 +365,7 @@
     color: var(--vs-text);
   }
 
-  /* =====================================================================
-     Document layout — the inside of an open file.
-     ===================================================================== */
+  
   .doc {
     max-width: 78ch;
     padding: 32px 40px 96px;
@@ -439,7 +392,7 @@
     margin-bottom: 24px;
   }
 
-  /* ---------- Surfaces ---------- */
+  
   .card {
     background-color: var(--vs-widget);
     color: hsl(var(--card-foreground));
@@ -460,7 +413,7 @@
     transform: translateY(-1px);
   }
 
-  /* A VS Code list row: the Explorer / Ctrl+P / file-listing primitive. */
+  
   .vs-row {
     display: flex;
     align-items: center;
@@ -494,15 +447,9 @@
   }
 }
 
-/* =========================================================================
-   Ambient layer.
 
-   Outside @layer components deliberately: Tailwind tree-shakes that layer
-   against a content scan, and several of these are applied from generated
-   markup (Shiki output, the JSON renderer) that the scanner never sees.
-   ========================================================================= */
 
-/* ---------- Syntax tokens, for the hand-written renderers ---------- */
+
 .tok-keyword { color: var(--vs-keyword); }
 .tok-type { color: var(--vs-type); }
 .tok-function { color: var(--vs-function); }
@@ -514,17 +461,14 @@
 .tok-operator { color: var(--vs-operator); }
 .tok-punct { color: var(--vs-punctuation); }
 
-/* ---------- Terminal semantics ---------- */
+
 .term-ok { color: var(--term-ok); }
 .term-warn { color: var(--term-warn); }
 .term-error { color: var(--term-error); }
 .term-dim { color: var(--term-dim); }
 .term-path { color: var(--term-path); }
 
-/* ---------- Shiki output ----------
-   The build emits pre.shiki with inline colours from the same Dark Modern
-   theme. Strip its background so it sits on the editor ground, and give it
-   the editor's own metrics. */
+
 .shiki {
   background-color: transparent !important;
   font-family: var(--font-mono);
@@ -548,7 +492,7 @@
   padding-inline: 16px;
 }
 
-/* Gutter numbering for any pre that opts in via data-line-numbers. */
+
 .shiki[data-line-numbers] {
   counter-reset: shiki-ln;
 }
@@ -564,9 +508,7 @@
   user-select: none;
 }
 
-/* ---------- Reveal on scroll ----------
-   opacity + 14px rise, 500ms, once. Components add .reveal-in on entry and
-   stagger siblings with transition-delay. */
+
 .reveal {
   opacity: 0;
   transform: translateY(14px);
@@ -580,7 +522,7 @@
   transform: none;
 }
 
-/* ---------- Terminal caret ---------- */
+
 .caret-blink {
   display: inline-block;
   width: 8px;
@@ -605,13 +547,7 @@
   }
 }
 
-/* =========================================================================
-   Motion kill-switch.
-   useMotion()/setMotion() keep <html data-motion="on|off"> in sync with the
-   RESOLVED preference — OS default, overridable by the reader. Deliberately
-   not a bare prefers-reduced-motion query: a reader who turns motion back ON
-   must actually get motion.
-   ========================================================================= */
+
 html[data-motion="off"] .reveal {
   opacity: 1;
   transform: none;

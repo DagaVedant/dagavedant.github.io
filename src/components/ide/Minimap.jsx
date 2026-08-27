@@ -1,20 +1,10 @@
 import { useMemo } from "react";
 import { useWorkspace } from "@/lib/workspace";
 
-/**
- * Decorative minimap.
- *
- * Deliberately NOT a render of the open file — spec 8 calls for a strip. It is
- * seeded from the file id so each file keeps its own stable silhouette across
- * re-renders and tab switches, which is what sells it: a minimap that reshuffled
- * every render would read as noise.
- *
- * aria-hidden, pointer-events-none: it is scenery, not a control, and pretending
- * otherwise would put a dead scrollbar in the tab order.
- */
+
 function seededLines(seed, count) {
-  // xorshift — deterministic, and Math.random is unavailable at render time
-  // anyway if this ever moves to SSR.
+  
+  
   let x = seed || 1;
   const rand = () => {
     x ^= x << 13;
@@ -28,7 +18,7 @@ function seededLines(seed, count) {
   for (let i = 0; i < count; i += 1) {
     const r = rand();
     if (r < 0.09) {
-      lines.push(null); // blank line
+      lines.push(null); 
       continue;
     }
     if (r < 0.2 && indent < 3) indent += 1;
@@ -72,7 +62,7 @@ export default function Minimap() {
           )
         )}
       </div>
-      {/* The viewport box the real minimap draws over the visible region. */}
+      
       <span className="absolute inset-x-0 top-2 h-24 bg-white/[0.045]" />
     </div>
   );

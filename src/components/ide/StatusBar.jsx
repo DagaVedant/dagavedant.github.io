@@ -12,14 +12,7 @@ const Item = ({ children, title }) => (
   </span>
 );
 
-/**
- * The blue status bar.
- *
- * One real control: the motion toggle. It belongs here because this is where
- * VS Code puts persistent workspace switches, and because a reader whose OS
- * requests reduced motion needs a way to turn the site's motion back ON —
- * which a bare prefers-reduced-motion media query would never give them.
- */
+
 export default function StatusBar() {
   const { activeFile } = useWorkspace();
   const motion = useMotion();

@@ -27,14 +27,6 @@ import {
   Check,
 } from "lucide-react";
 
-/**
- * The pieces of a GitHub repository page, matching the real Code tab.
- *
- * Everything here is styled with the --gh-* tokens rather than the editor's,
- * because this is a GitHub page being displayed inside an editor tab — the same
- * relationship VS Code's Simple Browser has with a real site.
- */
-
 const LANG_COLORS = {
   Python: "#3572A5",
   JavaScript: "#f1e05a",
@@ -57,8 +49,6 @@ const LANG_COLORS = {
 
 export const langColor = (name) => LANG_COLORS[name] || "#8b949e";
 
-/* ------------------------------------------------------------- repo tabs  */
-
 const TABS = [
   { label: "Code", icon: Code2, active: true },
   { label: "Issues", icon: CircleDot },
@@ -72,7 +62,6 @@ const TABS = [
   { label: "Settings", icon: Settings },
 ];
 
-/** Decorative — only Code is real, and it is the page you are already on. */
 export function RepoTabs() {
   return (
     <nav
@@ -96,8 +85,6 @@ export function RepoTabs() {
   );
 }
 
-/* ----------------------------------------------------------------- header */
-
 export function RepoHeader({ repo, inProgress }) {
   return (
     <header className="flex flex-wrap items-center gap-3 px-4 pb-3 pt-4">
@@ -112,7 +99,7 @@ export function RepoHeader({ repo, inProgress }) {
           {repo.owner}
         </a>
         <span className="text-gh-muted">/</span>
-        {/* The repo name is the primary way out to GitHub. */}
+
         <a
           href={repo.htmlUrl}
           target="_blank"
@@ -142,7 +129,6 @@ export function RepoHeader({ repo, inProgress }) {
   );
 }
 
-/** GitHub's small button. Decorative — the real way out is the repo name. */
 function GhButton({ icon: Icon, label, count, caret }) {
   return (
     <span
@@ -165,11 +151,8 @@ function GhButton({ icon: Icon, label, count, caret }) {
   );
 }
 
-/* -------------------------------------------------------------- branch bar */
-
 export function BranchBar({ repo }) {
-  // Lite builds have no branch/tag counts; default before pluralising so the
-  // label never reads "1Branches".
+
   const branches = repo.branchCount ?? 1;
   const tags = repo.tagCount ?? 0;
 
@@ -222,8 +205,6 @@ export function BranchBar({ repo }) {
     </div>
   );
 }
-
-/* -------------------------------------------------------------- file table */
 
 export function FileTable({ repo, onOpenFile }) {
   const latest = repo.commits?.[0];
@@ -318,8 +299,6 @@ export function FileTable({ repo, onOpenFile }) {
     </div>
   );
 }
-
-/* ------------------------------------------------------------- side panel */
 
 export function AboutPanel({ repo }) {
   return (
@@ -468,15 +447,10 @@ function SideLink({ icon: Icon, href, label }) {
   );
 }
 
-/* ------------------------------------------------------------------ utils */
-
 export function relativeTime(iso) {
   if (!iso) return "";
   const secs = Math.max(1, Math.round((Date.now() - new Date(iso).getTime()) / 1000));
 
-  // GitHub's own phrasing. Note the asymmetry: a single day is "yesterday",
-  // but a single week/month/year is "last week/month/year" — "last day" is
-  // not something GitHub ever prints.
   const units = [
     ["year", 31536000, "last year"],
     ["month", 2592000, "last month"],

@@ -4,7 +4,7 @@ import { WORKSPACE_NAME } from "@/lib/files";
 
 const MENUS = ["File", "Edit", "Selection", "View", "Go", "Run", "Terminal", "Help"];
 
-/** VS Code's mark. Decorative; the command centre beside it carries the name. */
+
 function VSCodeLogo() {
   return (
     <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" aria-hidden="true">
@@ -16,7 +16,7 @@ function VSCodeLogo() {
   );
 }
 
-/** Layout-toggle glyphs from the real title bar. Decorative. */
+
 function LayoutGlyph({ side }) {
   const fills = {
     left: <rect x="1.5" y="2.5" width="4" height="11" fill="currentColor" opacity="0.85" />,
@@ -31,15 +31,7 @@ function LayoutGlyph({ side }) {
   );
 }
 
-/**
- * The single-row title bar: menu, navigation, command centre, layout toggles,
- * window controls.
- *
- * Everything here is chrome EXCEPT the command centre, which opens Ctrl+P. The
- * inert parts are rendered as spans with aria-hidden rather than disabled
- * buttons — a disabled button is still announced, and a control that looks
- * clickable but never responds is worse than one that never invites the click.
- */
+
 export default function TitleBar() {
   const { setPaletteOpen } = useWorkspace();
 
@@ -68,7 +60,7 @@ export default function TitleBar() {
           <ChevronRight className="h-4 w-4" />
         </span>
 
-        {/* The one live control up here. */}
+        
         <button
           type="button"
           onClick={() => setPaletteOpen(true)}

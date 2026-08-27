@@ -1,14 +1,6 @@
 import { Download, ExternalLink } from "lucide-react";
 
-/**
- * resume.pdf in a tab, the way VS Code opens a PDF.
- *
- * <object> rather than <iframe>: it degrades to its own children when the
- * browser has no PDF viewer, which gives a real fallback instead of an empty
- * grey rectangle. Some mobile browsers never render inline PDFs at all, so the
- * download and open-in-new-tab controls are always present rather than being a
- * fallback-only affordance.
- */
+
 export default function PdfView() {
   const src = `${import.meta.env.BASE_URL}resume.pdf`;
 
@@ -38,9 +30,7 @@ export default function PdfView() {
       </div>
 
       <div className="min-h-0 flex-1">
-        {/* <object>'s children ARE the fallback: the browser renders them when
-            it cannot display the resource. That is why this is not an <iframe>,
-            and why no onError state is needed. */}
+        
         <object data={src} type="application/pdf" className="h-full w-full" aria-label="Resume, PDF">
           <Fallback src={src} />
         </object>

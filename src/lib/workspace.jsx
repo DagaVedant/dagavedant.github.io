@@ -1,13 +1,4 @@
-/**
- * Workspace state — which files are open, which one is showing.
- *
- * Models VS Code's editor group: opening a file that is already open just
- * focuses its tab, closing the active tab falls to a neighbour, and the whole
- * set is restored on reload.
- *
- * There is no URL routing by design (spec 2), so sessionStorage is the only
- * thing standing between a refresh and losing your place.
- */
+
 
 import {
   createContext,
@@ -24,14 +15,14 @@ const STORAGE_KEY = "vd-workspace";
 
 const WorkspaceContext = createContext(null);
 
-/** sessionStorage throws in some privacy modes; never let that break the app. */
+
 function readStored() {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (!parsed || !Array.isArray(parsed.tabs)) return null;
-    // Drop ids that no longer exist — a repo can disappear between deploys.
+    
     const tabs = parsed.tabs.filter((id) => FILES.has(id));
     if (tabs.length === 0) return null;
     const activeId = tabs.includes(parsed.activeId) ? parsed.activeId : tabs[tabs.length - 1];
@@ -44,9 +35,7 @@ function readStored() {
 function writeStored(tabs, activeId) {
   try {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ tabs, activeId }));
-  } catch {
-    /* private mode — state is simply not restored */
-  }
+  } catch {}
 }
 
 export function WorkspaceProvider({ children }) {
@@ -55,7 +44,7 @@ export function WorkspaceProvider({ children }) {
   const [tabs, setTabs] = useState(() => restored?.tabs ?? []);
   const [activeId, setActiveId] = useState(() => restored?.activeId ?? null);
 
-  // Ctrl+P lives here so both the command centre and the keyboard can open it.
+  
   const [paletteOpen, setPaletteOpen] = useState(false);
 
   useEffect(() => {
@@ -78,7 +67,7 @@ export function WorkspaceProvider({ children }) {
       setActiveId((current) => {
         if (current !== id) return current;
         if (next.length === 0) return null;
-        // VS Code focuses the tab to the right, falling back to the left.
+        
         return next[Math.min(index, next.length - 1)];
       });
 
@@ -96,7 +85,7 @@ export function WorkspaceProvider({ children }) {
     setActiveId(id);
   }, []);
 
-  /** Cycle tabs with Ctrl+PageUp / Ctrl+PageDown, as the real app does. */
+  
   const cycle = useCallback(
     (delta) => {
       if (tabs.length < 2) return;

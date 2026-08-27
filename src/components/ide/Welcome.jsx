@@ -6,18 +6,6 @@ import { relativeTime } from "@/components/repo/RepoParts";
 import ContributionGraph from "@/components/repo/ContributionGraph";
 import FileIcon from "./FileIcon";
 
-/**
- * The Get Started page, which is what every visitor lands on.
- *
- * VS Code's own layout — product name where the title goes, Start and Recent in
- * two columns, keyboard hints at the foot — carrying portfolio content. The
- * contribution graph sits where the walkthrough cards would, because it is the
- * one thing on this screen that is evidence rather than navigation.
- *
- * Since the default view is a menu rather than content (spec 2), the hint line
- * telling people the Explorer is clickable is load-bearing, not decoration.
- */
-
 const START_ITEMS = [
   { id: "about", icon: FileText, label: "Read about me", sub: "about.md" },
   { id: "projects", icon: FolderOpen, label: "Browse projects", sub: `${PROJECT_FILES.length} repositories` },
@@ -30,7 +18,6 @@ export default function Welcome() {
 
   const tagline = taglineParts.map((p) => p.text).join("");
 
-  // Newest first — the same ordering the tree uses, so Recent matches it.
   const recent = PROJECT_FILES.slice(0, 6).map((f) => ({
     file: f,
     repo: REPO_DATA.repos[f.repo],

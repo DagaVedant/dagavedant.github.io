@@ -3,15 +3,6 @@ import ReactMarkdown from "react-markdown";
 import { Eye, Code2 } from "lucide-react";
 import CodeFrame from "./CodeFrame";
 
-/* ----------------------------------------------------- markdown source ---- */
-
-/**
- * Inline markdown tokenising for the source view: `code`, **bold**, _em_ and
- * [links](url), coloured the way Dark Modern colours them.
- *
- * Deliberately small. This highlights markdown *source* — it is not a parser,
- * and it does not need to be, because the preview side is what renders meaning.
- */
 const INLINE = /(`[^`]+`)|(\*\*[^*]+\*\*)|(\[[^\]]+\]\([^)]+\))/g;
 
 function InlineSource({ text }) {
@@ -78,13 +69,6 @@ function SourceLine(line) {
   return <InlineSource text={line} />;
 }
 
-/* ---------------------------------------------------------- preview ------ */
-
-/**
- * Prose styling for the rendered side. Written out per element rather than via a
- * typography plugin so headings, lists and links each sit on the project's own
- * type scale instead of a generic one.
- */
 const components = {
   h1: ({ children }) => <h1 className="t-display mb-5 mt-2">{children}</h1>,
   h2: ({ children }) => (
@@ -97,7 +81,7 @@ const components = {
   ul: ({ children }) => <ul className="mb-4 flex list-none flex-col gap-2">{children}</ul>,
   ol: ({ children }) => <ol className="mb-4 flex list-none flex-col gap-2">{children}</ol>,
   li: ({ children }) => (
-    <li className="t-body relative max-w-[68ch] pl-5 before:absolute before:left-0 before:text-vs-descr before:content-['–']">
+    <li className="t-body relative max-w-[68ch] pl-5 before:absolute before:left-0 before:text-vs-descr before:content-['-']">
       {children}
     </li>
   ),
@@ -125,8 +109,6 @@ const components = {
   hr: () => <hr className="my-8 border-vs-border" />,
 };
 
-/* ------------------------------------------------------------------------- */
-
 export default function MarkdownView({ source }) {
   const [mode, setMode] = useState("preview");
   const lines = source.split("\n");
@@ -146,11 +128,6 @@ export default function MarkdownView({ source }) {
   );
 }
 
-/**
- * VS Code puts "Open Preview" in the editor toolbar; there is no room for that
- * in the tab strip here, so the toggle sits top-right of the document, sticky so
- * it stays reachable on a long file.
- */
 export function ViewToggle({ mode, onChange }) {
   return (
     <div className="pointer-events-none sticky top-0 z-10 flex justify-end px-4 pt-3">

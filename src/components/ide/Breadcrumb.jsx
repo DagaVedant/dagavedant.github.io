@@ -3,7 +3,6 @@ import { useWorkspace } from "@/lib/workspace";
 import { breadcrumbFor } from "@/lib/files";
 import FileIcon from "./FileIcon";
 
-/** vedant-daga > projects > gardenbuddy.py > … */
 export default function Breadcrumb() {
   const { activeFile } = useWorkspace();
   if (!activeFile) return <div className="h-full bg-vs-editor" />;

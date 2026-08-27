@@ -1,17 +1,3 @@
-/**
- * Content builders — portfolio data rendered into the format each file claims
- * to be.
- *
- * about.md really is markdown, stack.json really is JSON, contact.sh really is
- * a shell script. That is the whole point of the file-tree device: if the source
- * view showed something that was not the format on the tin, the illusion would
- * collapse the first time anyone toggled it.
- *
- * Copy carried over from src/data/portfolio-data.js is used verbatim. now.md
- * and uses.md are written here directly, since they describe things no other
- * data file records.
- */
-
 import {
   aboutBio,
   aboutHighlights,
@@ -33,16 +19,12 @@ const bullets = (category, fallback) =>
     ?.items.map((i) => `- ${i}`)
     .join("\n") ?? fallback;
 
-/* ------------------------------------------------------------------ about */
-
 export const aboutMd = `# About
 
 ${aboutBio}
 
 ${aboutHighlights.map((h) => `## ${h.title}\n\n${h.description}`).join("\n\n")}
 `;
-
-/* -------------------------------------------------------------- education */
 
 export const educationMd = `# Education
 
@@ -52,8 +34,6 @@ ${education
   )
   .join("\n\n")}
 `;
-
-/* ------------------------------------------------------------- leadership */
 
 export const leadershipMd = `# Leadership
 
@@ -72,14 +52,12 @@ ${leadership
   .join("\n\n")}
 `;
 
-/* ------------------------------------------------------------ credentials */
-
 const certSection = (list, heading) =>
   list.length
     ? `## ${heading}\n\n${list
         .map((c) => {
           const title = c.href ? `[${c.title}](${c.href})` : c.title;
-          const issuer = c.issuer ? ` — ${c.issuer}` : "";
+          const issuer = c.issuer ? `, ${c.issuer}` : "";
           const kind = c.kind ? ` (${c.kind})` : "";
           const id = c.credentialId ? ` \`${c.credentialId}\`` : "";
           return `- ${title}${kind}${issuer}${id}`;
@@ -94,21 +72,17 @@ export const credentialsMd = [
   certSection(certificationsInProgress, "In progress"),
   recognitions.length
     ? `## Awards & recognition\n\n${recognitions
-        .map((r) => `### ${r.title}\n\n\`${r.year}\` — ${r.description}`)
+        .map((r) => `### ${r.title}\n\n\`${r.year}\`. ${r.description}`)
         .join("\n\n")}`
     : "",
 ]
   .filter(Boolean)
   .join("\n\n");
 
-/* ---------------------------------------------------------------- hobbies */
-
 export const hobbiesMd = `# Hobbies
 
 ${hobbies.map((h) => `## ${h.label}\n\n${h.description}`).join("\n\n")}
 `;
-
-/* -------------------------------------------------------------------- now */
 
 export const nowMd = `# Now
 
@@ -122,7 +96,7 @@ of the plumbing. Every commercial tower I looked at either runs tubing to each
 level or lets the bottom plants go thirsty, so I'm trying to build one where a
 single pump lifts water to the top and the shape of the part distributes it the
 rest of the way down. Jet splitter, spreader, four spouts, sloped floor, drip
-holes — the same module repeated all the way down. CAD is still in progress and
+holes, and the same module repeated all the way down. CAD is still in progress and
 I'm fairly sure the spout angles are wrong.
 
 **StudyBuddy.** You upload a worksheet you have already done, mark the questions
@@ -131,10 +105,10 @@ than what you think you know. A vision model pulls the questions out, you confir
 what it read, and a review queue schedules the ones you missed. After the first
 few worksheets it runs on your own API key or a local Ollama instance.
 
-**PulseFlow-AI.** Hospital operations — patient flow, department capacity, staff
-load — running live over WebSocket with optimisation and simulation underneath.
-Built it with a team for HackJPS, where it won Best in AI/ML, and I have kept
-working on it since.
+**PulseFlow-AI.** Hospital operations: patient flow, department capacity and
+staff load, running live over WebSocket with optimisation and simulation
+underneath. Built it with a team for HackJPS, where it won Best in AI/ML, and
+I have kept working on it since.
 
 ## Figuring out
 
@@ -157,8 +131,6 @@ Teaching IoT at the Robbinsville 4-H Innovation Club, and playing JV tennis.
 _Updated August 2026._
 `;
 
-/* ------------------------------------------------------------------- uses */
-
 export const usesMd = `# Uses
 
 The tools I actually reach for. Everything here shows up somewhere in the
@@ -166,7 +138,7 @@ projects on this site.
 
 ## Editor and shell
 
-- **VS Code**, Dark Modern — the theme this whole site is wearing.
+- **VS Code**, Dark Modern. It is the theme this whole site is wearing.
 - **Windows and PowerShell**, usually with a \`.venv\` already activated.
 - **ruff** for linting Python, and \`pyproject.toml\` over loose config files.
 
@@ -180,7 +152,7 @@ Python for anything with a model in it, TypeScript for anything with a screen.
 
 ${bullets("AI", "- PyTorch")}
 
-**PyTorch** for models I train myself — the LSTMs and Transformers in the
+**PyTorch** for models I train myself: the LSTMs and Transformers in the
 portfolio analyser, the CNN work. **scikit-learn** when the honest answer is that
 the problem does not need a neural network, which is more often than I would
 like. **Weights & Biases** so I can tell which run was which a week later.
@@ -188,7 +160,7 @@ like. **Weights & Biases** so I can tell which run was which a week later.
 ## Local models
 
 **Ollama**, on almost everything. The chatbot, the garden monitor and StudyBuddy
-all run against a local model — partly on principle, and partly because an API
+all run against a local model, partly on principle and partly because an API
 key is one more thing that can expire in the middle of a demo.
 
 ## Web and backend
@@ -207,8 +179,8 @@ instead of guessing.
 
 ## Hardware
 
-- **Raspberry Pi** — the garden monitor lives on one, running two models at once.
-- **Arduino** — sensors, and most of what I teach at the 4-H lab.
+- **Raspberry Pi**. The garden monitor lives on one, running two models at once.
+- **Arduino**. Sensors, and most of what I teach at the 4-H lab.
 - **Onshape** and a 3D printer, for the hydroponic tower.
 - A breadboard, a soldering iron, and a drawer of parts that used to be something
   else. There is an inventory system on this site specifically because I lost
@@ -221,9 +193,6 @@ running, **GitHub Pages** for this site. The build here pulls my repo data from
 the GitHub API every couple of days, so what you are reading is current.
 `;
 
-/* ------------------------------------------------------------- stack.json */
-
-/** techCategories as a real JSON object — the format the filename promises. */
 export const stackJson = JSON.stringify(
   {
     name: `${personal.firstName.toLowerCase()}-${personal.lastName.toLowerCase()}`,
@@ -242,9 +211,6 @@ export const stackJson = JSON.stringify(
   2
 );
 
-/* ------------------------------------------------------------- contact.sh */
-
-/** contactLinks as a shell script. Each command line carries a real href. */
 export const contactSh = {
   shebang: "#!/usr/bin/env bash",
   comment: "# Every line below is a real link. Click one.",
@@ -261,8 +227,6 @@ export const contactSh = {
     };
   }),
 };
-
-/* ------------------------------------------------------------------ index */
 
 export const DOCS = {
   about: { kind: "md", source: aboutMd },

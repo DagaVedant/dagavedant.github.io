@@ -3,18 +3,7 @@ import { useWorkspace } from "@/lib/workspace";
 import { DOCS } from "@/content/docs";
 import Welcome from "@/components/ide/Welcome";
 
-/**
- * Dispatches the active file to the renderer for its type.
- *
- * The rule (spec 4): anything under projects/ opens the repo view whatever its
- * extension — the .py / .ipynb / .tsx suffix is there to give the tree its icon.
- * Per-extension rendering applies to the top-level files only.
- *
- * Every renderer is lazy. react-markdown plus rehype-raw/-sanitize is ~120kB
- * gzipped, and the Welcome screen — which is what every visitor sees first —
- * needs none of it. Splitting here keeps the landing paint to chrome + Welcome
- * and loads a renderer only when a file that needs it is opened.
- */
+
 const MarkdownView = lazy(() => import("@/components/docs/MarkdownView"));
 const JsonView = lazy(() => import("@/components/docs/JsonView"));
 const ShellView = lazy(() => import("@/components/docs/ShellView"));
@@ -35,8 +24,8 @@ export default function Editor() {
 
 function FileRenderer({ file }) {
   if (file.kind === "repo") {
-    // Keyed so switching repos remounts rather than showing the previous repo's
-    // content while the new chunk loads.
+    
+    
     return <RepoView key={file.repo} file={file} />;
   }
 
@@ -56,10 +45,7 @@ function FileRenderer({ file }) {
   }
 }
 
-/**
- * Deliberately quiet: chunks are local and resolve in a frame or two, so a
- * spinner would flash more often than it would inform.
- */
+
 function Loading() {
   return <div className="doc" aria-busy="true" />;
 }

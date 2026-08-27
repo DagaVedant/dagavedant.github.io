@@ -1,32 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useMotion, setMotion } from "@/hooks/useMotion";
 
-/**
- * The opening: a full-screen terminal that streams real commands, asks whether
- * to enable motion, then fades out to reveal the workspace.
- *
- * The panel's TERMINAL tab already holds this same scrollback, so what the fade
- * uncovers is the terminal the reader was just watching, still there.
- *
- * Plays once per session. Skippable by click, any key, or the visible control.
- * With motion off it renders the settled frame and completes on the next tick.
- */
-
 const SESSION_KEY = "vd-booted";
 
-/** How long the motion prompt waits before answering itself. */
 const PROMPT_SECONDS = 5;
 
-/** Fade-out on completion. */
 const FADE_MS = 420;
 
 const t = (text, tone) => ({ text, tone });
 
-/**
- * The script. Real commands against real repos — the platformio line is the
- * deliberate bridge from "this is a web project" to the hardware half of the
- * work, and it is why the panel is a terminal at all.
- */
 export const BOOT_SCRIPT = [
   { kind: "cmd", text: "git clone https://github.com/DagaVedant/dagavedant.github.io.git" },
   { kind: "out", parts: [t("Cloning into 'dagavedant.github.io'...", "dim")] },
@@ -44,46 +26,8 @@ export const BOOT_SCRIPT = [
   { kind: "out", parts: [t("added 412 packages in 3.2s", "dim")] },
   { kind: "blank" },
   { kind: "prompt" },
-  { kind: "blank" },
-  { kind: "cmd", text: "git log --oneline -3" },
-  {
-    kind: "out",
-    parts: [t("bc4eb33", "warn"), t("  reworked tennis ball", "text")],
-  },
-  { kind: "out", parts: [t("a71019c", "warn"), t("  update README", "text")] },
-  {
-    kind: "out",
-    parts: [t("b29eeef", "warn"), t("  switch portfolio to a light blue theme", "text")],
-  },
-  { kind: "blank" },
-  { kind: "cmd", text: "npm run dev" },
-  {
-    kind: "out",
-    parts: [t("  VITE v6.1.0", "ok"), t("  ready in 340 ms", "dim")],
-  },
-  {
-    kind: "out",
-    parts: [t("  →  Local:   ", "dim"), t("http://localhost:5173/", "path")],
-  },
-  { kind: "blank" },
-  { kind: "cmd", text: "pio device monitor --baud 115200" },
-  { kind: "out", parts: [t("--- Connected to /dev/ttyUSB0 at 115200 baud", "dim")] },
-  {
-    kind: "out",
-    parts: [
-      t("[gardenbuddy] ", "accent"),
-      t("soil=41.2%  temp=22.8C  hum=57%  lux=812", "text"),
-    ],
-  },
-  {
-    kind: "out",
-    parts: [t("[gardenbuddy] ", "accent"), t("lstm-classifier ready (ollama: llama3.2)", "text")],
-  },
-  { kind: "blank" },
-  { kind: "cmd", text: "code ." },
 ];
 
-/** The settled scrollback the panel shows once the boot has finished. */
 export const BOOT_LINES = BOOT_SCRIPT.filter((l) => l.kind !== "prompt");
 
 const TONE_CLASS = {
@@ -129,7 +73,6 @@ export default function BootSequence({ onDone }) {
 
   const doneRef = useRef(false);
   const timers = useRef([]);
-  // Kept OUT of `timers` on purpose — see dismiss().
   const finishTimer = useRef(0);
   const scrollRef = useRef(null);
 
@@ -143,7 +86,6 @@ export default function BootSequence({ onDone }) {
     return id;
   };
 
-  /** Fires exactly once, whatever path was taken. */
   const finish = useCallback(() => {
     if (doneRef.current) return;
     doneRef.current = true;
@@ -151,17 +93,10 @@ export default function BootSequence({ onDone }) {
     clearTimeout(finishTimer.current);
     try {
       sessionStorage.setItem(SESSION_KEY, "1");
-    } catch {
-      /* private mode — the boot simply plays again next load */
-    }
+    } catch {}
     onDone?.();
   }, [onDone]);
 
-  /**
-   * Dismiss by fading straight out. The editor is already fully painted
-   * underneath, and the panel already holds this same scrollback, so the
-   * terminal simply resolves into the finished workspace.
-   */
   const dismiss = useCallback(() => {
     if (doneRef.current || fading) return;
     setFading(true);
@@ -169,11 +104,7 @@ export default function BootSequence({ onDone }) {
       finish();
       return;
     }
-    // Deliberately NOT scheduled through later(). The stream effect's cleanup
-    // is clearTimers(), which runs on the very next render after skip() bumps
-    // `index` — that would cancel this completion timer, and dismiss() would
-    // not re-arm it because `fading` is already true. The overlay would fade
-    // to nothing and stay mounted forever, onDone never firing.
+
     clearTimeout(finishTimer.current);
     finishTimer.current = setTimeout(finish, FADE_MS);
   }, [fading, finish, motion]);
@@ -186,14 +117,12 @@ export default function BootSequence({ onDone }) {
     dismiss();
   }, [dismiss]);
 
-  /* -- motion off: settled frame, no timers, complete immediately ---------- */
   useEffect(() => {
     if (motion) return undefined;
     const id = setTimeout(finish, 0);
     return () => clearTimeout(id);
   }, [motion, finish]);
 
-  /* -- the stream ---------------------------------------------------------- */
   useEffect(() => {
     if (!motion || doneRef.current) return undefined;
     if (index >= BOOT_SCRIPT.length) {
@@ -203,16 +132,13 @@ export default function BootSequence({ onDone }) {
 
     const line = BOOT_SCRIPT[index];
 
-    // Replays within a session run fast — nobody wants the full show twice.
     let replay = false;
     try {
       replay = sessionStorage.getItem(SESSION_KEY) === "1";
-    } catch {
-      /* ignore */
-    }
+    } catch {}
     const speed = replay ? 6 : 1;
 
-    if (line.kind === "prompt") return undefined; // handled by its own effect
+    if (line.kind === "prompt") return undefined;
 
     if (line.kind === "cmd") {
       if (typed.length < line.text.length) {
@@ -230,7 +156,6 @@ export default function BootSequence({ onDone }) {
     return clearTimers;
   }, [index, typed, motion, dismiss]);
 
-  /* -- the motion prompt --------------------------------------------------- */
   const atPrompt = motion && BOOT_SCRIPT[index]?.kind === "prompt" && answer === null;
 
   useEffect(() => {
@@ -254,7 +179,6 @@ export default function BootSequence({ onDone }) {
     []
   );
 
-  /* -- input: skip on click or key, answer the prompt when it is up -------- */
   useEffect(() => {
     if (!motion) return undefined;
 
@@ -302,8 +226,7 @@ export default function BootSequence({ onDone }) {
       className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-vs-editor"
       style={{
         opacity: fading ? 0 : 1,
-        // Stop swallowing clicks the moment the fade starts, so the workspace
-        // underneath is usable before the overlay finishes unmounting.
+
         pointerEvents: fading ? "none" : "auto",
         transition: fading ? `opacity ${FADE_MS}ms ease` : "none",
       }}
@@ -350,11 +273,6 @@ export default function BootSequence({ onDone }) {
   );
 }
 
-/**
- * The motion question. Answers itself after five seconds so nobody is ever
- * stranded on a prompt they did not realise was interactive — the real failure
- * mode for a blocking question on a portfolio.
- */
 function PromptLine({ answer, countdown, active, onAnswer }) {
   return (
     <div className="min-h-[19px]">

@@ -1,11 +1,4 @@
-/**
- * The source-view frame: a line-number gutter beside monospace content, laid
- * out the way the editor draws it.
- *
- * The gutter is a real column rather than a CSS counter on the lines, so a line
- * that wraps keeps its number aligned to its first visual row — a counter would
- * drift the moment anything wrapped.
- */
+
 export default function CodeFrame({ lines, renderLine }) {
   return (
     <div className="flex min-h-full font-mono text-[13px] leading-[20px]">
