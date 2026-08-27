@@ -467,19 +467,23 @@ function SideLink({ icon: Icon, href, label }) {
 
 export function relativeTime(iso) {
   if (!iso) return "";
-  const then = new Date(iso).getTime();
-  const secs = Math.max(1, Math.round((Date.now() - then) / 1000));
+  const secs = Math.max(1, Math.round((Date.now() - new Date(iso).getTime()) / 1000));
+
+  // GitHub's own phrasing. Note the asymmetry: a single day is "yesterday",
+  // but a single week/month/year is "last week/month/year" — "last day" is
+  // not something GitHub ever prints.
   const units = [
-    ["year", 31536000],
-    ["month", 2592000],
-    ["week", 604800],
-    ["day", 86400],
-    ["hour", 3600],
-    ["minute", 60],
+    ["year", 31536000, "last year"],
+    ["month", 2592000, "last month"],
+    ["week", 604800, "last week"],
+    ["day", 86400, "yesterday"],
+    ["hour", 3600, "1 hour ago"],
+    ["minute", 60, "1 minute ago"],
   ];
-  for (const [name, size] of units) {
+
+  for (const [name, size, singular] of units) {
     const n = Math.floor(secs / size);
-    if (n >= 1) return n === 1 ? `last ${name}` : `${n} ${name}s ago`;
+    if (n >= 1) return n === 1 ? singular : `${n} ${name}s ago`;
   }
   return "just now";
 }
