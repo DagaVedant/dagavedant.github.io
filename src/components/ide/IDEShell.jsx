@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useWorkspace } from "@/lib/workspace";
 import QuickOpen from "./QuickOpen";
+import PanelResizer from "./PanelResizer";
 import TitleBar from "./TitleBar";
 import ActivityBar from "./ActivityBar";
 import Explorer from "./Explorer";
@@ -50,6 +51,7 @@ export default function IDEShell({ children }) {
             </div>
           </div>
 
+          <PanelResizer />
           <Panel />
         </div>
       </div>

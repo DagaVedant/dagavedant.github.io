@@ -7,9 +7,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * whole shell is a CSS grid sized from that variable, so writing it on the root
  * resizes everything in one layout pass with no re-render per pointer move.
  *
- * Sits IN FLOW as the panel's first child rather than overlapping its edge —
- * both .ide-main and the panel clip their overflow, so an element positioned
- * outside the panel's box would simply be cut off.
+ * Occupies the --ide-sash gap row between the two floating panes, so the visual
+ * separation and the drag target are the same 8px. It cannot live inside the
+ * panel any more: the panel is a rounded, overflow-clipped pane, and anything
+ * reaching past its edge would be cut off by the radius.
  */
 
 const STORAGE_KEY = "vd-panel-h";
@@ -25,9 +26,11 @@ const clamp = (n, lo, hi) => (n < lo ? lo : n > hi ? hi : n);
 
 const maxHeight = () => {
   const root = getComputedStyle(document.documentElement);
+  const px = (name) => parseFloat(root.getPropertyValue(name)) || 0;
+  // Everything the panel has to share the viewport with: window chrome, the
+  // sash gap, and the inset around the floating panes.
   const chrome =
-    parseFloat(root.getPropertyValue("--ide-titlebar")) +
-    parseFloat(root.getPropertyValue("--ide-statusbar"));
+    px("--ide-titlebar") + px("--ide-statusbar") + px("--ide-sash") + px("--ide-gap");
   return Math.max(MIN_H, window.innerHeight - chrome - MIN_EDITOR);
 };
 
@@ -172,16 +175,16 @@ export default function PanelResizer() {
       onKeyDown={onKeyDown}
       onDoubleClick={toggleCollapse}
       title="Drag to resize · double-click to collapse"
-      className="group relative h-[5px] flex-none cursor-ns-resize touch-none select-none focus-visible:outline-none"
+      className="group relative flex cursor-ns-resize touch-none select-none items-center focus-visible:outline-none"
     >
-      {/* The panel's top border lives here so the sash can tint it on hover and
-          while dragging, the way VS Code's does. */}
+      {/* Invisible at rest — the gap already reads as a separation. A tinted
+          line appears on hover, focus and drag, as VS Code's sash does. */}
       <span
         aria-hidden="true"
-        className={`absolute inset-x-0 top-0 h-[1px] transition-colors duration-150 ${
+        className={`h-[2px] w-full transition-opacity duration-150 ${
           dragging
-            ? "bg-vs-accent"
-            : "bg-vs-border group-hover:bg-vs-accent group-focus-visible:bg-vs-accent"
+            ? "bg-vs-accent opacity-100"
+            : "bg-vs-accent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
         }`}
       />
     </div>

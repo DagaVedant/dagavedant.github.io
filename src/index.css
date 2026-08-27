@@ -120,6 +120,12 @@
     --ide-sidebar: 260px;
     --ide-tabstrip: 35px;
     --ide-breadcrumb: 24px;
+    /* The modern workbench floats the editor and panel as separate rounded
+       panes on the chrome, with a gap between them. The sash lives in that
+       gap, so --ide-sash is both the grab strip and the visual separation. */
+    --ide-gap: 6px;
+    --ide-sash: 8px;
+    --ide-pane-radius: 8px;
     --ide-paneltabs: 35px;
     --ide-panelbody: 185px;
     --ide-panel: 220px; /* paneltabs + panelbody */
@@ -268,14 +274,21 @@
     grid-template-columns: var(--ide-activity) var(--ide-sidebar) minmax(0, 1fr);
     min-height: 0;
     overflow: hidden;
+    /* Shows through the gaps around the floating panes. */
+    background-color: var(--vs-chrome);
   }
 
   .ide-main {
     display: grid;
-    grid-template-rows: minmax(0, 1fr) var(--ide-panel);
+    /* editor / sash / panel — the sash is a real row so the gap between the
+       panes and the drag target are the same 8px. */
+    grid-template-rows: minmax(0, 1fr) var(--ide-sash) var(--ide-panel);
     min-width: 0;
     min-height: 0;
     overflow: hidden;
+    padding: var(--ide-gap);
+    padding-top: 0;
+    background-color: var(--vs-chrome);
   }
 
   .ide-editor {
@@ -285,6 +298,19 @@
     min-height: 0;
     overflow: hidden;
     background-color: var(--vs-editor);
+    border: 1px solid var(--vs-border);
+    border-radius: var(--ide-pane-radius);
+  }
+
+  /* The panel is the second floating pane. */
+  .ide-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    background-color: var(--vs-editor);
+    border: 1px solid var(--vs-border);
+    border-radius: var(--ide-pane-radius);
   }
 
   .ide-editor-scroll {

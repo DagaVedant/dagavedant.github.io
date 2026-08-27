@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Plus, ChevronDown, SplitSquareHorizontal, Trash2, MoreHorizontal, ChevronUp, X, TriangleAlert } from "lucide-react";
 import { BOOT_LINES } from "./BootSequence";
-import PanelResizer from "./PanelResizer";
 
 /**
  * The bottom panel.
@@ -27,10 +26,9 @@ export default function Panel({ children }) {
   return (
     <section
       aria-label="Panel"
-      className="flex min-h-0 flex-col overflow-hidden bg-vs-editor"
+      className="ide-panel"
     >
-      <PanelResizer />
-      <div className="flex h-[35px] flex-none items-center justify-between border-b border-vs-border/60 pl-5 pr-2">
+      <div className="flex h-[35px] flex-none items-center justify-between rounded-t-[7px] border-b border-vs-border/60 pl-5 pr-2">
         <div className="flex items-center gap-4 overflow-hidden">
           {INERT_TABS.map((label) => (
             <span
