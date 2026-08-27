@@ -1,0 +1,71 @@
+name: Build and deploy
+
+# Runs on every push to main, and every two days so repo stars, commits and the
+# contribution graph stay current without anyone touching the repo.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 */2 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let a scheduled run and a push run race each other onto Pages.
+# Queue rather than cancel, so a scheduled data refresh is not silently dropped.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # GITHUB_TOKEN is injected by Actions — nothing to create or store. It
+      # raises the API limit from 60/hr to 1000/hr (this run makes ~200
+      # requests) and unlocks the GraphQL contribution calendar.
+      #
+      # That token is repo-scoped, so the calendar covers PUBLIC contributions
+      # only. Private ones would need a PAT with read:user.
+      #
+      # The script fails loud: if any request fails, the build stops here and
+      # nothing deploys, so the live site keeps serving the last good data.
+      - name: Fetch GitHub data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run fetch:repos
+
+      - name: Build
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
