@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useWorkspace } from "@/lib/workspace";
+import QuickOpen from "./QuickOpen";
 import TitleBar from "./TitleBar";
 import ActivityBar from "./ActivityBar";
 import Explorer from "./Explorer";
@@ -16,6 +19,8 @@ import StatusBar from "./StatusBar";
  * editor's does.
  */
 export default function IDEShell({ children }) {
+  useGlobalKeys();
+
   return (
     <div className="ide-root">
       <TitleBar />
@@ -42,6 +47,46 @@ export default function IDEShell({ children }) {
       </div>
 
       <StatusBar />
+      <QuickOpen />
     </div>
   );
+}
+
+/**
+ * Editor keybindings that are safe to take from the browser.
+ *
+ * Ctrl+P is the one worth claiming — it is the gesture people reach for, and
+ * the browser's print dialog is a reasonable trade in an app that is visibly an
+ * editor. Ctrl+W is deliberately NOT bound: browsers reserve it to close the
+ * tab and will not yield it, so binding it would only look broken.
+ */
+function useGlobalKeys() {
+  const { setPaletteOpen, cycle } = useWorkspace();
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      const mod = e.ctrlKey || e.metaKey;
+      if (!mod) return;
+
+      if (e.key === "p" || e.key === "P") {
+        // Ctrl+Shift+P is the command palette in the real app; we only ship the
+        // file switcher, so let the browser keep the shifted combination.
+        if (e.shiftKey) return;
+        e.preventDefault();
+        setPaletteOpen(true);
+        return;
+      }
+
+      if (e.key === "PageDown") {
+        e.preventDefault();
+        cycle(1);
+      } else if (e.key === "PageUp") {
+        e.preventDefault();
+        cycle(-1);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [setPaletteOpen, cycle]);
 }
