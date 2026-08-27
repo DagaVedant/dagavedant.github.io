@@ -299,12 +299,16 @@ async function fetchRepo({ owner, repo }, highlighter) {
   const meta = await gh(`/repos/${owner}/${repo}`);
   const branch = meta.default_branch || "main";
 
-  const [languages, contents, commits, readmeRaw] = await Promise.all([
-    gh(`/repos/${owner}/${repo}/languages`),
-    gh(`/repos/${owner}/${repo}/contents?ref=${encodeURIComponent(branch)}`, { optional: true }),
-    gh(`/repos/${owner}/${repo}/commits?per_page=${COMMITS_PER_REPO}&sha=${encodeURIComponent(branch)}`),
-    gh(`/repos/${owner}/${repo}/readme`, { raw: true, optional: true }),
-  ]);
+  const [languages, contents, commits, readmeRaw, branches, tags, contributors] =
+    await Promise.all([
+      gh(`/repos/${owner}/${repo}/languages`),
+      gh(`/repos/${owner}/${repo}/contents?ref=${encodeURIComponent(branch)}`, { optional: true }),
+      gh(`/repos/${owner}/${repo}/commits?per_page=${COMMITS_PER_REPO}&sha=${encodeURIComponent(branch)}`),
+      gh(`/repos/${owner}/${repo}/readme`, { raw: true, optional: true }),
+      gh(`/repos/${owner}/${repo}/branches?per_page=100`, { optional: true }),
+      gh(`/repos/${owner}/${repo}/tags?per_page=100`, { optional: true }),
+      gh(`/repos/${owner}/${repo}/contributors?per_page=20`, { optional: true }),
+    ]);
 
   const totalBytes = Object.values(languages).reduce((a, b) => a + b, 0) || 1;
   const languageBar = Object.entries(languages)
@@ -338,6 +342,26 @@ async function fetchRepo({ owner, repo }, highlighter) {
       if (a.type !== b.type) return a.type === "dir" ? -1 : 1;
       return a.name.localeCompare(b.name);
     });
+
+  // Per-file last commit — the message and time GitHub shows on each row.
+  // One request per entry, so it is skipped in --lite; with a token the whole
+  // run still lands around 400 of the 1000/hr allowance.
+  if (!LITE) {
+    for (const f of files) {
+      const path = encodeURIComponent(f.name);
+      const log = await gh(
+        `/repos/${owner}/${repo}/commits?path=${path}&per_page=1&sha=${encodeURIComponent(branch)}`,
+        { optional: true }
+      );
+      const c = Array.isArray(log) ? log[0] : null;
+      if (!c) continue;
+      f.lastCommit = {
+        message: (c.commit.message || "").split("\n")[0].slice(0, 120),
+        date: c.commit.author?.date || c.commit.committer?.date || null,
+        sha: c.sha.slice(0, 7),
+      };
+    }
+  }
 
   // Source for the shippable files, pre-highlighted.
   const sources = {};
@@ -387,6 +411,28 @@ async function fetchRepo({ owner, repo }, highlighter) {
       htmlUrl: meta.html_url,
       languageBar,
       files,
+      branchCount: Array.isArray(branches) ? branches.length : 1,
+      tagCount: Array.isArray(tags) ? tags.length : 0,
+      // GitHub's web UI also counts Co-authored-by trailers here; the REST
+      // endpoint counts commit authors only, so this list can be shorter than
+      // what the repo page shows.
+      contributors: (Array.isArray(contributors) ? contributors : [])
+        .slice(0, 12)
+        .map((c) => ({
+          login: c.login,
+          avatar: c.avatar_url,
+          contributions: c.contributions,
+          url: c.html_url,
+        })),
+      coAuthors: [
+        ...new Set(
+          commits.flatMap((c) =>
+            [...(c.commit.message || "").matchAll(/Co-authored-by:\s*(.+)/gi)].map((m) =>
+              m[1].trim()
+            )
+          )
+        ),
+      ],
       commitCount: commitList.length,
       commits: commitList.slice(0, 5),
       contributions: {

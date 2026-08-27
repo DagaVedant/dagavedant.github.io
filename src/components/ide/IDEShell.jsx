@@ -45,7 +45,7 @@ export default function IDEShell({ children }) {
             {/* Relative wrapper so the minimap can overlay the scroller
                 without scrolling along with the content. */}
             <div className="relative min-h-0 overflow-hidden">
-              <div className="ide-editor-scroll h-full ide-indent-guides">{children}</div>
+              <div className="ide-editor-scroll h-full">{children}</div>
               <Minimap />
             </div>
           </div>

@@ -85,6 +85,25 @@
     --vs-operator: #d4d4d4;
     --vs-punctuation: #cccccc;
 
+    /* ---------- GitHub dark, for the repo views ----------
+       A repo page rendered inside an editor tab should look like GitHub, not
+       like the editor around it — the same way VS Code's Simple Browser shows
+       a real site inside a pane. Values are GitHub's own dark theme. */
+    --gh-canvas: #0d1117;
+    --gh-subtle: #161b22;
+    --gh-inset: #010409;
+    --gh-border: #30363d;
+    --gh-border-muted: #21262d;
+    --gh-fg: #e6edf3;
+    --gh-muted: #848d97;
+    --gh-accent: #2f81f7;
+    --gh-btn: #21262d;
+    --gh-btn-hover: #30363d;
+    --gh-btn-border: #363b42;
+    --gh-green: #238636;
+    --gh-green-hover: #2ea043;
+    --gh-success: #3fb950;
+
     /* ---------- Terminal semantics ----------
        Boot terminal and Terminal panel only. Never page content. */
     --term-ok: #23d18b;
@@ -517,27 +536,6 @@
   text-align: right;
   color: var(--vs-linenum);
   user-select: none;
-}
-
-/* ---------- Indent guides ----------
-   A faint vertical rule every 4ch, as the editor draws. Non-interactive
-   overlay so a component setting its own background does not erase it. */
-.ide-indent-guides {
-  position: relative;
-}
-
-.ide-indent-guides::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  font: 400 13px/1 var(--font-mono);
-  background-image: repeating-linear-gradient(
-    90deg,
-    #ffffff0a 0 1px,
-    transparent 1px 4ch
-  );
 }
 
 /* ---------- Reveal on scroll ----------

@@ -30,25 +30,25 @@ const schema = {
 
 const components = {
   h1: ({ children }) => (
-    <h1 className="mb-4 mt-8 border-b border-vs-border pb-2 text-[26px] font-semibold leading-tight text-vs-text first:mt-0">
+    <h1 className="mb-4 mt-8 border-b border-gh-border pb-2 text-[26px] font-semibold leading-tight text-gh-fg first:mt-0">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mb-3 mt-7 border-b border-vs-border pb-2 text-[20px] font-semibold text-vs-text">
+    <h2 className="mb-3 mt-7 border-b border-gh-border pb-2 text-[20px] font-semibold text-gh-fg">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mb-2 mt-6 text-[16px] font-semibold text-vs-text">{children}</h3>
+    <h3 className="mb-2 mt-6 text-[16px] font-semibold text-gh-fg">{children}</h3>
   ),
-  p: ({ children }) => <p className="mb-4 text-[14.5px] leading-[1.7] text-vs-text/85">{children}</p>,
+  p: ({ children }) => <p className="mb-4 text-[14.5px] leading-[1.7] text-gh-fg/85">{children}</p>,
   a: ({ href, children }) => (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-vs-accent hover:underline"
+      className="text-gh-accent hover:underline"
     >
       {children}
     </a>
@@ -63,19 +63,19 @@ const components = {
     />
   ),
   ul: ({ children }) => (
-    <ul className="mb-4 list-disc pl-6 text-[14.5px] leading-[1.7] text-vs-text/85 marker:text-vs-descr">
+    <ul className="mb-4 list-disc pl-6 text-[14.5px] leading-[1.7] text-gh-fg/85 marker:text-gh-muted">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="mb-4 list-decimal pl-6 text-[14.5px] leading-[1.7] text-vs-text/85 marker:text-vs-descr">
+    <ol className="mb-4 list-decimal pl-6 text-[14.5px] leading-[1.7] text-gh-fg/85 marker:text-gh-muted">
       {children}
     </ol>
   ),
   li: ({ children }) => <li className="mb-1">{children}</li>,
   code: ({ inline, children, ...props }) =>
     inline ? (
-      <code className="rounded-[4px] bg-vs-contrast px-[6px] py-[2px] font-mono text-[0.86em] text-vs-string">
+      <code className="rounded-[4px] bg-gh-subtle px-[6px] py-[2px] font-mono text-[0.86em] text-[#79c0ff]">
         {children}
       </code>
     ) : (
@@ -84,12 +84,12 @@ const components = {
       </code>
     ),
   pre: ({ children }) => (
-    <pre className="mb-4 overflow-x-auto rounded-[6px] border border-vs-border bg-vs-widget p-4">
+    <pre className="mb-4 overflow-x-auto rounded-[6px] border border-gh-border bg-gh-subtle p-4">
       {children}
     </pre>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="mb-4 border-l-[3px] border-vs-border pl-4 text-vs-descr [&>p]:mb-0">
+    <blockquote className="mb-4 border-l-[3px] border-gh-border pl-4 text-gh-muted [&>p]:mb-0">
       {children}
     </blockquote>
   ),
@@ -99,14 +99,14 @@ const components = {
     </div>
   ),
   th: ({ children }) => (
-    <th className="border border-vs-border bg-vs-widget px-3 py-2 text-left font-semibold text-vs-text">
+    <th className="border border-gh-border bg-gh-subtle px-3 py-2 text-left font-semibold text-gh-fg">
       {children}
     </th>
   ),
   td: ({ children }) => (
-    <td className="border border-vs-border px-3 py-2 text-vs-text/85">{children}</td>
+    <td className="border border-gh-border px-3 py-2 text-gh-fg/85">{children}</td>
   ),
-  hr: () => <hr className="my-6 border-vs-border" />,
+  hr: () => <hr className="my-6 border-gh-border" />,
 };
 
 export default function ReadmeView({ markdown }) {
@@ -114,18 +114,20 @@ export default function ReadmeView({ markdown }) {
 
   return (
     <section aria-label="README" className="pb-10">
-      <div className="mb-3 flex items-center gap-2 text-[12.5px] text-vs-descr">
-        <BookOpen className="h-4 w-4" strokeWidth={1.6} />
-        README.md
-      </div>
-      <div className="rounded-[6px] border border-vs-border px-6 py-5">
+      <div className="overflow-hidden rounded-[6px] border border-gh-border">
+        <div className="flex items-center gap-2 border-b border-gh-border px-4 py-2 text-[14px] font-semibold text-gh-fg">
+          <BookOpen className="h-4 w-4" strokeWidth={1.8} />
+          README
+        </div>
+        <div className="px-8 py-6">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
           components={components}
         >
           {markdown}
-        </ReactMarkdown>
+          </ReactMarkdown>
+        </div>
       </div>
     </section>
   );
