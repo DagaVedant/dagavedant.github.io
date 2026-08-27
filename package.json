@@ -11,7 +11,10 @@
     "typecheck": "tsc -p ./jsconfig.json",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "fetch:repos": "node scripts/fetch-repos.mjs",
+    "fetch:repos:lite": "node scripts/fetch-repos.mjs --lite",
+    "build:ci": "node scripts/fetch-repos.mjs && vite build"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",
@@ -94,6 +97,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
     "postcss": "^8.5.3",
+    "shiki": "^4.4.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
     "vite": "^6.1.0"
