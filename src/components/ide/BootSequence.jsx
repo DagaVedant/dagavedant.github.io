@@ -3,9 +3,10 @@ import { useMotion, setMotion } from "@/hooks/useMotion";
 
 /**
  * The opening: a full-screen terminal that streams real commands, asks whether
- * to enable motion, then DOCKS into the bottom panel slot — one continuous
- * move, never a cut. The terminal the reader was just watching becomes the
- * TERMINAL tab.
+ * to enable motion, then fades out to reveal the workspace.
+ *
+ * The panel's TERMINAL tab already holds this same scrollback, so what the fade
+ * uncovers is the terminal the reader was just watching, still there.
  *
  * Plays once per session. Skippable by click, any key, or the visible control.
  * With motion off it renders the settled frame and completes on the next tick.
@@ -15,6 +16,9 @@ const SESSION_KEY = "vd-booted";
 
 /** How long the motion prompt waits before answering itself. */
 const PROMPT_SECONDS = 5;
+
+/** Fade-out on completion. */
+const FADE_MS = 420;
 
 const t = (text, tone) => ({ text, tone });
 
@@ -79,7 +83,7 @@ export const BOOT_SCRIPT = [
   { kind: "cmd", text: "code ." },
 ];
 
-/** The settled scrollback the panel shows once the boot has docked. */
+/** The settled scrollback the panel shows once the boot has finished. */
 export const BOOT_LINES = BOOT_SCRIPT.filter((l) => l.kind !== "prompt");
 
 const TONE_CLASS = {
@@ -121,11 +125,12 @@ export default function BootSequence({ onDone }) {
   const [typed, setTyped] = useState("");
   const [answer, setAnswer] = useState(null);
   const [countdown, setCountdown] = useState(PROMPT_SECONDS);
-  const [docking, setDocking] = useState(false);
-  const [dockStyle, setDockStyle] = useState(null);
+  const [fading, setFading] = useState(false);
 
   const doneRef = useRef(false);
   const timers = useRef([]);
+  // Kept OUT of `timers` on purpose — see dismiss().
+  const finishTimer = useRef(0);
   const scrollRef = useRef(null);
 
   const clearTimers = () => {
@@ -143,6 +148,7 @@ export default function BootSequence({ onDone }) {
     if (doneRef.current) return;
     doneRef.current = true;
     clearTimers();
+    clearTimeout(finishTimer.current);
     try {
       sessionStorage.setItem(SESSION_KEY, "1");
     } catch {
@@ -152,37 +158,33 @@ export default function BootSequence({ onDone }) {
   }, [onDone]);
 
   /**
-   * Dock: measure the real panel rect and animate the overlay into it, so the
-   * terminal visibly becomes the panel rather than being replaced by it.
+   * Dismiss by fading straight out. The editor is already fully painted
+   * underneath, and the panel already holds this same scrollback, so the
+   * terminal simply resolves into the finished workspace.
    */
-  const dock = useCallback(() => {
-    if (doneRef.current || docking) return;
-    setDocking(true);
-
-    const panel = document.querySelector('section[aria-label="Panel"]');
-    if (!panel || !motion) {
+  const dismiss = useCallback(() => {
+    if (doneRef.current || fading) return;
+    setFading(true);
+    if (!motion) {
       finish();
       return;
     }
-
-    const r = panel.getBoundingClientRect();
-    setDockStyle({
-      top: `${r.top}px`,
-      left: `${r.left}px`,
-      right: `${window.innerWidth - r.right}px`,
-      bottom: `${window.innerHeight - r.bottom}px`,
-    });
-
-    later(finish, 720);
-  }, [docking, finish, motion]);
+    // Deliberately NOT scheduled through later(). The stream effect's cleanup
+    // is clearTimers(), which runs on the very next render after skip() bumps
+    // `index` — that would cancel this completion timer, and dismiss() would
+    // not re-arm it because `fading` is already true. The overlay would fade
+    // to nothing and stay mounted forever, onDone never firing.
+    clearTimeout(finishTimer.current);
+    finishTimer.current = setTimeout(finish, FADE_MS);
+  }, [fading, finish, motion]);
 
   const skip = useCallback(() => {
     if (doneRef.current) return;
     clearTimers();
     setIndex(BOOT_SCRIPT.length);
     setTyped("");
-    dock();
-  }, [dock]);
+    dismiss();
+  }, [dismiss]);
 
   /* -- motion off: settled frame, no timers, complete immediately ---------- */
   useEffect(() => {
@@ -195,7 +197,7 @@ export default function BootSequence({ onDone }) {
   useEffect(() => {
     if (!motion || doneRef.current) return undefined;
     if (index >= BOOT_SCRIPT.length) {
-      later(dock, 420);
+      later(dismiss, 420);
       return clearTimers;
     }
 
@@ -226,7 +228,7 @@ export default function BootSequence({ onDone }) {
 
     later(() => setIndex((i) => i + 1), (line.kind === "blank" ? 60 : 110) / speed);
     return clearTimers;
-  }, [index, typed, motion, dock]);
+  }, [index, typed, motion, dismiss]);
 
   /* -- the motion prompt --------------------------------------------------- */
   const atPrompt = motion && BOOT_SCRIPT[index]?.kind === "prompt" && answer === null;
@@ -276,7 +278,13 @@ export default function BootSequence({ onDone }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [atPrompt, answerPrompt, skip, motion]);
 
-  useEffect(() => clearTimers, []);
+  useEffect(
+    () => () => {
+      clearTimers();
+      clearTimeout(finishTimer.current);
+    },
+    []
+  );
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -291,17 +299,13 @@ export default function BootSequence({ onDone }) {
     <div
       aria-hidden="true"
       onClick={skip}
-      className="fixed z-[100] flex flex-col overflow-hidden border-vs-border bg-vs-editor"
+      className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-vs-editor"
       style={{
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        ...(dockStyle || {}),
-        transition: docking
-          ? "top 700ms cubic-bezier(0.65,0,0.35,1), left 700ms cubic-bezier(0.65,0,0.35,1), right 700ms cubic-bezier(0.65,0,0.35,1), bottom 700ms cubic-bezier(0.65,0,0.35,1)"
-          : "none",
-        borderTopWidth: docking ? 1 : 0,
+        opacity: fading ? 0 : 1,
+        // Stop swallowing clicks the moment the fade starts, so the workspace
+        // underneath is usable before the overlay finishes unmounting.
+        pointerEvents: fading ? "none" : "auto",
+        transition: fading ? `opacity ${FADE_MS}ms ease` : "none",
       }}
     >
       <div
@@ -330,7 +334,7 @@ export default function BootSequence({ onDone }) {
         })}
       </div>
 
-      {!docking ? (
+      {!fading ? (
         <button
           type="button"
           onClick={(e) => {

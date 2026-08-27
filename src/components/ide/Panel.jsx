@@ -11,9 +11,9 @@ import { BOOT_LINES } from "./BootSequence";
  * have.
  *
  * The TERMINAL tab holds the boot sequence's own scrollback, rendered from the
- * same BOOT_LINES the overlay streamed. That shared source is what makes the
- * dock invisible: the frame the overlay ends on and the frame the panel starts
- * on are the same frame.
+ * same BOOT_LINES the overlay streamed. That shared source is why the boot's
+ * fade-out lands cleanly: what it uncovers is the same terminal content the
+ * reader was just watching, already sitting in the panel.
  */
 const INERT_TABS = ["Problems", "Output", "Debug Console"];
 const INERT_TABS_AFTER = ["Ports", "Playwright"];
