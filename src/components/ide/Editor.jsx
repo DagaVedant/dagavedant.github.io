@@ -1,38 +1,51 @@
 import { useWorkspace } from "@/lib/workspace";
-import { repoFor } from "@/lib/files";
+import { DOCS } from "@/content/docs";
+import MarkdownView from "@/components/docs/MarkdownView";
+import JsonView from "@/components/docs/JsonView";
+import ShellView from "@/components/docs/ShellView";
+import PdfView from "@/components/docs/PdfView";
+import RepoView from "@/components/repo/RepoView";
+import Welcome from "@/components/ide/Welcome";
 
 /**
- * Dispatches the active file to its renderer.
+ * Dispatches the active file to the renderer for its type.
  *
- * Steps 8-10 replace these placeholders with the real per-extension renderers,
- * the repo view and the Welcome screen. Kept deliberately thin so that swap is
- * a one-line change per kind.
+ * The rule (spec 4): anything under projects/ opens the repo view whatever its
+ * extension — the .py / .ipynb / .tsx suffix is there to give the tree its icon.
+ * Per-extension rendering applies to the top-level files only.
  */
 export default function Editor() {
   const { activeFile } = useWorkspace();
 
-  if (!activeFile) return <WelcomePlaceholder />;
+  if (!activeFile) return <Welcome />;
 
-  const repo = repoFor(activeFile);
+  if (activeFile.kind === "repo") {
+    // Keyed so switching repos remounts rather than showing the previous repo's
+    // content while the new chunk loads.
+    return <RepoView key={activeFile.repo} file={activeFile} />;
+  }
 
-  return (
-    <div className="doc">
-      <p className="t-mono mb-6 text-vs-descr">{activeFile.name}</p>
-      <h1 className="t-h2 mb-3">{activeFile.title}</h1>
-      <p className="t-body">
-        {repo
-          ? `${repo.description || "No description."} — ${repo.language}, ${repo.stars} stars, ${repo.commitCount} commits.`
-          : `Renderer for .${activeFile.ext} arrives in a later step.`}
-      </p>
-    </div>
-  );
+  if (activeFile.kind === "pdf") return <PdfView />;
+
+  const doc = DOCS[activeFile.doc];
+  if (!doc) return <Missing file={activeFile} />;
+
+  switch (doc.kind) {
+    case "json":
+      return <JsonView source={doc.source} />;
+    case "sh":
+      return <ShellView source={doc.source} />;
+    case "md":
+    default:
+      return <MarkdownView key={activeFile.id} source={doc.source} />;
+  }
 }
 
-function WelcomePlaceholder() {
+function Missing({ file }) {
   return (
     <div className="doc">
-      <h1 className="t-display mb-4">Vedant Daga</h1>
-      <p className="t-lead">Open a file from the Explorer.</p>
+      <p className="t-mono mb-4 text-vs-descr">{file.name}</p>
+      <p className="t-body">No renderer is registered for this file.</p>
     </div>
   );
 }
