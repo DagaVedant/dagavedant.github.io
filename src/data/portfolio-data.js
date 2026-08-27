@@ -244,20 +244,25 @@ export const leadership = [
 /** @type {never[]} */
 export const certifications = [
   {
-    title: "Google AI Essentials",
+    title: "Google AI",
     issuer: "Google",
-    // PLACEHOLDER: this points at the programme page, not Vedant's certificate.
-    // Replace with the personal verify link from Coursera > Accomplishments,
-    // which looks like https://coursera.org/verify/professional-cert/XXXXXXXX
-    href: "https://www.coursera.org/professional-certificates/google-ai-essentials",
-    verified: false,
+    kind: "Specialization",
+    // Verified public 2026-08-27: resolves without a login and names the
+    // learner. Canonical accomplishment URL, UTM parameters stripped.
+    href: "https://www.coursera.org/account/accomplishments/specialization/BBZERR8S00VY",
+    credentialId: "BBZERR8S00VY",
+    verified: true,
   },
   {
-    title: "Python Programming Fundamentals",
+    title: "Microsoft Python Development",
     issuer: "Microsoft",
-    // PLACEHOLDER: same — swap for https://coursera.org/verify/XXXXXXXX
-    href: "https://www.coursera.org/learn/microsoft-python-programming-fundamentals",
-    verified: false,
+    kind: "Specialization",
+    // Verified public 2026-08-27: resolves without a login and names the
+    // learner. This is the full Specialization, not the single
+    // "Python Programming Fundamentals" course previously listed.
+    href: "https://www.coursera.org/account/accomplishments/specialization/QAKQDROT86TO",
+    credentialId: "QAKQDROT86TO",
+    verified: true,
   },
 ];
 

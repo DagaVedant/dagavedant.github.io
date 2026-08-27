@@ -73,7 +73,9 @@ const certSection = (list, heading) =>
         .map((c) => {
           const title = c.href ? `[${c.title}](${c.href})` : c.title;
           const issuer = c.issuer ? ` — ${c.issuer}` : "";
-          return `- ${title}${issuer}`;
+          const kind = c.kind ? ` (${c.kind})` : "";
+          const id = c.credentialId ? ` \`${c.credentialId}\`` : "";
+          return `- ${title}${kind}${issuer}${id}`;
         })
         .join("\n")}`
     : "";
@@ -109,18 +111,19 @@ export const nowMd = `# Now
 
 ## Building
 
+- **Hydroponic Garden** — a modular 3D-printed tower where the geometry does the
+  water distribution, so one pump feeds every level evenly. CAD in progress.
+- **StudyBuddy** — upload a worksheet, mark what you got wrong, and get back a
+  record of what you actually know. Vision model for extraction, spaced
+  repetition for the review queue.
 - **PulseFlow-AI** — healthcare ops platform pairing optimisation and simulation
   with forecasting, to catch hospital bottlenecks before they become real problems.
-- **GardenBuddy** — Raspberry Pi garden monitor running an LSTM classifier and a
-  local Ollama model side by side, streaming live soil, temperature, humidity and
-  light to a React dashboard.
-- **Python-Examples** — a browser-based Python course for beginners. No downloads,
-  no paywalls.
 
 ## Learning
 
-- Spectrogram-based audio models, and what actually survives contact with noisy
-  real-world recordings.
+- Audio models that survive contact with noisy real-world recordings — Voice_AI
+  holds AUC 0.854 on speakers it never saw, and I want to understand where the
+  remaining error lives.
 - Getting local LLMs small and fast enough to run on a Pi without falling over.
 
 ## Looking for
