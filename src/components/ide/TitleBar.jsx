@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Search, Minus, Square, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search, Minus, Square, X, Menu } from "lucide-react";
 import { useWorkspace } from "@/lib/workspace";
 import { WORKSPACE_NAME } from "@/lib/files";
 
@@ -32,7 +32,7 @@ function LayoutGlyph({ side }) {
 }
 
 
-export default function TitleBar() {
+export default function TitleBar({ onToggleSidebar, sidebarOpen }) {
   const { setPaletteOpen } = useWorkspace();
 
   return (
@@ -42,7 +42,19 @@ export default function TitleBar() {
     >
       <div className="flex flex-none items-center gap-2 pl-1">
         <VSCodeLogo />
-        <nav aria-hidden="true" className="hidden items-center md:flex">
+
+        <button
+          type="button"
+          onClick={onToggleSidebar}
+          aria-label="Explorer"
+          aria-expanded={sidebarOpen}
+          className="flex h-7 w-7 items-center justify-center rounded-[3px] text-vs-text lg:hidden"
+          style={{ WebkitAppRegion: "no-drag" }}
+        >
+          <Menu className="h-[18px] w-[18px]" strokeWidth={1.6} />
+        </button>
+
+        <nav aria-hidden="true" className="hidden items-center lg:flex">
           {MENUS.map((m) => (
             <span
               key={m}

@@ -20,7 +20,7 @@ const INERT = [
   { icon: Bot, label: "Copilot" },
 ];
 
-export default function ActivityBar() {
+export default function ActivityBar({ onToggleSidebar, sidebarOpen, isNarrow }) {
   const { setPaletteOpen } = useWorkspace();
 
   return (
@@ -30,13 +30,28 @@ export default function ActivityBar() {
     >
       <div className="flex flex-col items-center">
         
-        <span
-          className="relative flex h-12 w-12 items-center justify-center text-vs-text"
-          title="Explorer"
-        >
-          <span className="absolute left-0 top-0 h-full w-[2px] bg-vs-text" aria-hidden="true" />
-          <Files className="h-6 w-6" strokeWidth={1.3} />
-        </span>
+        {isNarrow ? (
+          <button
+            type="button"
+            onClick={onToggleSidebar}
+            aria-label="Explorer"
+            aria-expanded={sidebarOpen}
+            className="relative flex h-12 w-12 items-center justify-center text-vs-text focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-vs-accent"
+          >
+            {sidebarOpen ? (
+              <span className="absolute left-0 top-0 h-full w-[2px] bg-vs-text" aria-hidden="true" />
+            ) : null}
+            <Files className="h-6 w-6" strokeWidth={1.3} />
+          </button>
+        ) : (
+          <span
+            className="relative flex h-12 w-12 items-center justify-center text-vs-text"
+            title="Explorer"
+          >
+            <span className="absolute left-0 top-0 h-full w-[2px] bg-vs-text" aria-hidden="true" />
+            <Files className="h-6 w-6" strokeWidth={1.3} />
+          </span>
+        )}
 
         <button
           type="button"
@@ -52,7 +67,7 @@ export default function ActivityBar() {
           <span
             key={label}
             aria-hidden="true"
-            className="flex h-12 w-12 items-center justify-center text-vs-descr/45"
+            className="hidden h-12 w-12 items-center justify-center text-vs-descr/45 sm:flex"
           >
             <Icon className="h-6 w-6" strokeWidth={1.3} />
           </span>

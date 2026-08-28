@@ -135,17 +135,24 @@
   
   @media (max-width: 1100px) {
     :root {
-      --ide-sidebar: 210px;
-      --ide-left: 258px;
+      --ide-sidebar: 220px;
+      --ide-left: 268px;
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1023px) {
     :root {
       --ide-sidebar: 0px;
-      --ide-left: 48px;
-      --ide-panel: 0px;
-      --ide-bottom: 22px;
+      --ide-left: var(--ide-activity);
+    }
+  }
+
+  @media (max-width: 767px) {
+    :root {
+      --ide-gap: 0px;
+      --ide-pane-radius: 0px;
+      --ide-breadcrumb: 0px;
+      --ide-top: 70px;
     }
   }
 }
@@ -225,6 +232,8 @@
   .ide-root {
     position: fixed;
     inset: 0;
+    height: 100vh;
+    height: 100dvh;
     display: grid;
     grid-template-rows: var(--ide-titlebar) minmax(0, 1fr) var(--ide-statusbar);
     overflow: hidden;
@@ -241,6 +250,10 @@
   }
 
   .ide-main {
+    /* Pinned to the third track. Once the sidebar becomes a fixed drawer it
+       leaves the grid flow, and without this the editor auto-places into the
+       sidebar's collapsed zero-width column instead. */
+    grid-column: 3;
     display: grid;
     
     grid-template-rows: minmax(0, 1fr) var(--ide-sash) var(--ide-panel);
@@ -264,7 +277,61 @@
   }
 
   
+  /* Sidebar drawer.
+     Above 1024px this is just the grid's second column. Below it the column
+     collapses to zero and the same element becomes a fixed overlay, which is
+     what VS Code does to its sidebar in a narrow window. */
+  .ide-sidebar-host {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .ide-scrim {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .ide-sidebar-host {
+      position: fixed;
+      left: var(--ide-activity);
+      top: var(--ide-titlebar);
+      bottom: var(--ide-statusbar);
+      width: min(280px, calc(100vw - var(--ide-activity)));
+      z-index: 60;
+      transform: translateX(-101%);
+      transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .ide-root[data-sidebar="open"] .ide-sidebar-host {
+      transform: none;
+    }
+
+    .ide-root[data-sidebar="open"] .ide-scrim {
+      display: block;
+      position: fixed;
+      inset: var(--ide-titlebar) 0 var(--ide-statusbar) 0;
+      z-index: 55;
+      background: rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  html[data-motion="off"] .ide-sidebar-host {
+    transition: none;
+  }
+
+  /* The panel is a toggle, not a fixed part of the layout, once the screen is
+     small enough that it would eat the editor. */
+  .ide-root[data-panel="closed"] {
+    --ide-panel: 0px;
+    --ide-sash: 0px;
+  }
+
   .ide-panel {
+    /* Pinned to the third row for the same reason .ide-main is pinned to the
+       third column: the sash is not rendered on touch layouts, and without
+       this the panel auto-places into the sash's 8px row. */
+    grid-row: 3;
     display: flex;
     flex-direction: column;
     min-height: 0;
@@ -573,4 +640,30 @@ html[data-motion="off"] * {
   animation-duration: 0.001ms !important;
   animation-iteration-count: 1 !important;
   transition-duration: 0.001ms !important;
+}
+
+@media (pointer: coarse) {
+  .vs-row {
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+  }
+
+  .doc,
+  .doc-wide {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .doc,
+  .doc-wide {
+    padding: 20px 18px 72px;
+    max-width: 100%;
+  }
+
+  .t-display {
+    font-size: clamp(34px, 11vw, 52px);
+  }
 }

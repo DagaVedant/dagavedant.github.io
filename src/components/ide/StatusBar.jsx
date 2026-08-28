@@ -1,4 +1,4 @@
-import { GitBranch, CircleX, TriangleAlert, Bell, RefreshCw } from "lucide-react";
+import { GitBranch, CircleX, TriangleAlert, Bell, RefreshCw, TerminalSquare } from "lucide-react";
 import { useWorkspace } from "@/lib/workspace";
 import { languageLabel, PROFILE_CONTRIBUTIONS } from "@/lib/files";
 import { useMotion, setMotion } from "@/hooks/useMotion";
@@ -13,7 +13,7 @@ const Item = ({ children, title }) => (
 );
 
 
-export default function StatusBar() {
+export default function StatusBar({ panelOpen, onTogglePanel }) {
   const { activeFile } = useWorkspace();
   const motion = useMotion();
 
@@ -23,7 +23,7 @@ export default function StatusBar() {
         <Item title={`${PROFILE_CONTRIBUTIONS.total} contributions in the last year`}>
           <GitBranch className="h-[13px] w-[13px]" strokeWidth={1.8} />
           main
-          <RefreshCw className="ml-1 h-[11px] w-[11px] opacity-80" strokeWidth={1.8} />
+          <RefreshCw className="ml-1 hidden h-[11px] w-[11px] opacity-80 sm:inline" strokeWidth={1.8} />
         </Item>
         <Item title="No problems">
           <CircleX className="h-[13px] w-[13px]" strokeWidth={1.8} />0
@@ -32,11 +32,25 @@ export default function StatusBar() {
       </div>
 
       <div className="flex items-stretch">
-        <Item>Ln 1, Col 1</Item>
-        <Item>Spaces: 4</Item>
-        <Item>UTF-8</Item>
-        <Item>LF</Item>
+        <span className="hidden items-stretch lg:flex">
+          <Item>Ln 1, Col 1</Item>
+          <Item>Spaces: 4</Item>
+        </span>
+        <span className="hidden items-stretch sm:flex">
+          <Item>UTF-8</Item>
+          <Item>LF</Item>
+        </span>
         <Item>{languageLabel(activeFile)}</Item>
+
+        <button
+          type="button"
+          onClick={onTogglePanel}
+          aria-pressed={panelOpen}
+          aria-label={panelOpen ? "Hide panel" : "Show panel"}
+          className="flex h-full items-center gap-[5px] px-2 text-[12px] leading-none text-vs-statusbar-fg transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-white"
+        >
+          <TerminalSquare className="h-[13px] w-[13px]" strokeWidth={1.8} />
+        </button>
 
         <button
           type="button"
@@ -47,7 +61,7 @@ export default function StatusBar() {
           motion: {motion ? "on" : "off"}
         </button>
 
-        <span aria-hidden="true" className="flex h-full items-center px-2">
+        <span aria-hidden="true" className="hidden h-full items-center px-2 sm:flex">
           <Bell className="h-[13px] w-[13px]" strokeWidth={1.8} />
         </span>
       </div>

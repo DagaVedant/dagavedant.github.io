@@ -108,7 +108,7 @@ export default function ReadmeView({ markdown }) {
           <BookOpen className="h-4 w-4" strokeWidth={1.8} />
           README
         </div>
-        <div className="px-8 py-6">
+        <div className="px-4 py-4 sm:px-8 sm:py-6">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}

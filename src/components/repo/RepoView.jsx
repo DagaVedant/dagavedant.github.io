@@ -50,7 +50,7 @@ export default function RepoView({ file }) {
       <RepoHeader repo={repo} inProgress={file.inProgress} />
       <RepoTabs />
 
-      <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_296px]">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-3 py-5 sm:px-4 sm:py-6 lg:grid-cols-[minmax(0,1fr)_296px]">
         <main className="min-w-0">
           <BranchBar repo={repo} />
           <FileTable repo={repo} onOpenFile={chunk?.sources ? setOpenFile : null} />
