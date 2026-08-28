@@ -96,6 +96,34 @@ async function gh(endpoint, { raw = false, optional = false } = {}) {
   return raw ? res.text() : res.json();
 }
 
+/**
+ * Total commits on a branch.
+ *
+ * The REST API has no count endpoint, and paging the whole history would cost
+ * one request per 100 commits. Asking for a single commit makes the Link
+ * header's rel="last" page number equal the total, for one request.
+ */
+async function commitTotal(owner, repo, branch, fallback) {
+  const url =
+    `${API}/repos/${owner}/${repo}/commits` +
+    `?per_page=1&sha=${encodeURIComponent(branch)}`;
+  const headers = {
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "vedant-portfolio-build",
+  };
+  if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
+
+  requestCount += 1;
+  const res = await fetch(url, { headers });
+  if (!res.ok) return fallback;
+
+  const link = res.headers.get("link") || "";
+  const m = link.match(/[?&]page=(\d+)>;\s*rel="last"/);
+  // No Link header means a single page, so the fetched list is the whole thing.
+  return m ? Number(m[1]) : fallback;
+}
+
 async function graphql(query, variables) {
   if (!TOKEN) return null;
   requestCount += 1;
@@ -310,6 +338,8 @@ async function fetchRepo({ owner, repo }, highlighter) {
       gh(`/repos/${owner}/${repo}/contributors?per_page=20`, { optional: true }),
     ]);
 
+  const totalCommits = await commitTotal(owner, repo, branch, commits.length);
+
   const totalBytes = Object.values(languages).reduce((a, b) => a + b, 0) || 1;
   const languageBar = Object.entries(languages)
     .map(([name, bytes]) => ({ name, bytes, percent: +((bytes / totalBytes) * 100).toFixed(1) }))
@@ -433,7 +463,10 @@ async function fetchRepo({ owner, repo }, highlighter) {
           )
         ),
       ],
-      commitCount: commitList.length,
+      commitCount: totalCommits,
+      // How many of those we actually pulled. The per-repo graph below only
+      // covers this many, not the full history.
+      commitsSampled: commitList.length,
       commits: commitList.slice(0, 5),
       contributions: {
         total: commitList.length,

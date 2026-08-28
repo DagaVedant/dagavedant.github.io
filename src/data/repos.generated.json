@@ -236,7 +236,8 @@
           "2026-05-30": 16,
           "2026-05-29": 3
         }
-      }
+      },
+      "commitsSampled": 85
     },
     "StudyBuddy": {
       "owner": "DagaVedant",
@@ -512,7 +513,7 @@
         }
       ],
       "coAuthors": [],
-      "commitCount": 100,
+      "commitCount": 435,
       "commits": [
         {
           "sha": "94efcc3",
@@ -566,7 +567,8 @@
           "2026-08-22": 39,
           "2026-08-21": 14
         }
-      }
+      },
+      "commitsSampled": 100
     },
     "Voice_AI": {
       "owner": "DagaVedant",
@@ -743,7 +745,8 @@
           "2026-07-29": 11,
           "2026-07-28": 3
         }
-      }
+      },
+      "commitsSampled": 14
     },
     "GardenBuddy": {
       "owner": "DagaVedant",
@@ -959,7 +962,8 @@
           "2026-06-14": 4,
           "2026-06-13": 3
         }
-      }
+      },
+      "commitsSampled": 7
     },
     "AI-Portfolio-Analyzer": {
       "owner": "DagaVedant",
@@ -1181,7 +1185,8 @@
           "2026-05-17": 10,
           "2026-05-16": 1
         }
-      }
+      },
+      "commitsSampled": 22
     },
     "Inventory-Management-System": {
       "owner": "DagaVedant",
@@ -1405,7 +1410,8 @@
           "2026-08-19": 9,
           "2026-08-06": 2
         }
-      }
+      },
+      "commitsSampled": 47
     },
     "Hydroponic-Garden": {
       "owner": "DagaVedant",
@@ -1544,7 +1550,8 @@
           "2026-08-26": 9,
           "2026-08-25": 14
         }
-      }
+      },
+      "commitsSampled": 23
     }
   }
 }
